@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Uriel & Marianella</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Georgia,serif;
+}
+
+/* PORTADA */
+
+.cover{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at center,
+        #303030 0%,
+        #111111 35%,
+        #050505 70%,
+        #000000 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    overflow:hidden;
+    z-index:9999;
+}
+
+/* LUZ CENTRAL */
+
+.light{
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.05) 35%,
+        transparent 70%
+    );
+    animation:pulse 4s infinite ease-in-out;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(.8);
+        opacity:.35;
+    }
+
+    50%{
+        transform:scale(1.3);
+        opacity:.8;
+    }
+}
+
+/* PARTICULAS */
+
+.particle{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    box-shadow:0 0 10px white;
+    animation:float linear infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(110vh) scale(.2);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    80%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translateY(-10vh) scale(1);
+        opacity:0;
+    }
+
+}
+
+/* CONTENIDO */
+
+.content{
+    position:relative;
+    z-index:5;
+    padding:30px;
+}
+
+.small{
+    font-size:12px;
+    letter-spacing:7px;
+    text-transform:uppercase;
+    opacity:0;
+    animation:appear 2s forwards;
+    animation-delay:1s;
+}
+
+.phrase{
+    margin-top:25px;
+    font-size:25px;
+    line-height:1.6;
+    font-weight:normal;
+    opacity:0;
+    animation:appear 2s forwards;
+    animation-delay:2.5s;
+}
+
+.phrase span{
+    display:block;
+}
+
+.names{
+    margin-top:30px;
+    font-size:42px;
+    letter-spacing:5px;
+    font-weight:normal;
+    opacity:0;
+    animation:nameReveal 3s forwards;
+    animation-delay:5s;
+}
+
+.date{
+    margin-top:18px;
+    font-size:13px;
+    letter-spacing:5px;
+    opacity:0;
+    animation:appear 2s forwards;
+    animation-delay:7s;
+}
+
+/* BOTON */
+
+.open{
+    margin-top:45px;
+    padding:15px 35px;
+    background:transparent;
+    border:1px solid rgba(255,255,255,.7);
+    color:white;
+    letter-spacing:4px;
+    font-size:11px;
+    cursor:pointer;
+    opacity:0;
+    animation:appear 2s forwards;
+    animation-delay:8.5s;
+    transition:.5s;
+}
+
+.open:hover{
+    background:white;
+    color:black;
+    box-shadow:0 0 30px rgba(255,255,255,.8);
+}
+
+@keyframes appear{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+        filter:blur(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+    }
+
+}
+
+@keyframes nameReveal{
+
+    0%{
+        opacity:0;
+        transform:scale(.6);
+        letter-spacing:20px;
+        filter:blur(15px);
+    }
+
+    60%{
+        opacity:1;
+        transform:scale(1.08);
+        letter-spacing:7px;
+        filter:blur(0);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+        letter-spacing:5px;
+    }
+
+}
+
+/* DESTELLO */
+
+.flash{
+    position:absolute;
+    inset:0;
+    background:white;
+    opacity:0;
+    pointer-events:none;
+}
+
+.flash.active{
+    animation:flash .8s forwards;
+}
+
+@keyframes flash{
+
+    0%{
+        opacity:0;
+    }
+
+    35%{
+        opacity:.9;
+    }
+
+    100%{
+        opacity:0;
+    }
+
+}
+
+/* TRANSICION */
+
+.cover.hide{
+    animation:exit 1.5s forwards;
+}
+
+@keyframes exit{
+
+    0%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    100%{
+        opacity:0;
+        transform:scale(1.15);
+        visibility:hidden;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="cover" id="cover">
+
+    <div class="light"></div>
+
+    <!-- PARTICULAS -->
+
+    <div class="particle" style="left:10%;animation-duration:8s;"></div>
+    <div class="particle" style="left:20%;animation-duration:11s;animation-delay:2s;"></div>
+    <div class="particle" style="left:32%;animation-duration:7s;animation-delay:1s;"></div>
+    <div class="particle" style="left:45%;animation-duration:12s;animation-delay:4s;"></div>
+    <div class="particle" style="left:58%;animation-duration:9s;animation-delay:2s;"></div>
+    <div class="particle" style="left:70%;animation-duration:10s;animation-delay:3s;"></div>
+    <div class="particle" style="left:82%;animation-duration:8s;animation-delay:1s;"></div>
+    <div class="particle" style="left:92%;animation-duration:13s;animation-delay:5s;"></div>
+
+    <div class="content">
+
+        <div class="small">
+            Una historia está a punto de comenzar
+        </div>
+
+        <div class="phrase">
+            <span>Hay encuentros</span>
+            <span>que parecen casualidad...</span>
+            <span>hasta que el corazón descubre</span>
+            <span>que estaban destinados.</span>
+        </div>
+
+        <div class="names">
+            URIEL & MARIANELLA
+        </div>
+
+        <div class="date">
+            20 · 10 · 2026
+        </div>
+
+        <button class="open" id="openButton">
+            DESCUBRIR
+        </button>
+
+    </div>
+
+    <div class="flash" id="flash"></div>
+
+</div>
+
+
+<!-- MÚSICA -->
+
+<iframe
+    id="music"
+    width="0"
+    height="0"
+    src="about:blank"
+    allow="autoplay">
+</iframe>
+
+
+<script>
+
+const button = document.getElementById("openButton");
+const cover = document.getElementById("cover");
+const flash = document.getElementById("flash");
+const music = document.getElementById("music");
+
+button.addEventListener("click", function(){
+
+    /* ACTIVAR MUSICA */
+
+    music.src =
+    "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
+
+    /* DESTELLO */
+
+    flash.classList.add("active");
+
+    /* CERRAR PORTADA */
+
+    setTimeout(function(){
+
+        cover.classList.add("hide");
+
+        document.body.style.overflow="auto";
+
+    },800);
+
+});
+
+</script>
+
+</body>
+</html>
