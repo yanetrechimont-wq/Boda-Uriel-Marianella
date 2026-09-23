@@ -18,7 +18,7 @@ html{
 }
 
 body{
-    font-family:Georgia, "Times New Roman", serif;
+    font-family:Georgia,"Times New Roman",serif;
     background:#050505;
     color:#fff;
     overflow:hidden;
@@ -36,11 +36,10 @@ body{
     align-items:center;
     justify-content:center;
     text-align:center;
+
     background:
-        radial-gradient(circle at center,
-        #292929 0%,
-        #101010 35%,
-        #030303 75%);
+    radial-gradient(circle at center,#303030 0%,#111 35%,#000 78%);
+
     transition:1.5s ease;
 }
 
@@ -57,10 +56,10 @@ body{
 }
 
 .small-title{
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     letter-spacing:6px;
-    font-size:12px;
-    margin-bottom:28px;
+    font-size:11px;
+    margin-bottom:25px;
     opacity:0;
     animation:appear 2s forwards;
 }
@@ -75,15 +74,15 @@ body{
 
 .names{
     font-size:48px;
-    font-weight:normal;
     letter-spacing:3px;
+    font-weight:normal;
     opacity:0;
     animation:appear 2s 1s forwards;
 }
 
 .date-cover{
     margin-top:18px;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     letter-spacing:5px;
     font-size:15px;
     opacity:0;
@@ -93,20 +92,25 @@ body{
 #openButton{
     margin-top:42px;
     padding:15px 32px;
-    border:1px solid #fff;
+
+    border:1px solid white;
     background:transparent;
-    color:#fff;
+    color:white;
+
     letter-spacing:4px;
+    font-size:11px;
+
     cursor:pointer;
-    font-size:12px;
-    transition:.5s;
+
     opacity:0;
     animation:appear 2s 2s forwards;
+
+    transition:.5s;
 }
 
 #openButton:hover{
-    background:#fff;
-    color:#000;
+    background:white;
+    color:black;
 }
 
 @keyframes appear{
@@ -114,13 +118,14 @@ body{
         opacity:0;
         transform:translateY(25px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
-/* partículas */
+/* PARTICULAS */
 
 .particle{
     position:absolute;
@@ -129,6 +134,7 @@ body{
     background:white;
     border-radius:50%;
     opacity:.4;
+
     animation:float 8s infinite ease-in-out;
 }
 
@@ -144,16 +150,19 @@ body{
         transform:translateY(0);
         opacity:.2;
     }
+
     50%{
         transform:translateY(-35px);
         opacity:.8;
     }
 }
 
+/* FLASH */
+
 #flash{
     position:fixed;
     inset:0;
-    background:#fff;
+    background:white;
     z-index:10000;
     pointer-events:none;
     opacity:0;
@@ -193,7 +202,7 @@ body{
 
 .kicker{
     font-family:Arial,sans-serif;
-    font-size:11px;
+    font-size:10px;
     letter-spacing:5px;
     margin-bottom:20px;
 }
@@ -209,7 +218,7 @@ p{
     font-size:16px;
 }
 
-/* nombres */
+/* NOMBRES */
 
 .main-names{
     font-size:48px;
@@ -223,35 +232,34 @@ p{
     margin:12px 0;
 }
 
-/* fotos */
+/* =========================
+   FOTOS
+========================= */
 
 .photo{
     width:100%;
-    max-width:650px;
-    height:430px;
+    max-width:680px;
+    height:440px;
     margin:35px auto;
     overflow:hidden;
     background:#ddd;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
 }
 
 .photo img{
     width:100%;
     height:100%;
     object-fit:cover;
+
+    display:block;
+
+    transition:1s ease;
 }
 
-.photo-placeholder{
-    color:#777;
-    font-family:Arial,sans-serif;
-    letter-spacing:2px;
-    font-size:12px;
+.photo img:hover{
+    transform:scale(1.04);
 }
 
-/* mensaje */
+/* MENSAJE */
 
 .message{
     max-width:650px;
@@ -260,12 +268,15 @@ p{
     font-style:italic;
 }
 
-/* cuenta regresiva */
+/* =========================
+   CUENTA REGRESIVA
+========================= */
 
 .countdown{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:10px;
+
     max-width:600px;
     margin:35px auto 0;
 }
@@ -287,11 +298,14 @@ p{
     letter-spacing:2px;
 }
 
-/* datos */
+/* =========================
+   DATOS
+========================= */
 
 .event-data{
     display:grid;
     gap:25px;
+
     max-width:600px;
     margin:35px auto;
 }
@@ -314,7 +328,7 @@ p{
     font-weight:normal;
 }
 
-/* reloj */
+/* RELOJ */
 
 .clock{
     font-family:Arial,sans-serif;
@@ -323,13 +337,17 @@ p{
     margin-top:25px;
 }
 
-/* calendario */
+/* =========================
+   CALENDARIO
+========================= */
 
 .calendar{
     max-width:400px;
     margin:30px auto;
-    background:#fff;
+
+    background:white;
     color:#111;
+
     padding:20px;
 }
 
@@ -346,6 +364,7 @@ p{
 
 .calendar-grid div{
     padding:8px 3px;
+
     font-family:Arial,sans-serif;
     font-size:12px;
 }
@@ -356,32 +375,43 @@ p{
 
 .selected{
     background:#111;
-    color:#fff;
+    color:white;
     border-radius:50%;
 }
 
-/* mapa */
+/* =========================
+   MAPA
+========================= */
 
 .map{
     width:100%;
     height:350px;
+
     border:0;
+
     margin-top:30px;
 }
 
 .map-button{
     display:inline-block;
+
     margin-top:20px;
+
     padding:14px 25px;
-    background:#fff;
-    color:#111;
+
+    background:#111;
+    color:white;
+
     text-decoration:none;
+
     font-family:Arial,sans-serif;
-    font-size:11px;
+    font-size:10px;
     letter-spacing:2px;
 }
 
-/* dress code */
+/* =========================
+   DRESS CODE
+========================= */
 
 .dress{
     font-size:28px;
@@ -392,21 +422,32 @@ p{
     font-style:italic;
 }
 
-/* música */
+/* =========================
+   MÚSICA
+========================= */
 
 .music-button{
     display:inline-block;
+
     margin-top:25px;
-    border:1px solid #fff;
+
+    border:1px solid white;
+
     padding:15px 25px;
-    color:#fff;
+
+    color:white;
     text-decoration:none;
+
     font-family:Arial,sans-serif;
-    font-size:11px;
+
+    font-size:10px;
+
     letter-spacing:3px;
 }
 
-/* whatsapp */
+/* =========================
+   WHATSAPP
+========================= */
 
 .confirmation{
     max-width:500px;
@@ -415,35 +456,55 @@ p{
 
 .confirmation input{
     width:100%;
+
     padding:15px;
+
     margin-bottom:12px;
+
     border:1px solid #bbb;
+
     background:white;
+
     font-size:15px;
 }
 
 .whatsapp{
     width:100%;
+
     padding:16px;
+
     border:0;
+
     background:#111;
     color:white;
+
     cursor:pointer;
+
     font-family:Arial,sans-serif;
+
     letter-spacing:2px;
 }
 
-/* cierre */
+/* =========================
+   CIERRE
+========================= */
 
 .closing{
-    min-height:500px;
+    min-height:600px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     text-align:center;
+
     background:
-        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.8)),
-        url("foto3.jpg") center/cover;
+    linear-gradient(
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.85)
+    ),
+    url("IMG-20260921-WA0222.jpg")
+    center/cover;
 }
 
 .closing-content{
@@ -456,12 +517,17 @@ p{
 
 .footer-date{
     margin-top:25px;
+
     letter-spacing:5px;
+
     font-family:Arial,sans-serif;
+
     font-size:12px;
 }
 
-/* celular */
+/* =========================
+   CELULAR
+========================= */
 
 @media(max-width:600px){
 
@@ -492,11 +558,16 @@ p{
     .photo{
         height:350px;
     }
+
+    .closing{
+        min-height:520px;
+    }
 }
 </style>
 </head>
 
 <body>
+
 
 <!-- =========================
      PORTADA
@@ -537,9 +608,12 @@ p{
 
 </section>
 
+
 <div id="flash"></div>
 
-<!-- Música -->
+
+<!-- MÚSICA -->
+
 <iframe
     id="music"
     width="0"
@@ -553,397 +627,455 @@ p{
      INVITACIÓN
 ========================= -->
 
-<main class="invitation" id="invitation">
+<main class="invitation">
 
 
-    <!-- PRESENTACIÓN -->
+<!-- =========================
+     FOTO 1
+========================= -->
 
-    <section class="section">
+<section class="section">
+
+    <div class="photo">
+
+        <img
+            src="IMG-20260921-WA0220.jpg"
+            alt="Uriel y Marianella">
+
+    </div>
+
+
+    <div class="kicker">
+        NOSOTROS
+    </div>
+
+    <div class="main-names">
+        Uriel
+
+        <div class="and">
+            &
+        </div>
+
+        Marianella
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MENSAJE
+========================= -->
+
+<section class="section dark">
+
+    <div class="kicker">
+        NUESTRA HISTORIA
+    </div>
+
+    <h2>
+        Un nuevo capítulo
+    </h2>
+
+    <p class="message">
+
+        Hay historias que comienzan sin saber
+        hacia dónde van, y otras que con el tiempo
+        se convierten en el lugar al que siempre
+        quisimos llegar.
+
+        <br><br>
+
+        Hoy queremos compartir con ustedes
+        un momento muy especial de nuestra historia.
+
+    </p>
+
+</section>
+
+
+<!-- =========================
+     CUENTA REGRESIVA
+========================= -->
+
+<section class="section">
+
+    <div class="kicker">
+        FALTA CADA VEZ MENOS
+    </div>
+
+    <h2>
+        20 · 10 · 2026
+    </h2>
+
+    <div class="countdown">
+
+        <div class="time-box">
+            <strong id="days">00</strong>
+            <span>DÍAS</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="hours">00</strong>
+            <span>HORAS</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="minutes">00</strong>
+            <span>MINUTOS</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="seconds">00</strong>
+            <span>SEGUNDOS</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FECHA Y HORA
+========================= -->
+
+<section class="section dark">
+
+    <div class="kicker">
+        CUÁNDO
+    </div>
+
+    <h2>
+        Nuestro día
+    </h2>
+
+    <div class="event-data">
+
+        <div class="data-item">
+
+            <span>FECHA</span>
+
+            <strong>
+                Martes 20 de octubre de 2026
+            </strong>
+
+        </div>
+
+
+        <div class="data-item">
+
+            <span>HORA</span>
+
+            <strong>
+                13:00 hs
+            </strong>
+
+        </div>
+
+    </div>
+
+    <div class="clock" id="clock">
+        00:00:00
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CALENDARIO
+========================= -->
+
+<section class="section">
+
+    <div class="kicker">
+        AGENDALO
+    </div>
+
+    <h2>
+        Octubre 2026
+    </h2>
+
+
+    <div class="calendar">
+
+        <div class="calendar-title">
+            OCTUBRE
+        </div>
+
+
+        <div class="calendar-grid">
+
+            <div class="day-name">L</div>
+            <div class="day-name">M</div>
+            <div class="day-name">X</div>
+            <div class="day-name">J</div>
+            <div class="day-name">V</div>
+            <div class="day-name">S</div>
+            <div class="day-name">D</div>
+
+
+            <div></div>
+            <div></div>
+            <div></div>
+
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
+
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+            <div>17</div>
+            <div>18</div>
+
+            <div>19</div>
+
+            <div class="selected">
+                20
+            </div>
+
+            <div>21</div>
+            <div>22</div>
+            <div>23</div>
+            <div>24</div>
+            <div>25</div>
+
+            <div>26</div>
+            <div>27</div>
+            <div>28</div>
+            <div>29</div>
+            <div>30</div>
+            <div>31</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     UBICACIÓN
+========================= -->
+
+<section class="section dark">
+
+    <div class="kicker">
+        UBICACIÓN
+    </div>
+
+    <h2>
+        Carabelas 4170
+    </h2>
+
+    <p>
+        Te compartimos la ubicación para
+        que puedas encontrarla fácilmente.
+    </p>
+
+
+    <iframe
+        class="map"
+        src="https://www.google.com/maps?q=Carabelas+4170&output=embed"
+        loading="lazy">
+    </iframe>
+
+
+    <a
+        class="map-button"
+        href="https://www.google.com/maps/search/?api=1&query=Carabelas+4170"
+        target="_blank">
+
+        ABRIR EN GOOGLE MAPS
+
+    </a>
+
+</section>
+
+
+<!-- =========================
+     FOTO 2
+========================= -->
+
+<section class="section">
+
+    <div class="photo">
+
+        <img
+            src="IMG-20260921-WA0221.jpg"
+            alt="Foto de Uriel y Marianella">
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DRESS CODE
+========================= -->
+
+<section class="section dark">
+
+    <div class="kicker">
+        DRESS CODE
+    </div>
+
+    <h2>
+        Elegante sport
+    </h2>
+
+    <div class="dress">
+        ✦
+    </div>
+
+    <p class="dress-note">
+
+        Queremos compartir este momento
+        tan especial junto a ustedes.
+
+    </p>
+
+</section>
+
+
+<!-- =========================
+     MÚSICA
+========================= -->
+
+<section class="section">
+
+    <div class="kicker">
+        NUESTRA CANCIÓN
+    </div>
+
+    <h2>
+        Una canción para este momento
+    </h2>
+
+    <p>
+        Dale play y dejá que la música
+        acompañe nuestra historia.
+    </p>
+
+
+    <a
+        class="music-button"
+        href="https://youtube.com/watch?v=UpHmMecK_QA"
+        target="_blank">
+
+        ESCUCHAR
+
+    </a>
+
+</section>
+
+
+<!-- =========================
+     CONFIRMACIÓN
+========================= -->
+
+<section class="section dark">
+
+    <div class="kicker">
+        CONFIRMACIÓN
+    </div>
+
+    <h2>
+        ¿Nos acompañás?
+    </h2>
+
+    <p>
+        Confirmá tu asistencia
+        completando tu nombre.
+    </p>
+
+
+    <div class="confirmation">
+
+        <input
+            type="text"
+            id="guestName"
+            placeholder="Nombre y apellido">
+
+
+        <button
+            class="whatsapp"
+            onclick="confirmarWhatsApp()">
+
+            CONFIRMAR POR WHATSAPP
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOTO 3
+========================= -->
+
+<section class="section">
+
+    <div class="photo">
+
+        <img
+            src="IMG-20260921-WA0222.jpg"
+            alt="Uriel y Marianella">
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CIERRE
+========================= -->
+
+<section class="closing">
+
+    <div class="closing-content">
 
         <div class="kicker">
-            NOSOTROS
+            GRACIAS POR SER PARTE
         </div>
 
-        <div class="main-names">
-            Uriel
-            <div class="and">&</div>
-            Marianella
-        </div>
 
-        <div class="photo">
-            <img
-                src="foto1.jpg"
-                alt="Foto de Uriel y Marianella"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <div class="photo-placeholder" style="display:none;">
-                AQUÍ IRÁ FOTO1.JPG
-            </div>
-        </div>
+        <h2>
+            Lo más lindo de una historia
+            es poder compartirla.
+        </h2>
 
-        <p class="message">
-            Hay historias que comienzan sin saber hacia dónde van,
-            y otras que con el tiempo se convierten en el lugar
-            al que siempre quisimos llegar.
+
+        <p>
+            Gracias por acompañarnos
+            en este momento tan importante.
+        </p>
+
+
+        <div class="footer-date">
+
+            URIEL & MARIANELLA
+
             <br><br>
-            Hoy queremos compartir con ustedes un momento muy
-            especial de nuestra historia.
-        </p>
 
-    </section>
-
-
-    <!-- FECHA -->
-
-    <section class="section dark">
-
-        <div class="kicker">
-            UNA FECHA PARA RECORDAR
-        </div>
-
-        <h2>
             20 · 10 · 2026
-        </h2>
-
-        <p>
-            El comienzo de una nueva etapa.
-        </p>
-
-        <div class="countdown">
-
-            <div class="time-box">
-                <strong id="days">00</strong>
-                <span>DÍAS</span>
-            </div>
-
-            <div class="time-box">
-                <strong id="hours">00</strong>
-                <span>HORAS</span>
-            </div>
-
-            <div class="time-box">
-                <strong id="minutes">00</strong>
-                <span>MINUTOS</span>
-            </div>
-
-            <div class="time-box">
-                <strong id="seconds">00</strong>
-                <span>SEGUNDOS</span>
-            </div>
 
         </div>
 
-    </section>
+    </div>
 
-
-    <!-- FECHA Y HORA -->
-
-    <section class="section">
-
-        <div class="kicker">
-            CUÁNDO
-        </div>
-
-        <h2>
-            Nuestro día
-        </h2>
-
-        <div class="event-data">
-
-            <div class="data-item">
-
-                <span>FECHA</span>
-
-                <strong>
-                    Martes 20 de octubre de 2026
-                </strong>
-
-            </div>
-
-            <div class="data-item">
-
-                <span>HORA</span>
-
-                <strong>
-                    13:00 hs
-                </strong>
-
-            </div>
-
-        </div>
-
-        <div class="clock" id="clock">
-            13:00:00
-        </div>
-
-    </section>
-
-
-    <!-- CALENDARIO -->
-
-    <section class="section dark">
-
-        <div class="kicker">
-            AGENDALO
-        </div>
-
-        <h2>
-            Octubre 2026
-        </h2>
-
-        <div class="calendar">
-
-            <div class="calendar-title">
-                OCTUBRE
-            </div>
-
-            <div class="calendar-grid">
-
-                <div class="day-name">L</div>
-                <div class="day-name">M</div>
-                <div class="day-name">X</div>
-                <div class="day-name">J</div>
-                <div class="day-name">V</div>
-                <div class="day-name">S</div>
-                <div class="day-name">D</div>
-
-                <div></div>
-                <div></div>
-                <div></div>
-
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
-                <div>10</div>
-                <div>11</div>
-
-                <div>12</div>
-                <div>13</div>
-                <div>14</div>
-                <div>15</div>
-                <div>16</div>
-                <div>17</div>
-                <div>18</div>
-
-                <div>19</div>
-
-                <div class="selected">
-                    20
-                </div>
-
-                <div>21</div>
-                <div>22</div>
-                <div>23</div>
-                <div>24</div>
-                <div>25</div>
-
-                <div>26</div>
-                <div>27</div>
-                <div>28</div>
-                <div>29</div>
-                <div>30</div>
-                <div>31</div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- UBICACIÓN -->
-
-    <section class="section">
-
-        <div class="kicker">
-            UBICACIÓN
-        </div>
-
-        <h2>
-            Carabelas 4170
-        </h2>
-
-        <p>
-            Te compartimos la ubicación para que puedas
-            encontrar fácilmente el lugar.
-        </p>
-
-        <iframe
-            class="map"
-            src="https://www.google.com/maps?q=Carabelas+4170&output=embed"
-            loading="lazy">
-        </iframe>
-
-        <a
-            class="map-button"
-            href="https://www.google.com/maps/search/?api=1&query=Carabelas+4170"
-            target="_blank">
-            ABRIR EN GOOGLE MAPS
-        </a>
-
-    </section>
-
-
-    <!-- FOTO -->
-
-    <section class="section dark">
-
-        <div class="photo">
-
-            <img
-                src="foto2.jpg"
-                alt="Foto de la pareja"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-
-            <div class="photo-placeholder" style="display:none;">
-                AQUÍ IRÁ FOTO2.JPG
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- DRESS CODE -->
-
-    <section class="section">
-
-        <div class="kicker">
-            DRESS CODE
-        </div>
-
-        <h2>
-            Elegante sport
-        </h2>
-
-        <div class="dress">
-            ✦
-        </div>
-
-        <p class="dress-note">
-            Queremos compartir este momento con ustedes
-            y celebrar juntos este día tan especial.
-        </p>
-
-    </section>
-
-
-    <!-- MÚSICA -->
-
-    <section class="section dark">
-
-        <div class="kicker">
-            NUESTRA CANCIÓN
-        </div>
-
-        <h2>
-            Dale play a nuestra historia
-        </h2>
-
-        <p>
-            Una canción que queremos que nos acompañe
-            en este momento tan especial.
-        </p>
-
-        <a
-            class="music-button"
-            href="https://youtube.com/watch?v=UpHmMecK_QA"
-            target="_blank">
-            ESCUCHAR
-        </a>
-
-    </section>
-
-
-    <!-- CONFIRMACIÓN -->
-
-    <section class="section">
-
-        <div class="kicker">
-            CONFIRMACIÓN
-        </div>
-
-        <h2>
-            ¿Nos acompañás?
-        </h2>
-
-        <p>
-            Confirmá tu asistencia completando tu nombre.
-        </p>
-
-        <div class="confirmation">
-
-            <input
-                type="text"
-                id="guestName"
-                placeholder="Nombre y apellido">
-
-            <button
-                class="whatsapp"
-                onclick="confirmarWhatsApp()">
-                CONFIRMAR POR WHATSAPP
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOTO FINAL -->
-
-    <section class="section dark">
-
-        <div class="photo">
-
-            <img
-                src="foto3.jpg"
-                alt="Foto de Uriel y Marianella"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-
-            <div class="photo-placeholder" style="display:none;">
-                AQUÍ IRÁ FOTO3.JPG
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CIERRE -->
-
-    <section class="closing">
-
-        <div class="closing-content">
-
-            <div class="kicker">
-                GRACIAS POR SER PARTE
-            </div>
-
-            <h2>
-                Lo más lindo de una historia
-                es poder compartirla.
-            </h2>
-
-            <p>
-                Gracias por acompañarnos
-                en este momento tan importante.
-            </p>
-
-            <div class="footer-date">
-                URIEL & MARIANELLA
-                <br><br>
-                20 · 10 · 2026
-            </div>
-
-        </div>
-
-    </section>
+</section>
 
 
 </main>
@@ -952,26 +1084,36 @@ p{
 <script>
 
 /* =========================
-   ABRIR INVITACIÓN + MÚSICA
+   ABRIR INVITACIÓN
 ========================= */
 
-const button = document.getElementById("openButton");
-const cover = document.getElementById("cover");
-const flash = document.getElementById("flash");
-const music = document.getElementById("music");
+const button =
+document.getElementById("openButton");
 
-button.addEventListener("click", function(){
+const cover =
+document.getElementById("cover");
+
+const flash =
+document.getElementById("flash");
+
+const music =
+document.getElementById("music");
+
+
+button.addEventListener("click",function(){
 
     music.src =
     "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
 
+
     flash.classList.add("active");
+
 
     setTimeout(function(){
 
         cover.classList.add("hide");
 
-        document.body.style.overflow = "auto";
+        document.body.style.overflow="auto";
 
         window.scrollTo({
             top:0,
@@ -990,13 +1132,18 @@ button.addEventListener("click", function(){
 const weddingDate =
 new Date("2026-10-20T13:00:00-03:00").getTime();
 
+
 function updateCountdown(){
 
-    const now = new Date().getTime();
+    const now =
+    new Date().getTime();
 
-    const distance = weddingDate - now;
 
-    if(distance <= 0){
+    const distance =
+    weddingDate-now;
+
+
+    if(distance<=0){
 
         document.getElementById("days").innerText="00";
         document.getElementById("hours").innerText="00";
@@ -1006,8 +1153,12 @@ function updateCountdown(){
         return;
     }
 
+
     const days =
-    Math.floor(distance/(1000*60*60*24));
+    Math.floor(
+        distance/(1000*60*60*24)
+    );
+
 
     const hours =
     Math.floor(
@@ -1015,11 +1166,13 @@ function updateCountdown(){
         /(1000*60*60)
     );
 
+
     const minutes =
     Math.floor(
         (distance%(1000*60*60))
         /(1000*60)
     );
+
 
     const seconds =
     Math.floor(
@@ -1027,18 +1180,24 @@ function updateCountdown(){
         /1000
     );
 
+
     document.getElementById("days").innerText =
-        String(days).padStart(2,"0");
+    String(days).padStart(2,"0");
+
 
     document.getElementById("hours").innerText =
-        String(hours).padStart(2,"0");
+    String(hours).padStart(2,"0");
+
 
     document.getElementById("minutes").innerText =
-        String(minutes).padStart(2,"0");
+    String(minutes).padStart(2,"0");
+
 
     document.getElementById("seconds").innerText =
-        String(seconds).padStart(2,"0");
+    String(seconds).padStart(2,"0");
+
 }
+
 
 setInterval(updateCountdown,1000);
 
@@ -1051,15 +1210,27 @@ updateCountdown();
 
 function updateClock(){
 
-    const now = new Date();
+    const now =
+    new Date();
 
-    let h = String(now.getHours()).padStart(2,"0");
-    let m = String(now.getMinutes()).padStart(2,"0");
-    let s = String(now.getSeconds()).padStart(2,"0");
+
+    let h =
+    String(now.getHours()).padStart(2,"0");
+
+
+    let m =
+    String(now.getMinutes()).padStart(2,"0");
+
+
+    let s =
+    String(now.getSeconds()).padStart(2,"0");
+
 
     document.getElementById("clock").innerText =
-        h + ":" + m + ":" + s;
+    h+":"+m+":"+s;
+
 }
+
 
 setInterval(updateClock,1000);
 
@@ -1073,29 +1244,41 @@ updateClock();
 function confirmarWhatsApp(){
 
     const nombre =
-    document.getElementById("guestName").value.trim();
+    document
+    .getElementById("guestName")
+    .value
+    .trim();
 
-    if(nombre === ""){
 
-        alert("Por favor, escribí tu nombre y apellido.");
+    if(nombre===""){
+
+        alert(
+            "Por favor, escribí tu nombre y apellido."
+        );
 
         return;
     }
 
-    const numero = "541136088939";
+
+    const numero =
+    "541136088939";
+
 
     const mensaje =
-    "Hola Uriel y Marianella ❤️ Soy " +
-    nombre +
-    ". Quiero confirmar mi asistencia para el 20/10/2026.";
+    "Hola Uriel y Marianella ❤️ Soy "
+    + nombre
+    + ". Quiero confirmar mi asistencia para el 20/10/2026.";
+
 
     const url =
-    "https://wa.me/" +
-    numero +
-    "?text=" +
-    encodeURIComponent(mensaje);
+    "https://wa.me/"
+    + numero
+    + "?text="
+    + encodeURIComponent(mensaje);
+
 
     window.open(url,"_blank");
+
 }
 
 </script>
