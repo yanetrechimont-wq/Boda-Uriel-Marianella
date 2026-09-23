@@ -4,72 +4,123 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Uriel & Marianella</title>
+<title>Uriel & Marianella | 20.10.2026</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    font-family:Georgia,serif;
+html{
+    scroll-behavior:smooth;
 }
 
-/* PORTADA */
+body{
+    font-family:Georgia, "Times New Roman", serif;
+    background:#050505;
+    color:#fff;
+    overflow:hidden;
+}
 
-.cover{
+/* =========================
+   PORTADA
+========================= */
+
+#cover{
     position:fixed;
     inset:0;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
     background:
         radial-gradient(circle at center,
-        #303030 0%,
-        #111111 35%,
-        #050505 70%,
-        #000000 100%);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-    overflow:hidden;
-    z-index:9999;
+        #292929 0%,
+        #101010 35%,
+        #030303 75%);
+    transition:1.5s ease;
 }
 
-/* LUZ CENTRAL */
-
-.light{
-    position:absolute;
-    width:350px;
-    height:350px;
-    border-radius:50%;
-    background:radial-gradient(
-        circle,
-        rgba(255,255,255,.18),
-        rgba(255,255,255,.05) 35%,
-        transparent 70%
-    );
-    animation:pulse 4s infinite ease-in-out;
+#cover.hide{
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.08);
 }
 
-@keyframes pulse{
-    0%,100%{
-        transform:scale(.8);
-        opacity:.35;
+.cover-content{
+    position:relative;
+    z-index:5;
+    padding:30px;
+}
+
+.small-title{
+    font-family:Arial, sans-serif;
+    letter-spacing:6px;
+    font-size:12px;
+    margin-bottom:28px;
+    opacity:0;
+    animation:appear 2s forwards;
+}
+
+.cover-text{
+    font-size:20px;
+    font-style:italic;
+    margin-bottom:28px;
+    opacity:0;
+    animation:appear 2s .5s forwards;
+}
+
+.names{
+    font-size:48px;
+    font-weight:normal;
+    letter-spacing:3px;
+    opacity:0;
+    animation:appear 2s 1s forwards;
+}
+
+.date-cover{
+    margin-top:18px;
+    font-family:Arial, sans-serif;
+    letter-spacing:5px;
+    font-size:15px;
+    opacity:0;
+    animation:appear 2s 1.5s forwards;
+}
+
+#openButton{
+    margin-top:42px;
+    padding:15px 32px;
+    border:1px solid #fff;
+    background:transparent;
+    color:#fff;
+    letter-spacing:4px;
+    cursor:pointer;
+    font-size:12px;
+    transition:.5s;
+    opacity:0;
+    animation:appear 2s 2s forwards;
+}
+
+#openButton:hover{
+    background:#fff;
+    color:#000;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(25px);
     }
-
-    50%{
-        transform:scale(1.3);
-        opacity:.8;
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
-/* PARTICULAS */
+/* partículas */
 
 .particle{
     position:absolute;
@@ -77,260 +128,832 @@ html,body{
     height:3px;
     background:white;
     border-radius:50%;
-    box-shadow:0 0 10px white;
-    animation:float linear infinite;
+    opacity:.4;
+    animation:float 8s infinite ease-in-out;
 }
+
+.p1{left:15%;top:25%;}
+.p2{left:80%;top:18%;animation-delay:1s;}
+.p3{left:30%;top:75%;animation-delay:2s;}
+.p4{left:70%;top:70%;animation-delay:3s;}
+.p5{left:50%;top:12%;animation-delay:4s;}
+.p6{left:10%;top:55%;animation-delay:5s;}
 
 @keyframes float{
-
-    0%{
-        transform:translateY(110vh) scale(.2);
-        opacity:0;
+    0%,100%{
+        transform:translateY(0);
+        opacity:.2;
     }
-
-    20%{
-        opacity:1;
-    }
-
-    80%{
+    50%{
+        transform:translateY(-35px);
         opacity:.8;
     }
-
-    100%{
-        transform:translateY(-10vh) scale(1);
-        opacity:0;
-    }
-
 }
 
-/* CONTENIDO */
-
-.content{
-    position:relative;
-    z-index:5;
-    padding:30px;
-}
-
-.small{
-    font-size:12px;
-    letter-spacing:7px;
-    text-transform:uppercase;
-    opacity:0;
-    animation:appear 2s forwards;
-    animation-delay:1s;
-}
-
-.phrase{
-    margin-top:25px;
-    font-size:25px;
-    line-height:1.6;
-    font-weight:normal;
-    opacity:0;
-    animation:appear 2s forwards;
-    animation-delay:2.5s;
-}
-
-.phrase span{
-    display:block;
-}
-
-.names{
-    margin-top:30px;
-    font-size:42px;
-    letter-spacing:5px;
-    font-weight:normal;
-    opacity:0;
-    animation:nameReveal 3s forwards;
-    animation-delay:5s;
-}
-
-.date{
-    margin-top:18px;
-    font-size:13px;
-    letter-spacing:5px;
-    opacity:0;
-    animation:appear 2s forwards;
-    animation-delay:7s;
-}
-
-/* BOTON */
-
-.open{
-    margin-top:45px;
-    padding:15px 35px;
-    background:transparent;
-    border:1px solid rgba(255,255,255,.7);
-    color:white;
-    letter-spacing:4px;
-    font-size:11px;
-    cursor:pointer;
-    opacity:0;
-    animation:appear 2s forwards;
-    animation-delay:8.5s;
-    transition:.5s;
-}
-
-.open:hover{
-    background:white;
-    color:black;
-    box-shadow:0 0 30px rgba(255,255,255,.8);
-}
-
-@keyframes appear{
-
-    from{
-        opacity:0;
-        transform:translateY(20px);
-        filter:blur(8px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-        filter:blur(0);
-    }
-
-}
-
-@keyframes nameReveal{
-
-    0%{
-        opacity:0;
-        transform:scale(.6);
-        letter-spacing:20px;
-        filter:blur(15px);
-    }
-
-    60%{
-        opacity:1;
-        transform:scale(1.08);
-        letter-spacing:7px;
-        filter:blur(0);
-    }
-
-    100%{
-        opacity:1;
-        transform:scale(1);
-        letter-spacing:5px;
-    }
-
-}
-
-/* DESTELLO */
-
-.flash{
-    position:absolute;
+#flash{
+    position:fixed;
     inset:0;
-    background:white;
-    opacity:0;
+    background:#fff;
+    z-index:10000;
     pointer-events:none;
+    opacity:0;
 }
 
-.flash.active{
-    animation:flash .8s forwards;
+#flash.active{
+    animation:flash .8s ease;
 }
 
 @keyframes flash{
-
-    0%{
-        opacity:0;
-    }
-
-    35%{
-        opacity:.9;
-    }
-
-    100%{
-        opacity:0;
-    }
-
+    0%{opacity:0;}
+    30%{opacity:.8;}
+    100%{opacity:0;}
 }
 
-/* TRANSICION */
+/* =========================
+   INVITACIÓN
+========================= */
 
-.cover.hide{
-    animation:exit 1.5s forwards;
+.invitation{
+    background:#f7f7f7;
+    color:#111;
+    min-height:100vh;
 }
 
-@keyframes exit{
-
-    0%{
-        opacity:1;
-        transform:scale(1);
-    }
-
-    100%{
-        opacity:0;
-        transform:scale(1.15);
-        visibility:hidden;
-    }
-
+.section{
+    padding:75px 22px;
+    text-align:center;
+    max-width:900px;
+    margin:auto;
 }
 
+.section.dark{
+    background:#090909;
+    color:white;
+}
+
+.kicker{
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:5px;
+    margin-bottom:20px;
+}
+
+h2{
+    font-size:35px;
+    font-weight:normal;
+    margin-bottom:20px;
+}
+
+p{
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* nombres */
+
+.main-names{
+    font-size:48px;
+    font-weight:normal;
+    line-height:1.2;
+}
+
+.and{
+    font-style:italic;
+    font-size:25px;
+    margin:12px 0;
+}
+
+/* fotos */
+
+.photo{
+    width:100%;
+    max-width:650px;
+    height:430px;
+    margin:35px auto;
+    overflow:hidden;
+    background:#ddd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.photo-placeholder{
+    color:#777;
+    font-family:Arial,sans-serif;
+    letter-spacing:2px;
+    font-size:12px;
+}
+
+/* mensaje */
+
+.message{
+    max-width:650px;
+    margin:auto;
+    font-size:18px;
+    font-style:italic;
+}
+
+/* cuenta regresiva */
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    max-width:600px;
+    margin:35px auto 0;
+}
+
+.time-box{
+    border:1px solid #aaa;
+    padding:18px 5px;
+}
+
+.time-box strong{
+    display:block;
+    font-size:28px;
+    font-weight:normal;
+}
+
+.time-box span{
+    font-family:Arial,sans-serif;
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+/* datos */
+
+.event-data{
+    display:grid;
+    gap:25px;
+    max-width:600px;
+    margin:35px auto;
+}
+
+.data-item{
+    padding:22px;
+    border-bottom:1px solid #555;
+}
+
+.data-item span{
+    display:block;
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:3px;
+    margin-bottom:8px;
+}
+
+.data-item strong{
+    font-size:22px;
+    font-weight:normal;
+}
+
+/* reloj */
+
+.clock{
+    font-family:Arial,sans-serif;
+    font-size:25px;
+    letter-spacing:4px;
+    margin-top:25px;
+}
+
+/* calendario */
+
+.calendar{
+    max-width:400px;
+    margin:30px auto;
+    background:#fff;
+    color:#111;
+    padding:20px;
+}
+
+.calendar-title{
+    font-size:24px;
+    margin-bottom:18px;
+}
+
+.calendar-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:5px;
+}
+
+.calendar-grid div{
+    padding:8px 3px;
+    font-family:Arial,sans-serif;
+    font-size:12px;
+}
+
+.day-name{
+    font-weight:bold;
+}
+
+.selected{
+    background:#111;
+    color:#fff;
+    border-radius:50%;
+}
+
+/* mapa */
+
+.map{
+    width:100%;
+    height:350px;
+    border:0;
+    margin-top:30px;
+}
+
+.map-button{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 25px;
+    background:#fff;
+    color:#111;
+    text-decoration:none;
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+/* dress code */
+
+.dress{
+    font-size:28px;
+    margin:20px 0;
+}
+
+.dress-note{
+    font-style:italic;
+}
+
+/* música */
+
+.music-button{
+    display:inline-block;
+    margin-top:25px;
+    border:1px solid #fff;
+    padding:15px 25px;
+    color:#fff;
+    text-decoration:none;
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+/* whatsapp */
+
+.confirmation{
+    max-width:500px;
+    margin:30px auto;
+}
+
+.confirmation input{
+    width:100%;
+    padding:15px;
+    margin-bottom:12px;
+    border:1px solid #bbb;
+    background:white;
+    font-size:15px;
+}
+
+.whatsapp{
+    width:100%;
+    padding:16px;
+    border:0;
+    background:#111;
+    color:white;
+    cursor:pointer;
+    font-family:Arial,sans-serif;
+    letter-spacing:2px;
+}
+
+/* cierre */
+
+.closing{
+    min-height:500px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.8)),
+        url("foto3.jpg") center/cover;
+}
+
+.closing-content{
+    padding:30px;
+}
+
+.closing h2{
+    font-size:42px;
+}
+
+.footer-date{
+    margin-top:25px;
+    letter-spacing:5px;
+    font-family:Arial,sans-serif;
+    font-size:12px;
+}
+
+/* celular */
+
+@media(max-width:600px){
+
+    .names{
+        font-size:39px;
+    }
+
+    .main-names{
+        font-size:38px;
+    }
+
+    h2{
+        font-size:30px;
+    }
+
+    .countdown{
+        gap:5px;
+    }
+
+    .time-box{
+        padding:14px 2px;
+    }
+
+    .time-box strong{
+        font-size:22px;
+    }
+
+    .photo{
+        height:350px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="cover" id="cover">
+<!-- =========================
+     PORTADA
+========================= -->
 
-    <div class="light"></div>
+<section id="cover">
 
-    <!-- PARTICULAS -->
+    <div class="particle p1"></div>
+    <div class="particle p2"></div>
+    <div class="particle p3"></div>
+    <div class="particle p4"></div>
+    <div class="particle p5"></div>
+    <div class="particle p6"></div>
 
-    <div class="particle" style="left:10%;animation-duration:8s;"></div>
-    <div class="particle" style="left:20%;animation-duration:11s;animation-delay:2s;"></div>
-    <div class="particle" style="left:32%;animation-duration:7s;animation-delay:1s;"></div>
-    <div class="particle" style="left:45%;animation-duration:12s;animation-delay:4s;"></div>
-    <div class="particle" style="left:58%;animation-duration:9s;animation-delay:2s;"></div>
-    <div class="particle" style="left:70%;animation-duration:10s;animation-delay:3s;"></div>
-    <div class="particle" style="left:82%;animation-duration:8s;animation-delay:1s;"></div>
-    <div class="particle" style="left:92%;animation-duration:13s;animation-delay:5s;"></div>
+    <div class="cover-content">
 
-    <div class="content">
-
-        <div class="small">
-            Una historia está a punto de comenzar
+        <div class="small-title">
+            UNA HISTORIA DE AMOR
         </div>
 
-        <div class="phrase">
-            <span>Hay encuentros</span>
-            <span>que parecen casualidad...</span>
-            <span>hasta que el corazón descubre</span>
-            <span>que estaban destinados.</span>
+        <div class="cover-text">
+            Una historia de amor está a punto de comenzar…
         </div>
 
         <div class="names">
-            URIEL & MARIANELLA
+            Uriel & Marianella
         </div>
 
-        <div class="date">
+        <div class="date-cover">
             20 · 10 · 2026
         </div>
 
-        <button class="open" id="openButton">
+        <button id="openButton">
             DESCUBRIR
         </button>
 
     </div>
 
-    <div class="flash" id="flash"></div>
+</section>
 
-</div>
+<div id="flash"></div>
 
-
-<!-- MÚSICA -->
-
+<!-- Música -->
 <iframe
     id="music"
     width="0"
     height="0"
-    src="about:blank"
-    allow="autoplay">
+    frameborder="0"
+    allow="autoplay; encrypted-media">
 </iframe>
 
 
+<!-- =========================
+     INVITACIÓN
+========================= -->
+
+<main class="invitation" id="invitation">
+
+
+    <!-- PRESENTACIÓN -->
+
+    <section class="section">
+
+        <div class="kicker">
+            NOSOTROS
+        </div>
+
+        <div class="main-names">
+            Uriel
+            <div class="and">&</div>
+            Marianella
+        </div>
+
+        <div class="photo">
+            <img
+                src="foto1.jpg"
+                alt="Foto de Uriel y Marianella"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="photo-placeholder" style="display:none;">
+                AQUÍ IRÁ FOTO1.JPG
+            </div>
+        </div>
+
+        <p class="message">
+            Hay historias que comienzan sin saber hacia dónde van,
+            y otras que con el tiempo se convierten en el lugar
+            al que siempre quisimos llegar.
+            <br><br>
+            Hoy queremos compartir con ustedes un momento muy
+            especial de nuestra historia.
+        </p>
+
+    </section>
+
+
+    <!-- FECHA -->
+
+    <section class="section dark">
+
+        <div class="kicker">
+            UNA FECHA PARA RECORDAR
+        </div>
+
+        <h2>
+            20 · 10 · 2026
+        </h2>
+
+        <p>
+            El comienzo de una nueva etapa.
+        </p>
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <strong id="days">00</strong>
+                <span>DÍAS</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="hours">00</strong>
+                <span>HORAS</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="minutes">00</strong>
+                <span>MINUTOS</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="seconds">00</strong>
+                <span>SEGUNDOS</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FECHA Y HORA -->
+
+    <section class="section">
+
+        <div class="kicker">
+            CUÁNDO
+        </div>
+
+        <h2>
+            Nuestro día
+        </h2>
+
+        <div class="event-data">
+
+            <div class="data-item">
+
+                <span>FECHA</span>
+
+                <strong>
+                    Martes 20 de octubre de 2026
+                </strong>
+
+            </div>
+
+            <div class="data-item">
+
+                <span>HORA</span>
+
+                <strong>
+                    13:00 hs
+                </strong>
+
+            </div>
+
+        </div>
+
+        <div class="clock" id="clock">
+            13:00:00
+        </div>
+
+    </section>
+
+
+    <!-- CALENDARIO -->
+
+    <section class="section dark">
+
+        <div class="kicker">
+            AGENDALO
+        </div>
+
+        <h2>
+            Octubre 2026
+        </h2>
+
+        <div class="calendar">
+
+            <div class="calendar-title">
+                OCTUBRE
+            </div>
+
+            <div class="calendar-grid">
+
+                <div class="day-name">L</div>
+                <div class="day-name">M</div>
+                <div class="day-name">X</div>
+                <div class="day-name">J</div>
+                <div class="day-name">V</div>
+                <div class="day-name">S</div>
+                <div class="day-name">D</div>
+
+                <div></div>
+                <div></div>
+                <div></div>
+
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+                <div>11</div>
+
+                <div>12</div>
+                <div>13</div>
+                <div>14</div>
+                <div>15</div>
+                <div>16</div>
+                <div>17</div>
+                <div>18</div>
+
+                <div>19</div>
+
+                <div class="selected">
+                    20
+                </div>
+
+                <div>21</div>
+                <div>22</div>
+                <div>23</div>
+                <div>24</div>
+                <div>25</div>
+
+                <div>26</div>
+                <div>27</div>
+                <div>28</div>
+                <div>29</div>
+                <div>30</div>
+                <div>31</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- UBICACIÓN -->
+
+    <section class="section">
+
+        <div class="kicker">
+            UBICACIÓN
+        </div>
+
+        <h2>
+            Carabelas 4170
+        </h2>
+
+        <p>
+            Te compartimos la ubicación para que puedas
+            encontrar fácilmente el lugar.
+        </p>
+
+        <iframe
+            class="map"
+            src="https://www.google.com/maps?q=Carabelas+4170&output=embed"
+            loading="lazy">
+        </iframe>
+
+        <a
+            class="map-button"
+            href="https://www.google.com/maps/search/?api=1&query=Carabelas+4170"
+            target="_blank">
+            ABRIR EN GOOGLE MAPS
+        </a>
+
+    </section>
+
+
+    <!-- FOTO -->
+
+    <section class="section dark">
+
+        <div class="photo">
+
+            <img
+                src="foto2.jpg"
+                alt="Foto de la pareja"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+
+            <div class="photo-placeholder" style="display:none;">
+                AQUÍ IRÁ FOTO2.JPG
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DRESS CODE -->
+
+    <section class="section">
+
+        <div class="kicker">
+            DRESS CODE
+        </div>
+
+        <h2>
+            Elegante sport
+        </h2>
+
+        <div class="dress">
+            ✦
+        </div>
+
+        <p class="dress-note">
+            Queremos compartir este momento con ustedes
+            y celebrar juntos este día tan especial.
+        </p>
+
+    </section>
+
+
+    <!-- MÚSICA -->
+
+    <section class="section dark">
+
+        <div class="kicker">
+            NUESTRA CANCIÓN
+        </div>
+
+        <h2>
+            Dale play a nuestra historia
+        </h2>
+
+        <p>
+            Una canción que queremos que nos acompañe
+            en este momento tan especial.
+        </p>
+
+        <a
+            class="music-button"
+            href="https://youtube.com/watch?v=UpHmMecK_QA"
+            target="_blank">
+            ESCUCHAR
+        </a>
+
+    </section>
+
+
+    <!-- CONFIRMACIÓN -->
+
+    <section class="section">
+
+        <div class="kicker">
+            CONFIRMACIÓN
+        </div>
+
+        <h2>
+            ¿Nos acompañás?
+        </h2>
+
+        <p>
+            Confirmá tu asistencia completando tu nombre.
+        </p>
+
+        <div class="confirmation">
+
+            <input
+                type="text"
+                id="guestName"
+                placeholder="Nombre y apellido">
+
+            <button
+                class="whatsapp"
+                onclick="confirmarWhatsApp()">
+                CONFIRMAR POR WHATSAPP
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOTO FINAL -->
+
+    <section class="section dark">
+
+        <div class="photo">
+
+            <img
+                src="foto3.jpg"
+                alt="Foto de Uriel y Marianella"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+
+            <div class="photo-placeholder" style="display:none;">
+                AQUÍ IRÁ FOTO3.JPG
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CIERRE -->
+
+    <section class="closing">
+
+        <div class="closing-content">
+
+            <div class="kicker">
+                GRACIAS POR SER PARTE
+            </div>
+
+            <h2>
+                Lo más lindo de una historia
+                es poder compartirla.
+            </h2>
+
+            <p>
+                Gracias por acompañarnos
+                en este momento tan importante.
+            </p>
+
+            <div class="footer-date">
+                URIEL & MARIANELLA
+                <br><br>
+                20 · 10 · 2026
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
 <script>
+
+/* =========================
+   ABRIR INVITACIÓN + MÚSICA
+========================= */
 
 const button = document.getElementById("openButton");
 const cover = document.getElementById("cover");
@@ -339,26 +962,141 @@ const music = document.getElementById("music");
 
 button.addEventListener("click", function(){
 
-    /* ACTIVAR MUSICA */
-
     music.src =
     "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
 
-    /* DESTELLO */
-
     flash.classList.add("active");
-
-    /* CERRAR PORTADA */
 
     setTimeout(function(){
 
         cover.classList.add("hide");
 
-        document.body.style.overflow="auto";
+        document.body.style.overflow = "auto";
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
 
     },800);
 
 });
+
+
+/* =========================
+   CUENTA REGRESIVA
+========================= */
+
+const weddingDate =
+new Date("2026-10-20T13:00:00-03:00").getTime();
+
+function updateCountdown(){
+
+    const now = new Date().getTime();
+
+    const distance = weddingDate - now;
+
+    if(distance <= 0){
+
+        document.getElementById("days").innerText="00";
+        document.getElementById("hours").innerText="00";
+        document.getElementById("minutes").innerText="00";
+        document.getElementById("seconds").innerText="00";
+
+        return;
+    }
+
+    const days =
+    Math.floor(distance/(1000*60*60*24));
+
+    const hours =
+    Math.floor(
+        (distance%(1000*60*60*24))
+        /(1000*60*60)
+    );
+
+    const minutes =
+    Math.floor(
+        (distance%(1000*60*60))
+        /(1000*60)
+    );
+
+    const seconds =
+    Math.floor(
+        (distance%(1000*60))
+        /1000
+    );
+
+    document.getElementById("days").innerText =
+        String(days).padStart(2,"0");
+
+    document.getElementById("hours").innerText =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").innerText =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").innerText =
+        String(seconds).padStart(2,"0");
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+
+/* =========================
+   RELOJ
+========================= */
+
+function updateClock(){
+
+    const now = new Date();
+
+    let h = String(now.getHours()).padStart(2,"0");
+    let m = String(now.getMinutes()).padStart(2,"0");
+    let s = String(now.getSeconds()).padStart(2,"0");
+
+    document.getElementById("clock").innerText =
+        h + ":" + m + ":" + s;
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function confirmarWhatsApp(){
+
+    const nombre =
+    document.getElementById("guestName").value.trim();
+
+    if(nombre === ""){
+
+        alert("Por favor, escribí tu nombre y apellido.");
+
+        return;
+    }
+
+    const numero = "541136088939";
+
+    const mensaje =
+    "Hola Uriel y Marianella ❤️ Soy " +
+    nombre +
+    ". Quiero confirmar mi asistencia para el 20/10/2026.";
+
+    const url =
+    "https://wa.me/" +
+    numero +
+    "?text=" +
+    encodeURIComponent(mensaje);
+
+    window.open(url,"_blank");
+}
 
 </script>
 
