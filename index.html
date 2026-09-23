@@ -12,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -34,24 +33,10 @@
       --dorado: #ad8740;
       --dorado-claro: #d2ae68;
       --dorado-brillo: #e5c27a;
-      --blanco: #fff;
-      --negro: #000;
     }
-
-    /* =========================
-       GENERAL
-    ========================= */
 
     section {
       position: relative;
-    }
-
-    .escena {
-      min-height: 78vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
     }
 
     .contenedor {
@@ -63,37 +48,36 @@
 
     h2 {
       font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
+      font-size: 3.8rem;
       color: var(--dorado-claro);
       font-weight: 400;
       line-height: 1.1;
-      text-shadow: 0 0 16px rgba(210,174,104,.35);
+      text-shadow: 0 0 14px rgba(210,174,104,.3);
     }
 
     p {
-      font-size: 1.3rem;
-      line-height: 1.6;
+      font-size: 1.25rem;
+      line-height: 1.55;
       color: #f3f3f3;
-    }
-
-    .linea {
-      width: 75px;
-      height: 1px;
-      background: var(--dorado-claro);
-      margin: 17px auto;
     }
 
     .eyebrow {
       font-family: 'Montserrat', sans-serif;
-      font-size: .7rem;
-      letter-spacing: 5px;
+      font-size: .68rem;
+      letter-spacing: 4px;
       text-transform: uppercase;
       color: var(--dorado-claro);
     }
 
+    .linea {
+      width: 65px;
+      height: 1px;
+      background: var(--dorado-claro);
+      margin: 14px auto;
+    }
+
     /* =========================
        PORTADA
-       SE MANTIENE CON LA FOTO
     ========================= */
 
     .portada {
@@ -109,11 +93,13 @@
 
       background-size: cover;
       background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .contenido-portada {
-      position: relative;
-      z-index: 2;
       text-align: center;
       padding: 20px;
     }
@@ -130,7 +116,6 @@
       font-weight: 400;
       color: #fff;
       line-height: 1;
-
       text-shadow:
         0 2px 15px rgba(0,0,0,.85),
         0 0 20px rgba(255,255,255,.15);
@@ -145,37 +130,30 @@
     }
 
     .boton-descubrir {
-      margin-top: 38px;
-      padding: 14px 35px;
-
+      margin-top: 35px;
+      padding: 13px 34px;
       background: rgba(0,0,0,.55);
       color: #fff;
-
       border: 1px solid var(--dorado-claro);
-
       font-family: 'Montserrat', sans-serif;
-      font-size: .72rem;
+      font-size: .7rem;
       letter-spacing: 4px;
-
       cursor: pointer;
-      transition: .4s;
-    }
-
-    .boton-descubrir:hover {
-      background: var(--dorado-claro);
-      color: #000;
     }
 
     /* =========================
-       PRIMERA FOTO JUNTOS
+       FOTO 1
     ========================= */
 
     .foto-nos-casamos {
-      height: 82vh;
-      min-height: 580px;
+      height: 78vh;
+      min-height: 520px;
+      overflow: hidden;
     }
 
-    .foto-nos-casamos img {
+    .foto-nos-casamos img,
+    .foto-medio img,
+    .foto-final img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -186,12 +164,11 @@
       content: "";
       position: absolute;
       inset: 0;
-
       background:
         linear-gradient(
           to bottom,
           rgba(0,0,0,.03) 25%,
-          rgba(0,0,0,.18) 55%,
+          rgba(0,0,0,.15) 55%,
           rgba(0,0,0,.88) 100%
         );
     }
@@ -199,92 +176,137 @@
     .nos-casamos {
       position: absolute;
       z-index: 2;
-
-      bottom: 45px;
+      bottom: 38px;
       left: 20px;
       right: 20px;
-
       text-align: center;
     }
 
     .nos-casamos .pequeno {
       font-family: 'Montserrat', sans-serif;
-      font-size: .68rem;
+      font-size: .65rem;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
     .nos-casamos h2 {
-      font-size: 4.7rem;
+      font-size: 4.5rem;
     }
 
     /* =========================
-       QUEREMOS COMPARTIR
+       FRASE
     ========================= */
 
     .presentacion {
-      min-height: 62vh;
-      padding: 60px 20px;
+      padding: 48px 20px;
     }
 
     .presentacion h2 {
-      margin-bottom: 20px;
-    }
-
-    .presentacion .destacado {
-      font-size: 1.65rem;
-      color: #fff;
-      margin-bottom: 22px;
+      max-width: 650px;
+      margin: auto;
     }
 
     .presentacion p {
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 650px;
+      margin: 18px auto 0;
+      font-size: 1.45rem;
     }
 
     /* =========================
-       FECHA Y HORA
+       CALENDARIO
+    ========================= */
+
+    .calendario-section {
+      padding: 42px 20px 48px;
+    }
+
+    .calendario {
+      width: 100%;
+      max-width: 420px;
+      margin: 20px auto 0;
+      border: 1px solid var(--dorado-claro);
+      padding: 15px;
+      background: #030303;
+      box-shadow: 0 0 22px rgba(173,135,64,.12);
+    }
+
+    .mes {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--dorado-brillo);
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .dias {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 3px;
+    }
+
+    .dia-nombre {
+      color: var(--dorado-claro);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .55rem;
+      padding: 5px 0;
+    }
+
+    .dia {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    .dia.evento {
+      width: 36px;
+      height: 36px;
+      margin: auto;
+      border-radius: 50%;
+      background: var(--dorado-brillo);
+      color: #000;
+      font-weight: 700;
+      box-shadow: 0 0 14px rgba(210,174,104,.45);
+    }
+
+    /* =========================
+       FECHA Y RELOJ
     ========================= */
 
     .fecha-seccion {
-      min-height: 58vh;
-      padding: 55px 20px;
+      padding: 42px 20px 48px;
       text-align: center;
     }
 
     .fecha-grande {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 11vw, 6rem);
+      font-size: clamp(2.8rem, 10vw, 5.5rem);
       color: var(--dorado-brillo);
       font-weight: 500;
       letter-spacing: 5px;
-      margin: 18px 0;
+      margin: 14px 0;
     }
 
     .hora {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-
       border-top: 1px solid var(--dorado);
       border-bottom: 1px solid var(--dorado);
-
-      padding: 14px 25px;
-      margin-top: 10px;
+      padding: 12px 24px;
     }
 
     .icono-reloj {
       color: var(--dorado-brillo);
-      font-size: 1.7rem;
+      font-size: 1.8rem;
     }
 
-    .hora span {
+    .hora span:last-child {
       font-family: 'Montserrat', sans-serif;
       color: var(--dorado-claro);
-      font-size: .9rem;
+      font-size: .88rem;
       letter-spacing: 3px;
     }
 
@@ -293,118 +315,38 @@
     ========================= */
 
     .countdown-section {
-      min-height: 45vh;
-      padding: 45px 15px;
+      padding: 40px 15px 45px;
       text-align: center;
     }
 
     .countdown {
       display: flex;
       justify-content: center;
-      gap: 12px;
-      margin-top: 25px;
+      gap: 9px;
+      margin-top: 20px;
       flex-wrap: wrap;
     }
 
     .time-box {
-      width: 72px;
-      padding: 14px 5px;
-
+      width: 70px;
+      padding: 12px 4px;
       border: 1px solid var(--dorado);
       background: #050505;
     }
 
     .time-box strong {
       display: block;
-
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-
+      font-size: 1.9rem;
       color: var(--dorado-brillo);
       font-weight: 500;
     }
 
     .time-box span {
       font-family: 'Montserrat', sans-serif;
-      font-size: .55rem;
-      letter-spacing: 2px;
+      font-size: .5rem;
+      letter-spacing: 1.5px;
       color: #ddd;
       text-transform: uppercase;
-    }
-
-    /* =========================
-       CALENDARIO DORADO
-    ========================= */
-
-    .calendario-section {
-      min-height: 65vh;
-      padding: 50px 20px;
-    }
-
-    .calendario {
-      width: 100%;
-      max-width: 420px;
-
-      margin: 25px auto 0;
-
-      border: 1px solid var(--dorado-claro);
-      padding: 18px;
-
-      background: #030303;
-
-      box-shadow:
-        0 0 25px rgba(173,135,64,.15);
-    }
-
-    .mes {
-      text-align: center;
-
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-
-      color: var(--dorado-brillo);
-
-      margin-bottom: 15px;
-      letter-spacing: 2px;
-    }
-
-    .dias {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 5px;
-    }
-
-    .dia-nombre {
-      color: var(--dorado-claro);
-      font-family: 'Montserrat', sans-serif;
-      font-size: .55rem;
-      padding: 7px 0;
-    }
-
-    .dia {
-      height: 42px;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-
-      color: #ddd;
-    }
-
-    .dia.evento {
-      color: #000;
-
-      background: var(--dorado-brillo);
-
-      border-radius: 50%;
-
-      font-weight: 700;
-
-      box-shadow:
-        0 0 15px rgba(210,174,104,.5);
     }
 
     /* =========================
@@ -412,56 +354,33 @@
     ========================= */
 
     .ubicacion {
-      min-height: 58vh;
-      padding: 55px 20px;
+      padding: 45px 20px;
       text-align: center;
     }
 
     .direccion {
       font-size: 2rem;
       color: #fff;
-      margin: 20px 0 8px;
+      margin: 17px 0 5px;
     }
 
     .subdireccion {
       color: #bbb;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
 
-    .boton-mapa,
-    .boton-spotify,
-    .boton-whatsapp {
-
+    .boton {
       display: inline-block;
-
-      margin-top: 25px;
-
-      padding: 13px 25px;
-
+      margin-top: 20px;
+      padding: 12px 23px;
       border: 1px solid var(--dorado-claro);
-
       color: var(--dorado-claro);
-
       text-decoration: none;
-
       font-family: 'Montserrat', sans-serif;
-
-      font-size: .68rem;
-
+      font-size: .65rem;
       letter-spacing: 3px;
-
-      transition: .3s;
-
       background: #000;
-
       cursor: pointer;
-    }
-
-    .boton-mapa:hover,
-    .boton-spotify:hover,
-    .boton-whatsapp:hover {
-      background: var(--dorado-claro);
-      color: #000;
     }
 
     /* =========================
@@ -469,68 +388,50 @@
     ========================= */
 
     .dress {
-      min-height: 45vh;
-      padding: 50px 20px;
+      padding: 42px 20px;
       text-align: center;
     }
 
     .dress-code {
-      margin-top: 20px;
-
-      font-size: 2.1rem;
-
+      margin-top: 17px;
+      font-size: 2rem;
       color: var(--dorado-claro);
-
       letter-spacing: 3px;
     }
 
     /* =========================
-       SEGUNDA FOTO
+       FOTO 2
     ========================= */
 
     .foto-medio {
-      height: 72vh;
-      min-height: 510px;
-    }
-
-    .foto-medio img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      display: block;
+      height: 68vh;
+      min-height: 470px;
+      overflow: hidden;
     }
 
     .foto-medio::after {
       content: "";
-
       position: absolute;
       inset: 0;
-
       background:
         linear-gradient(
           to bottom,
           rgba(0,0,0,.03),
-          rgba(0,0,0,.72)
+          rgba(0,0,0,.78)
         );
     }
 
     .texto-foto-medio {
       position: absolute;
-
-      bottom: 40px;
-
+      bottom: 35px;
       left: 20px;
       right: 20px;
-
       z-index: 2;
-
       text-align: center;
     }
 
     .texto-foto-medio h2 {
-      font-size: 3.7rem;
+      font-size: 3.4rem;
     }
 
     /* =========================
@@ -538,51 +439,44 @@
     ========================= */
 
     .mensaje {
-      min-height: 55vh;
-      padding: 55px 20px;
+      padding: 48px 20px;
       text-align: center;
-    }
-
-    .mensaje p {
-      max-width: 680px;
-      margin: auto;
     }
 
     .mensaje .frase {
       font-family: 'Great Vibes', cursive;
-
       color: var(--dorado-claro);
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
 
-      font-size: 3.1rem;
-
-      margin-bottom: 20px;
+    .mensaje p {
+      max-width: 650px;
+      margin: auto;
     }
 
     /* =========================
-       REGALO
+       REGALO / ALIAS
     ========================= */
 
     .regalo {
-      min-height: 50vh;
-      padding: 50px 20px;
+      padding: 45px 20px;
       text-align: center;
     }
 
+    .regalo p {
+      max-width: 620px;
+      margin: 17px auto 0;
+    }
+
     .alias {
-      margin: 25px auto;
-
-      padding: 15px 30px;
-
+      margin: 20px auto 0;
+      padding: 13px 28px;
       display: inline-block;
-
       border: 1px solid var(--dorado);
-
       color: var(--dorado-brillo);
-
       font-family: 'Montserrat', sans-serif;
-
       font-size: 1rem;
-
       letter-spacing: 2px;
     }
 
@@ -591,8 +485,7 @@
     ========================= */
 
     .cancion {
-      min-height: 58vh;
-      padding: 55px 20px;
+      padding: 48px 20px;
       text-align: center;
     }
 
@@ -603,22 +496,14 @@
 
     .input-cancion {
       display: block;
-
       width: 100%;
       max-width: 450px;
-
-      margin: 25px auto 0;
-
-      padding: 15px;
-
+      margin: 20px auto 0;
+      padding: 14px;
       background: #080808;
-
       border: 1px solid #555;
-
       color: #fff;
-
       font-family: 'Montserrat', sans-serif;
-
       outline: none;
     }
 
@@ -631,8 +516,7 @@
     ========================= */
 
     .confirmacion {
-      min-height: 55vh;
-      padding: 55px 20px;
+      padding: 48px 20px;
       text-align: center;
     }
 
@@ -646,59 +530,41 @@
     ========================= */
 
     .foto-final {
-      height: 82vh;
-      min-height: 570px;
-    }
-
-    .foto-final img {
-      width: 100%;
-      height: 100%;
-
-      object-fit: cover;
-
-      display: block;
+      height: 78vh;
+      min-height: 520px;
+      overflow: hidden;
     }
 
     .foto-final::after {
       content: "";
-
       position: absolute;
       inset: 0;
-
       background:
         linear-gradient(
           to bottom,
-          rgba(0,0,0,.05),
-          rgba(0,0,0,.80)
+          rgba(0,0,0,.03),
+          rgba(0,0,0,.82)
         );
     }
 
     .final-texto {
       position: absolute;
-
       z-index: 2;
-
-      bottom: 50px;
-
+      bottom: 42px;
       left: 20px;
       right: 20px;
-
       text-align: center;
     }
 
     .final-texto h2 {
-      font-size: 4.8rem;
+      font-size: 4.5rem;
     }
 
     .final-fecha {
-      margin-top: 10px;
-
+      margin-top: 8px;
       color: var(--dorado-claro);
-
       font-family: 'Montserrat', sans-serif;
-
-      font-size: .7rem;
-
+      font-size: .68rem;
       letter-spacing: 4px;
     }
 
@@ -708,14 +574,10 @@
 
     .musica {
       position: fixed;
-
       width: 1px;
       height: 1px;
-
       opacity: .01;
-
       pointer-events: none;
-
       bottom: 0;
       left: 0;
     }
@@ -726,27 +588,19 @@
 
     .brillo {
       position: fixed;
-
       width: 3px;
       height: 3px;
-
       background: var(--dorado-claro);
-
       border-radius: 50%;
-
       pointer-events: none;
-
       opacity: .6;
-
       animation: flotar 5s infinite ease-in-out;
-
       z-index: 10;
     }
 
     .brillo:nth-child(1) {
       left: 12%;
       top: 25%;
-      animation-delay: 0s;
     }
 
     .brillo:nth-child(2) {
@@ -762,7 +616,6 @@
     }
 
     @keyframes flotar {
-
       0%,100% {
         transform: translateY(0);
         opacity: .25;
@@ -772,20 +625,18 @@
         transform: translateY(-20px);
         opacity: .8;
       }
-
     }
 
     /* =========================
-       ANIMACIONES
+       ANIMACIÓN
     ========================= */
 
     .aparecer {
       opacity: 0;
-      transform: translateY(20px);
-
+      transform: translateY(18px);
       transition:
-        opacity 1s ease,
-        transform 1s ease;
+        opacity .8s ease,
+        transform .8s ease;
     }
 
     .aparecer.visible {
@@ -794,21 +645,17 @@
     }
 
     /* =========================
-       MÓVIL
+       CELULAR
     ========================= */
 
-    @media (max-width:600px) {
-
-      .escena {
-        min-height: 72vh;
-      }
+    @media (max-width: 600px) {
 
       h2 {
-        font-size: 3.5rem;
+        font-size: 3.4rem;
       }
 
       p {
-        font-size: 1.18rem;
+        font-size: 1.15rem;
       }
 
       .titulo-portada {
@@ -821,12 +668,12 @@
       }
 
       .foto-nos-casamos {
-        height: 78vh;
-        min-height: 540px;
+        height: 76vh;
+        min-height: 510px;
       }
 
       .nos-casamos {
-        bottom: 35px;
+        bottom: 32px;
       }
 
       .nos-casamos h2 {
@@ -834,33 +681,33 @@
       }
 
       .presentacion {
-        min-height: 58vh;
-        padding: 50px 20px;
+        padding: 42px 20px;
       }
 
-      .presentacion .destacado {
-        font-size: 1.45rem;
-      }
-
-      .fecha-seccion {
-        min-height: 54vh;
-      }
-
-      .fecha-grande {
-        font-size: 3rem;
+      .presentacion p {
+        font-size: 1.3rem;
       }
 
       .calendario {
-        padding: 12px;
+        padding: 11px;
       }
 
       .dia {
-        height: 37px;
+        height: 35px;
+      }
+
+      .dia.evento {
+        width: 34px;
+        height: 34px;
+      }
+
+      .fecha-grande {
+        font-size: 2.9rem;
       }
 
       .foto-medio {
-        height: 70vh;
-        min-height: 490px;
+        height: 66vh;
+        min-height: 460px;
       }
 
       .texto-foto-medio h2 {
@@ -868,22 +715,19 @@
       }
 
       .mensaje .frase {
-        font-size: 2.7rem;
+        font-size: 2.65rem;
       }
 
       .final-texto h2 {
         font-size: 4rem;
       }
-
     }
-
   </style>
 </head>
 
 <body>
 
   <!-- BRILLOS -->
-
   <div class="brillo"></div>
   <div class="brillo"></div>
   <div class="brillo"></div>
@@ -893,7 +737,7 @@
        PORTADA
   ========================= -->
 
-  <section class="escena portada" id="portada">
+  <section class="portada" id="portada">
 
     <div class="contenido-portada">
 
@@ -912,9 +756,7 @@
       <button
         class="boton-descubrir"
         onclick="descubrir()">
-
         DESCUBRIR
-
       </button>
 
     </div>
@@ -923,10 +765,10 @@
 
 
   <!-- =========================
-       PRIMERA FOTO JUNTOS
+       PRIMERA FOTO
   ========================= -->
 
-  <section class="escena foto-nos-casamos">
+  <section class="foto-nos-casamos">
 
     <img
       src="./IMG-20260921-WA0220.jpg"
@@ -948,10 +790,10 @@
 
 
   <!-- =========================
-       INVITACIÓN
+       FRASE
   ========================= -->
 
-  <section class="escena presentacion aparecer">
+  <section class="presentacion aparecer">
 
     <div class="contenedor">
 
@@ -963,102 +805,9 @@
 
       <h2>
         Queremos compartir
-        este día con ustedes
+        este día tan especial
+        con vos.
       </h2>
-
-      <p class="destacado">
-        Después de compartir tantos momentos,
-        sueños y proyectos, decidimos dar
-        un nuevo paso juntos.
-      </p>
-
-      <p>
-        Queremos invitarte a nuestro casamiento
-        y nos haría muy felices que seas parte
-        de este día tan especial para nosotros.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       FECHA Y HORA
-  ========================= -->
-
-  <section class="escena fecha-seccion aparecer">
-
-    <div class="contenedor">
-
-      <div class="eyebrow">
-        Reservá la fecha
-      </div>
-
-      <div class="linea"></div>
-
-      <div class="fecha-grande">
-        20 · 10 · 2026
-      </div>
-
-      <div class="hora">
-
-        <span class="icono-reloj">
-          ◷
-        </span>
-
-        <span>
-          13:00 HS
-        </span>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       CUENTA REGRESIVA
-  ========================= -->
-
-  <section class="countdown-section aparecer">
-
-    <div class="contenedor">
-
-      <div class="eyebrow">
-        Falta muy poco
-      </div>
-
-      <h2>
-        La cuenta regresiva
-      </h2>
-
-      <div class="linea"></div>
-
-      <div class="countdown">
-
-        <div class="time-box">
-          <strong id="dias">00</strong>
-          <span>Días</span>
-        </div>
-
-        <div class="time-box">
-          <strong id="horas">00</strong>
-          <span>Horas</span>
-        </div>
-
-        <div class="time-box">
-          <strong id="minutos">00</strong>
-          <span>Minutos</span>
-        </div>
-
-        <div class="time-box">
-          <strong id="segundos">00</strong>
-          <span>Segundos</span>
-        </div>
-
-      </div>
 
     </div>
 
@@ -1069,16 +818,16 @@
        CALENDARIO
   ========================= -->
 
-  <section class="escena calendario-section aparecer">
+  <section class="calendario-section aparecer">
 
     <div class="contenedor">
 
       <div class="eyebrow">
-        Octubre 2026
+        Reservá la fecha
       </div>
 
       <h2>
-        Nuestra fecha
+        Nuestro día
       </h2>
 
       <div class="linea"></div>
@@ -1154,10 +903,92 @@
 
 
   <!-- =========================
+       FECHA Y RELOJ
+  ========================= -->
+
+  <section class="fecha-seccion aparecer">
+
+    <div class="contenedor">
+
+      <div class="eyebrow">
+        Fecha y hora
+      </div>
+
+      <div class="linea"></div>
+
+      <div class="fecha-grande">
+        20 · 10 · 2026
+      </div>
+
+      <div class="hora">
+
+        <span class="icono-reloj">
+          ◷
+        </span>
+
+        <span>
+          13:00 HS
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CUENTA REGRESIVA
+  ========================= -->
+
+  <section class="countdown-section aparecer">
+
+    <div class="contenedor">
+
+      <div class="eyebrow">
+        Falta muy poco
+      </div>
+
+      <h2>
+        La cuenta regresiva
+      </h2>
+
+      <div class="linea"></div>
+
+      <div class="countdown">
+
+        <div class="time-box">
+          <strong id="dias">00</strong>
+          <span>Días</span>
+        </div>
+
+        <div class="time-box">
+          <strong id="horas">00</strong>
+          <span>Horas</span>
+        </div>
+
+        <div class="time-box">
+          <strong id="minutos">00</strong>
+          <span>Minutos</span>
+        </div>
+
+        <div class="time-box">
+          <strong id="segundos">00</strong>
+          <span>Segundos</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
        UBICACIÓN
   ========================= -->
 
-  <section class="escena ubicacion aparecer">
+  <section class="ubicacion aparecer">
 
     <div class="contenedor">
 
@@ -1180,12 +1011,10 @@
       </div>
 
       <a
-        class="boton-mapa"
+        class="boton"
         href="https://www.google.com/maps/search/?api=1&query=Carabelas+4170"
         target="_blank">
-
         VER EN GOOGLE MAPS
-
       </a>
 
     </div>
@@ -1197,7 +1026,7 @@
        DRESS CODE
   ========================= -->
 
-  <section class="escena dress aparecer">
+  <section class="dress aparecer">
 
     <div class="contenedor">
 
@@ -1245,7 +1074,7 @@
        MENSAJE
   ========================= -->
 
-  <section class="escena mensaje aparecer">
+  <section class="mensaje aparecer">
 
     <div class="contenedor">
 
@@ -1267,10 +1096,10 @@
 
 
   <!-- =========================
-       REGALO
+       REGALO / ALIAS
   ========================= -->
 
-  <section class="escena regalo aparecer">
+  <section class="regalo aparecer">
 
     <div class="contenedor">
 
@@ -1302,7 +1131,7 @@
        CANCIÓN
   ========================= -->
 
-  <section class="escena cancion aparecer">
+  <section class="cancion aparecer">
 
     <div class="contenedor">
 
@@ -1318,16 +1147,14 @@
 
       <p>
         Elegí una canción que te gustaría escuchar
-        y compartir con nosotros esa noche.
+        y compartir con nosotros.
       </p>
 
       <a
-        class="boton-spotify"
+        class="boton"
         href="https://open.spotify.com/"
         target="_blank">
-
         BUSCAR EN SPOTIFY
-
       </a>
 
       <input
@@ -1337,11 +1164,9 @@
         placeholder="Nombre de la canción y artista">
 
       <button
-        class="boton-whatsapp"
+        class="boton"
         onclick="enviarCancion()">
-
         ENVIAR CANCIÓN
-
       </button>
 
     </div>
@@ -1353,7 +1178,7 @@
        CONFIRMACIÓN
   ========================= -->
 
-  <section class="escena confirmacion aparecer">
+  <section class="confirmacion aparecer">
 
     <div class="contenedor">
 
@@ -1374,12 +1199,10 @@
       </p>
 
       <a
-        class="boton-whatsapp"
+        class="boton"
         href="https://wa.me/541136088939?text=Hola%20Uriel%20y%20Marianella%2C%20confirmo%20mi%20asistencia%20a%20su%20casamiento."
         target="_blank">
-
         CONFIRMAR POR WHATSAPP
-
       </a>
 
     </div>
@@ -1428,7 +1251,7 @@
   <script>
 
     /* =========================
-       DESCUBRIR + MÚSICA
+       BOTÓN DESCUBRIR + MÚSICA
     ========================= */
 
     function descubrir() {
@@ -1528,7 +1351,7 @@
 
 
     /* =========================
-       ENVIAR CANCIÓN
+       ENVIAR CANCIÓN POR WHATSAPP
     ========================= */
 
     function enviarCancion() {
@@ -1563,7 +1386,7 @@
 
 
     /* =========================
-       ANIMACIONES
+       ANIMACIONES AL HACER SCROLL
     ========================= */
 
     const elementos =
@@ -1586,7 +1409,7 @@
 
         },
         {
-          threshold: .12
+          threshold: .10
         }
       );
 
