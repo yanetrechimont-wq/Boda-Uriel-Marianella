@@ -6,12 +6,16 @@
 
 <title>Uriel & Marianella | 20 · 10 · 2026</title>
 
-<!-- Tipografías elegantes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* =====================================================
+   BASE
+===================================================== */
 
 * {
     margin: 0;
@@ -26,159 +30,179 @@ html {
 body {
     background: #000;
     color: #fff;
-    font-family: "Montserrat", sans-serif;
     overflow-x: hidden;
+    font-family: "Montserrat", sans-serif;
 }
-
-/* =========================
-   COLORES
-========================= */
 
 :root {
     --blanco: #ffffff;
     --negro: #000000;
-    --dorado: #b08d45;
-    --dorado-claro: #d4af6a;
-    --gris: #cfcfcf;
+    --dorado: #ad8740;
+    --dorado-claro: #d2ae68;
 }
 
-/* =========================
-   EFECTO DE BRILLO
-========================= */
+/* =====================================================
+   BRILLOS
+===================================================== */
 
 .brillos {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 50;
     overflow: hidden;
+    z-index: 100;
 }
 
 .brillo {
     position: absolute;
     width: 4px;
     height: 4px;
-    background: #fff;
     border-radius: 50%;
+    background: white;
+
     box-shadow:
-        0 0 5px #fff,
+        0 0 5px white,
         0 0 12px var(--dorado-claro),
-        0 0 22px var(--dorado);
+        0 0 25px var(--dorado-claro);
+
     opacity: 0;
-    animation: aparecer 5s infinite ease-in-out;
+    animation: brillo 5s infinite ease-in-out;
 }
 
 .brillo:nth-child(1) {
-    left: 10%;
-    top: 20%;
+    left: 8%;
+    top: 18%;
     animation-delay: 1s;
 }
 
 .brillo:nth-child(2) {
-    left: 25%;
-    top: 70%;
+    left: 23%;
+    top: 72%;
     animation-delay: 3s;
 }
 
 .brillo:nth-child(3) {
-    left: 45%;
-    top: 35%;
+    left: 43%;
+    top: 30%;
     animation-delay: 2s;
 }
 
 .brillo:nth-child(4) {
-    left: 70%;
-    top: 18%;
+    left: 68%;
+    top: 20%;
     animation-delay: 4s;
 }
 
 .brillo:nth-child(5) {
-    left: 85%;
-    top: 65%;
+    left: 87%;
+    top: 62%;
     animation-delay: 1.5s;
 }
 
 .brillo:nth-child(6) {
     left: 55%;
-    top: 85%;
+    top: 84%;
     animation-delay: 3.5s;
 }
 
-@keyframes aparecer {
-    0%,100% {
+.brillo:nth-child(7) {
+    left: 35%;
+    top: 50%;
+    animation-delay: 4.5s;
+}
+
+@keyframes brillo {
+
+    0%, 100% {
         opacity: 0;
-        transform: scale(.3) translateY(20px);
+        transform: scale(.2) translateY(20px);
     }
 
-    40% {
+    35% {
         opacity: 1;
         transform: scale(1.5) translateY(0);
     }
 
-    70% {
-        opacity: .3;
-        transform: scale(.7) translateY(-20px);
+    65% {
+        opacity: .2;
+        transform: scale(.6) translateY(-20px);
     }
 }
 
-/* =========================
-   SECCIONES
-========================= */
+/* =====================================================
+   ESCENAS
+===================================================== */
 
 .escena {
-    min-height: 100vh;
     width: 100%;
-    position: relative;
+    min-height: 100vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 70px 25px;
+
+    position: relative;
     overflow: hidden;
+
+    text-align: center;
+
+    padding: 70px 25px;
 }
 
-/* Mucho espacio negro entre escenas */
+/* Espacio negro real entre escenas */
+
 .espacio {
-    height: 14vh;
-    min-height: 80px;
+    width: 100%;
+    height: 13vh;
+    min-height: 90px;
     background: #000;
 }
 
-/* =========================
+/* =====================================================
    PORTADA
-========================= */
+===================================================== */
 
 .portada {
+
     min-height: 100vh;
+
     background:
         linear-gradient(
-            rgba(0,0,0,.40),
+            rgba(0,0,0,.28),
             rgba(0,0,0,.70)
         ),
-        url("./0993add98076d101899f792ec6d2d550.jpg") center center / cover no-repeat;
+        url("./0993add98076d101899f792ec6d2d550.jpg")
+        center center / cover no-repeat;
 
     flex-direction: column;
 }
 
-.portada::after {
+.portada::before {
+
     content: "";
+
     position: absolute;
     inset: 0;
+
     background:
         radial-gradient(
             circle at center,
-            transparent 25%,
+            transparent 15%,
             rgba(0,0,0,.45) 100%
         );
 }
 
 .contenido-portada {
+
     position: relative;
     z-index: 2;
-    animation: entrada 2.2s ease forwards;
+
+    animation:
+        aparecerPortada 2s ease forwards;
 }
 
-@keyframes entrada {
+@keyframes aparecerPortada {
+
     from {
         opacity: 0;
         transform: translateY(35px);
@@ -191,527 +215,893 @@ body {
 }
 
 .eyebrow {
+
     font-family: "Montserrat", sans-serif;
+
     font-size: 11px;
-    letter-spacing: 5px;
+
+    font-weight: 500;
+
+    letter-spacing: 6px;
+
     text-transform: uppercase;
-    color: #fff;
-    margin-bottom: 25px;
-}
 
-.titulo-portada {
-    font-family: "Great Vibes", cursive;
-    font-size: clamp(65px, 15vw, 125px);
-    font-weight: 400;
-    line-height: .9;
-    color: white;
-    text-shadow:
-        0 0 15px rgba(255,255,255,.25),
-        0 0 30px rgba(212,175,106,.2);
-}
-
-.nombres {
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(30px, 7vw, 55px);
-    letter-spacing: 5px;
-    margin-top: 28px;
-}
-
-.fecha-portada {
-    margin-top: 18px;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 25px;
-    letter-spacing: 8px;
-    color: var(--dorado-claro);
-}
-
-.boton-descubrir {
-    margin-top: 50px;
-    background: transparent;
-    color: white;
-    border: 1px solid var(--dorado-claro);
-    padding: 15px 35px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 11px;
-    letter-spacing: 4px;
-    cursor: pointer;
-    transition: .5s;
-}
-
-.boton-descubrir:hover {
-    background: var(--dorado-claro);
-    color: #000;
-    box-shadow: 0 0 30px rgba(212,175,106,.5);
-}
-
-/* =========================
-   TITULOS
-========================= */
-
-.titulo {
-    font-family: "Great Vibes", cursive;
-    font-size: clamp(55px, 12vw, 100px);
-    font-weight: 400;
-    color: white;
-    line-height: 1;
     margin-bottom: 30px;
 }
 
-.subtitulo {
+.titulo-portada {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(72px, 17vw, 145px);
+
+    font-weight: 400;
+
+    line-height: .85;
+
+    color: white;
+
+    text-shadow:
+        0 3px 15px rgba(0,0,0,.9),
+        0 0 15px rgba(255,255,255,.3),
+        0 0 35px rgba(210,174,104,.35);
+}
+
+.fecha-portada {
+
+    margin-top: 35px;
+
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(22px, 5vw, 32px);
-    font-weight: 300;
+
+    font-size: clamp(22px, 5vw, 30px);
+
+    font-weight: 600;
+
+    letter-spacing: 10px;
+
+    color: var(--dorado-claro);
+
+    text-shadow:
+        0 0 15px rgba(210,174,104,.5);
+}
+
+.boton-descubrir {
+
+    margin-top: 55px;
+
+    padding: 17px 38px;
+
+    background: rgba(0,0,0,.25);
+
+    color: white;
+
+    border: 1px solid var(--dorado-claro);
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+    cursor: pointer;
+
+    transition: .5s;
+
+    box-shadow:
+        0 0 0 rgba(210,174,104,0);
+}
+
+.boton-descubrir:hover {
+
+    background: var(--dorado-claro);
+
+    color: #000;
+
+    box-shadow:
+        0 0 30px rgba(210,174,104,.5);
+}
+
+/* =====================================================
+   TITULOS
+===================================================== */
+
+.titulo {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(60px, 14vw, 110px);
+
+    font-weight: 600;
+
+    line-height: .9;
+
+    letter-spacing: 1px;
+
+    color: white;
+
+    text-shadow:
+        0 2px 18px rgba(0,0,0,.7),
+        0 0 20px rgba(255,255,255,.15);
+
+    margin-bottom: 35px;
+}
+
+.subtitulo {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(27px, 6vw, 40px);
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
     letter-spacing: 2px;
 }
 
 .texto {
-    max-width: 700px;
-    font-size: 15px;
-    line-height: 2;
-    color: #ddd;
-    font-weight: 300;
+
+    max-width: 720px;
+
+    margin: auto;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(21px, 4.8vw, 28px);
+
+    font-weight: 500;
+
+    line-height: 1.75;
+
+    color: #eeeeee;
 }
 
-/* =========================
+/* =====================================================
+   DECORACIONES
+===================================================== */
+
+.decoracion {
+
+    color: var(--dorado-claro);
+
+    font-size: 23px;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 0 15px rgba(210,174,104,.7);
+}
+
+/* =====================================================
    PRESENTACIÓN
-========================= */
+===================================================== */
 
 .presentacion {
+
     background: #000;
+
     flex-direction: column;
 }
 
-.presentacion .decoracion {
-    margin-bottom: 35px;
-}
-
-.decoracion {
-    color: var(--dorado-claro);
-    font-size: 22px;
-    letter-spacing: 8px;
-}
-
 .presentacion h2 {
+
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(35px, 8vw, 65px);
-    font-weight: 400;
-    margin-bottom: 30px;
+
+    font-size: clamp(55px, 12vw, 90px);
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 35px;
+
+    text-shadow:
+        0 0 25px rgba(255,255,255,.12);
 }
 
 .presentacion p {
-    max-width: 650px;
-    line-height: 2;
-    font-size: 16px;
-    color: #d8d8d8;
+
+    max-width: 700px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(22px, 5vw, 30px);
+
+    font-weight: 500;
+
+    line-height: 1.7;
+
+    color: #ededed;
 }
 
-/* =========================
+/* =====================================================
    FOTOS
-========================= */
+===================================================== */
 
 .foto-escena {
+
     padding: 0;
+
     min-height: 100vh;
 }
 
 .foto-escena img {
+
     width: 100%;
+
     height: 100vh;
+
     object-fit: cover;
+
     display: block;
 }
 
 .foto-escena::after {
+
     content: "";
+
     position: absolute;
+
     inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,.1),
-        rgba(0,0,0,.25),
-        rgba(0,0,0,.65)
-    );
-    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.70)
+        );
 }
 
 .frase-foto {
+
     position: absolute;
+
     z-index: 2;
+
     bottom: 12%;
+
     left: 50%;
-    transform: translateX(-50%);
+
     width: 90%;
+
+    transform: translateX(-50%);
+
     font-family: "Great Vibes", cursive;
-    font-size: clamp(42px, 10vw, 80px);
-    text-shadow: 0 0 20px rgba(0,0,0,.8);
+
+    font-size: clamp(52px, 12vw, 100px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color: white;
+
+    text-shadow:
+        0 4px 20px rgba(0,0,0,.9),
+        0 0 25px rgba(210,174,104,.35);
 }
 
-/* =========================
+/* =====================================================
    FECHA
-========================= */
+===================================================== */
 
 .fecha {
-    background: #000;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #171717 0%,
+            #000 65%
+        );
+
     flex-direction: column;
 }
 
 .fecha-numero {
+
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(90px, 25vw, 190px);
-    line-height: .8;
-    font-weight: 300;
-    color: white;
+
+    font-size: clamp(120px, 29vw, 220px);
+
+    font-weight: 500;
+
+    line-height: .75;
+
+    letter-spacing: -5px;
 }
 
 .fecha-mes {
+
     font-family: "Great Vibes", cursive;
+
+    font-size: clamp(65px, 15vw, 110px);
+
     color: var(--dorado-claro);
-    font-size: clamp(55px, 12vw, 90px);
-    margin-top: 25px;
+
+    margin-top: 35px;
+
+    text-shadow:
+        0 0 25px rgba(210,174,104,.35);
 }
 
 .hora {
+
+    margin-top: 30px;
+
     font-family: "Cormorant Garamond", serif;
-    font-size: 28px;
-    letter-spacing: 5px;
-    margin-top: 25px;
+
+    font-size: 31px;
+
+    font-weight: 600;
+
+    letter-spacing: 7px;
 }
 
-/* =========================
+/* =====================================================
    CUENTA REGRESIVA
-========================= */
+===================================================== */
 
 .countdown {
+
     background:
-        radial-gradient(circle at center, #151515 0%, #000 65%);
+        radial-gradient(
+            circle at center,
+            #151515,
+            #000 70%
+        );
+
     flex-direction: column;
 }
 
 .reloj {
+
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
-    gap: 20px;
+
+    gap: 22px;
+
     margin-top: 45px;
 }
 
 .unidad {
-    width: 105px;
+
+    width: 100px;
 }
 
 .numero {
+
     font-family: "Cormorant Garamond", serif;
-    font-size: 55px;
-    font-weight: 300;
+
+    font-size: 62px;
+
+    font-weight: 500;
 }
 
 .etiqueta {
+
+    font-family: "Montserrat", sans-serif;
+
     font-size: 9px;
+
+    font-weight: 600;
+
     letter-spacing: 3px;
+
     color: var(--dorado-claro);
+
     text-transform: uppercase;
 }
 
-/* =========================
+/* =====================================================
    CALENDARIO
-========================= */
+===================================================== */
 
 .calendario {
+
     background: #000;
+
     flex-direction: column;
 }
 
 .calendario-box {
-    width: min(380px, 90vw);
+
+    width: min(390px, 90vw);
+
     margin-top: 30px;
+
+    padding: 28px 12px;
+
     border-top: 1px solid var(--dorado);
+
     border-bottom: 1px solid var(--dorado);
-    padding: 25px 10px;
 }
 
 .mes {
+
     font-family: "Cormorant Garamond", serif;
-    font-size: 28px;
-    letter-spacing: 4px;
-    margin-bottom: 20px;
+
+    font-size: 32px;
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 22px;
 }
 
 .dias {
+
     display: grid;
+
     grid-template-columns: repeat(7, 1fr);
-    gap: 9px;
-    font-size: 13px;
+
+    gap: 10px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 17px;
 }
 
 .dias span {
-    height: 32px;
+
+    height: 34px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 }
 
 .dias .marcado {
-    border: 1px solid var(--dorado-claro);
-    color: #000;
-    background: var(--dorado-claro);
+
+    width: 34px;
+
+    height: 34px;
+
+    margin: auto;
+
     border-radius: 50%;
+
+    background: var(--dorado-claro);
+
+    color: #000;
+
+    font-weight: 700;
 }
 
-/* =========================
+/* =====================================================
    UBICACIÓN
-========================= */
+===================================================== */
 
 .ubicacion {
+
     background: #050505;
+
     flex-direction: column;
 }
 
 .icono {
-    font-size: 35px;
-    margin-bottom: 25px;
+
     color: var(--dorado-claro);
+
+    font-size: 35px;
+
+    margin-bottom: 30px;
 }
 
 .direccion {
+
     font-family: "Cormorant Garamond", serif;
-    font-size: 35px;
+
+    font-size: clamp(35px, 8vw, 55px);
+
+    font-weight: 600;
+
     margin: 25px 0;
 }
 
 .boton {
+
     display: inline-block;
+
     text-decoration: none;
+
     color: white;
-    border: 1px solid var(--dorado);
-    padding: 15px 30px;
+
+    border: 1px solid var(--dorado-claro);
+
+    padding: 16px 30px;
+
+    margin-top: 25px;
+
+    font-family: "Montserrat", sans-serif;
+
     font-size: 10px;
-    letter-spacing: 3px;
-    margin-top: 20px;
-    transition: .4s;
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    background: transparent;
+
+    transition: .5s;
+
+    cursor: pointer;
 }
 
 .boton:hover {
-    background: var(--dorado);
+
+    background: var(--dorado-claro);
+
     color: #000;
+
+    box-shadow:
+        0 0 25px rgba(210,174,104,.4);
 }
 
-/* =========================
+/* =====================================================
    DRESS CODE
-========================= */
+===================================================== */
 
 .dress {
+
     background:
-        radial-gradient(circle, #141414 0%, #000 65%);
+        radial-gradient(
+            circle,
+            #151515,
+            #000 70%
+        );
+
     flex-direction: column;
 }
 
 .dress-code {
+
     font-family: "Great Vibes", cursive;
-    font-size: clamp(55px, 13vw, 100px);
+
+    font-size: clamp(65px, 15vw, 115px);
+
+    font-weight: 400;
+
     color: var(--dorado-claro);
-    margin: 25px 0;
+
+    margin: 30px 0;
+
+    text-shadow:
+        0 0 30px rgba(210,174,104,.4);
 }
 
-/* =========================
+/* =====================================================
    MENSAJE
-========================= */
+===================================================== */
 
 .mensaje {
+
     background: #000;
+
     flex-direction: column;
 }
 
 .mensaje-texto {
+
+    max-width: 850px;
+
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(28px, 6vw, 42px);
-    line-height: 1.5;
-    max-width: 800px;
-    font-weight: 300;
+
+    font-size: clamp(34px, 7vw, 52px);
+
+    font-weight: 500;
+
+    line-height: 1.55;
 }
 
 .mensaje-texto span {
+
     color: var(--dorado-claro);
+
+    font-weight: 600;
 }
 
-/* =========================
+/* =====================================================
    REGALO
-========================= */
+===================================================== */
 
 .regalo {
+
     background: #050505;
+
     flex-direction: column;
 }
 
 .alias {
+
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(38px, 8vw, 60px);
+
+    font-size: clamp(48px, 10vw, 75px);
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
     color: var(--dorado-claro);
-    margin: 30px 0 10px;
-    letter-spacing: 3px;
+
+    margin: 30px 0 15px;
+
+    text-shadow:
+        0 0 20px rgba(210,174,104,.3);
 }
 
-/* =========================
+/* =====================================================
    CANCIÓN
-========================= */
+===================================================== */
 
 .cancion {
+
     background: #000;
+
     flex-direction: column;
 }
 
 .cancion input {
-    width: min(400px, 85vw);
+
+    width: min(450px, 88vw);
+
     margin-top: 30px;
-    padding: 16px;
+
+    padding: 17px;
+
     background: transparent;
+
     border: none;
+
     border-bottom: 1px solid var(--dorado);
+
     color: white;
+
     text-align: center;
+
     outline: none;
-    font-family: "Montserrat", sans-serif;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 20px;
 }
 
 .cancion input::placeholder {
-    color: #888;
+
+    color: #777;
 }
 
-.spotify {
-    margin-top: 30px;
-}
-
-/* =========================
+/* =====================================================
    CONFIRMACIÓN
-========================= */
+===================================================== */
 
 .confirmacion {
+
     background:
-        radial-gradient(circle at center, #171717, #000 70%);
+        radial-gradient(
+            circle at center,
+            #171717,
+            #000 70%
+        );
+
     flex-direction: column;
 }
 
 .confirmacion p {
-    max-width: 600px;
-    line-height: 1.9;
-    color: #ccc;
+
+    max-width: 650px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 26px;
+
+    font-weight: 500;
+
+    line-height: 1.7;
+
+    color: #ddd;
 }
 
-/* =========================
+/* =====================================================
    VERSÍCULO
-========================= */
+===================================================== */
 
 .versiculo {
+
     background: #000;
+
     flex-direction: column;
 }
 
 .versiculo blockquote {
-    max-width: 750px;
+
+    max-width: 800px;
+
     font-family: "Cormorant Garamond", serif;
-    font-size: clamp(28px, 6vw, 43px);
+
+    font-size: clamp(32px, 7vw, 49px);
+
+    font-weight: 500;
+
+    font-style: italic;
+
     line-height: 1.5;
-    font-weight: 300;
 }
 
 .versiculo cite {
+
     display: block;
-    margin-top: 30px;
+
+    margin-top: 35px;
+
     color: var(--dorado-claro);
+
     font-family: "Montserrat", sans-serif;
+
     font-size: 11px;
+
+    font-weight: 600;
+
     letter-spacing: 4px;
+
     font-style: normal;
 }
 
-/* =========================
+/* =====================================================
    FINAL
-========================= */
+===================================================== */
 
 .final {
+
     min-height: 100vh;
+
     background:
         linear-gradient(
-            rgba(0,0,0,.45),
-            rgba(0,0,0,.75)
+            rgba(0,0,0,.35),
+            rgba(0,0,0,.78)
         ),
-        url("./IMG-20260921-WA0222.jpg") center / cover no-repeat;
+        url("./IMG-20260921-WA0222.jpg")
+        center / cover no-repeat;
+
     flex-direction: column;
 }
 
 .final-contenido {
+
     position: relative;
+
     z-index: 2;
 }
 
 .final h2 {
+
     font-family: "Great Vibes", cursive;
-    font-size: clamp(75px, 17vw, 130px);
+
+    font-size: clamp(90px, 20vw, 160px);
+
     font-weight: 400;
+
+    line-height: .9;
+
+    text-shadow:
+        0 4px 20px rgba(0,0,0,.9),
+        0 0 35px rgba(210,174,104,.4);
 }
 
-.final .nombres-final {
+.nombres-final {
+
     font-family: "Cormorant Garamond", serif;
-    font-size: 28px;
-    letter-spacing: 5px;
-    margin-top: 20px;
+
+    font-size: clamp(28px, 6vw, 38px);
+
+    font-weight: 600;
+
+    letter-spacing: 7px;
+
+    margin-top: 25px;
 }
 
-.final .fecha-final {
-    margin-top: 20px;
+.fecha-final {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 23px;
+
+    font-weight: 600;
+
+    letter-spacing: 7px;
+
     color: var(--dorado-claro);
-    letter-spacing: 5px;
+
+    margin-top: 20px;
 }
 
-/* =========================
-   BOTÓN MÚSICA
-========================= */
-
-.musica {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    z-index: 100;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    border: 1px solid var(--dorado-claro);
-    background: rgba(0,0,0,.7);
-    color: white;
-    cursor: pointer;
-}
-
-/* =========================
-   ANIMACIONES
-========================= */
+/* =====================================================
+   ANIMACIONES AL ENTRAR
+===================================================== */
 
 .revelar {
+
     opacity: 0;
-    transform: translateY(35px);
-    transition: opacity 1.4s ease, transform 1.4s ease;
+
+    transform: translateY(45px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
 }
 
 .revelar.visible {
+
     opacity: 1;
+
     transform: translateY(0);
 }
 
-/* =========================
-   VIDEO OCULTO
-========================= */
+/* =====================================================
+   MÚSICA
+===================================================== */
 
 #musicaVideo {
+
     position: fixed;
+
     width: 1px;
+
     height: 1px;
+
     opacity: 0;
+
     pointer-events: none;
-    bottom: -10px;
+
     left: -10px;
+
+    bottom: -10px;
 }
 
-/* =========================
+.musica {
+
+    position: fixed;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    z-index: 200;
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--dorado-claro);
+
+    background: rgba(0,0,0,.75);
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 18px rgba(210,174,104,.2);
+}
+
+/* =====================================================
    CELULAR
-========================= */
+===================================================== */
 
 @media (max-width: 600px) {
 
@@ -719,18 +1109,17 @@ body {
         padding: 55px 20px;
     }
 
-    .titulo-portada {
-        font-size: 70px;
+    .espacio {
+        height: 12vh;
+        min-height: 75px;
     }
 
-    .nombres {
-        font-size: 30px;
-        letter-spacing: 3px;
+    .titulo-portada {
+        font-size: 75px;
     }
 
     .fecha-portada {
-        font-size: 20px;
-        letter-spacing: 5px;
+        letter-spacing: 6px;
     }
 
     .reloj {
@@ -738,11 +1127,11 @@ body {
     }
 
     .unidad {
-        width: 75px;
+        width: 72px;
     }
 
     .numero {
-        font-size: 45px;
+        font-size: 46px;
     }
 
     .frase-foto {
@@ -751,24 +1140,39 @@ body {
 
 }
 
+/* =====================================================
+   VIDEO OCULTO
+===================================================== */
+
+iframe {
+    border: none;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- BRILLOS -->
+<!-- =====================================================
+     BRILLOS
+===================================================== -->
+
 <div class="brillos">
+
     <span class="brillo"></span>
     <span class="brillo"></span>
     <span class="brillo"></span>
     <span class="brillo"></span>
     <span class="brillo"></span>
     <span class="brillo"></span>
+    <span class="brillo"></span>
+
 </div>
 
-<!-- =========================
+
+<!-- =====================================================
      PORTADA
-========================= -->
+===================================================== -->
 
 <section class="escena portada" id="portada">
 
@@ -786,19 +1190,25 @@ body {
             20 · 10 · 2026
         </div>
 
-        <button class="boton-descubrir" onclick="descubrir()">
+        <button
+            class="boton-descubrir"
+            onclick="descubrir()">
+
             DESCUBRIR
+
         </button>
 
     </div>
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
-     NOS CASAMOS
-========================= -->
+
+<!-- =====================================================
+     ¡NOS CASAMOS!
+===================================================== -->
 
 <section class="escena presentacion">
 
@@ -813,20 +1223,23 @@ body {
         </h2>
 
         <p>
-            Después de compartir tantos momentos, sueños y proyectos,
-            decidimos dar un nuevo paso juntos y comenzar una nueva etapa
-            de nuestra historia.
+            Después de compartir tantos momentos,
+            sueños y proyectos, decidimos dar un
+            nuevo paso juntos y comenzar una nueva
+            etapa de nuestra historia.
         </p>
 
     </div>
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      INVITACIÓN
-========================= -->
+===================================================== -->
 
 <section class="escena presentacion">
 
@@ -837,31 +1250,35 @@ body {
         </div>
 
         <p>
-            A celebrar con nosotros uno de los días más importantes de
-            nuestras vidas.
+            A celebrar con nosotros uno de los días
+            más importantes de nuestras vidas.
         </p>
 
         <br>
 
         <p>
-            Nos haría muy felices compartir nuestro casamiento con las
-            personas que queremos y que seas parte de este momento tan
-            especial.
+            Nos haría muy felices compartir nuestro
+            casamiento con las personas que queremos
+            y que seas parte de este momento tan especial.
         </p>
 
     </div>
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      FOTO 1
-========================= -->
+===================================================== -->
 
 <section class="escena foto-escena">
 
-    <img src="./IMG-20260921-WA0220.jpg" alt="Uriel y Marianella">
+    <img
+        src="./IMG-20260921-WA0220.jpg"
+        alt="Uriel y Marianella">
 
     <div class="frase-foto">
         Un amor para toda la vida
@@ -869,17 +1286,21 @@ body {
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      FECHA
-========================= -->
+===================================================== -->
 
 <section class="escena fecha">
 
     <div class="revelar">
 
-        <div class="decoracion">✦</div>
+        <div class="decoracion">
+            ✦
+        </div>
 
         <div class="fecha-numero">
             20
@@ -897,11 +1318,13 @@ body {
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      CUENTA REGRESIVA
-========================= -->
+===================================================== -->
 
 <section class="escena countdown">
 
@@ -914,23 +1337,62 @@ body {
         <div class="reloj">
 
             <div class="unidad">
-                <div class="numero" id="dias">0</div>
-                <div class="etiqueta">Días</div>
+
+                <div
+                    class="numero"
+                    id="dias">
+                    0
+                </div>
+
+                <div class="etiqueta">
+                    Días
+                </div>
+
             </div>
 
-            <div class="unidad">
-                <div class="numero" id="horas">0</div>
-                <div class="etiqueta">Horas</div>
-            </div>
 
             <div class="unidad">
-                <div class="numero" id="minutos">0</div>
-                <div class="etiqueta">Minutos</div>
+
+                <div
+                    class="numero"
+                    id="horas">
+                    0
+                </div>
+
+                <div class="etiqueta">
+                    Horas
+                </div>
+
             </div>
 
+
             <div class="unidad">
-                <div class="numero" id="segundos">0</div>
-                <div class="etiqueta">Segundos</div>
+
+                <div
+                    class="numero"
+                    id="minutos">
+                    0
+                </div>
+
+                <div class="etiqueta">
+                    Minutos
+                </div>
+
+            </div>
+
+
+            <div class="unidad">
+
+                <div
+                    class="numero"
+                    id="segundos">
+                    0
+                </div>
+
+                <div class="etiqueta">
+                    Segundos
+                </div>
+
             </div>
 
         </div>
@@ -939,11 +1401,13 @@ body {
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      CALENDARIO
-========================= -->
+===================================================== -->
 
 <section class="escena calendario">
 
@@ -972,6 +1436,7 @@ body {
                 <span></span>
                 <span></span>
                 <span></span>
+
                 <span>1</span>
                 <span>2</span>
                 <span>3</span>
@@ -994,7 +1459,11 @@ body {
                 <span>18</span>
 
                 <span>19</span>
-                <span class="marcado">20</span>
+
+                <span class="marcado">
+                    20
+                </span>
+
                 <span>21</span>
                 <span>22</span>
                 <span>23</span>
@@ -1017,17 +1486,21 @@ body {
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      UBICACIÓN
-========================= -->
+===================================================== -->
 
 <section class="escena ubicacion">
 
     <div class="revelar">
 
-        <div class="icono">✦</div>
+        <div class="icono">
+            ✦
+        </div>
 
         <div class="titulo">
             ¿Dónde?
@@ -1038,26 +1511,31 @@ body {
         </p>
 
         <p class="texto">
-            Te compartimos la ubicación para que puedas llegar
-            fácilmente y acompañarnos en este día tan especial.
+            Te compartimos la ubicación para que
+            puedas llegar fácilmente y acompañarnos
+            en este día tan especial.
         </p>
 
         <a
             class="boton"
             href="https://www.google.com/maps/search/?api=1&query=Carabelas+4170"
             target="_blank">
+
             VER EN GOOGLE MAPS
+
         </a>
 
     </div>
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      DRESS CODE
-========================= -->
+===================================================== -->
 
 <section class="escena dress">
 
@@ -1081,15 +1559,19 @@ body {
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      FOTO 2
-========================= -->
+===================================================== -->
 
 <section class="escena foto-escena">
 
-    <img src="./IMG-20260921-WA0221.jpg" alt="Uriel y Marianella">
+    <img
+        src="./IMG-20260921-WA0221.jpg"
+        alt="Uriel y Marianella">
 
     <div class="frase-foto">
         Y elegimos caminar juntos
@@ -1097,11 +1579,13 @@ body {
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      MENSAJE
-========================= -->
+===================================================== -->
 
 <section class="escena mensaje">
 
@@ -1112,8 +1596,9 @@ body {
         </div>
 
         <div class="mensaje-texto">
-            Hay momentos que se guardan para siempre
-            en el corazón.
+
+            Hay momentos que se guardan
+            para siempre en el corazón.
 
             <br><br>
 
@@ -1121,18 +1606,23 @@ body {
 
             <br><br>
 
-            <span>Queremos vivirlo con vos.</span>
+            <span>
+                Queremos vivirlo con vos.
+            </span>
+
         </div>
 
     </div>
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      REGALO
-========================= -->
+===================================================== -->
 
 <section class="escena regalo">
 
@@ -1143,8 +1633,9 @@ body {
         </div>
 
         <p class="texto">
-            Si deseás hacernos un regalo, podés colaborar
-            a través de nuestro alias.
+            Si deseás hacernos un regalo,
+            podés colaborar a través
+            de nuestro alias.
         </p>
 
         <div class="alias">
@@ -1152,18 +1643,21 @@ body {
         </div>
 
         <p class="texto">
-            Gracias por acompañarnos también de esta manera.
+            Gracias por acompañarnos también
+            de esta manera.
         </p>
 
     </div>
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      CANCIÓN
-========================= -->
+===================================================== -->
 
 <section class="escena cancion">
 
@@ -1186,10 +1680,12 @@ body {
         <br>
 
         <a
-            class="boton spotify"
+            class="boton"
             href="https://open.spotify.com/"
             target="_blank">
+
             BUSCAR EN SPOTIFY
+
         </a>
 
         <br>
@@ -1197,18 +1693,22 @@ body {
         <button
             class="boton"
             onclick="enviarCancion()">
+
             ENVIAR CANCIÓN
+
         </button>
 
     </div>
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
+
+<!-- =====================================================
      CONFIRMACIÓN
-========================= -->
+===================================================== -->
 
 <section class="escena confirmacion">
 
@@ -1227,18 +1727,22 @@ body {
             class="boton"
             href="https://wa.me/541136088939?text=Hola%20Uriel%20y%20Marianella%2C%20quiero%20confirmar%20mi%20asistencia%20a%20su%20casamiento."
             target="_blank">
+
             CONFIRMAR ASISTENCIA
+
         </a>
 
     </div>
 
 </section>
 
+
 <div class="espacio"></div>
 
-<!-- =========================
-     FOTO 3 / FINAL
-========================= -->
+
+<!-- =====================================================
+     FOTO FINAL
+===================================================== -->
 
 <section class="escena final">
 
@@ -1264,176 +1768,232 @@ body {
 
 </section>
 
-<!-- VIDEO YOUTUBE -->
+
+<!-- =====================================================
+     MÚSICA
+===================================================== -->
+
 <iframe
     id="musicaVideo"
     src=""
     allow="autoplay">
 </iframe>
 
-<!-- BOTÓN MÚSICA -->
+
 <button
     class="musica"
     onclick="activarMusica()">
+
     ♪
+
 </button>
+
 
 <script>
 
-/* =========================
-   DESCUBRIR + MÚSICA
-========================= */
+/* =====================================================
+   DESCUBRIR
+===================================================== */
 
 function descubrir() {
 
-    document.getElementById("portada")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-    setTimeout(() => {
-
-        document.getElementById("musicaVideo").src =
+    document.getElementById("musicaVideo").src =
         "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
 
-        document.getElementById("portada")
-            .classList.add("salida");
+    setTimeout(function() {
 
         window.scrollTo({
             top: window.innerHeight,
             behavior: "smooth"
         });
 
-    }, 500);
+    }, 300);
 
 }
 
-/* =========================
-   ACTIVAR MÚSICA
-========================= */
+
+/* =====================================================
+   MÚSICA
+===================================================== */
 
 function activarMusica() {
 
     document.getElementById("musicaVideo").src =
-    "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
+        "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
 
 }
 
-/* =========================
+
+/* =====================================================
    CUENTA REGRESIVA
-========================= */
+===================================================== */
 
 const fechaBoda =
-new Date("2026-10-20T13:00:00-03:00").getTime();
+    new Date("2026-10-20T13:00:00-03:00").getTime();
+
 
 function actualizarCuenta() {
 
-    const ahora = new Date().getTime();
+    const ahora =
+        new Date().getTime();
 
-    const diferencia = fechaBoda - ahora;
+    const diferencia =
+        fechaBoda - ahora;
+
 
     if (diferencia <= 0) {
 
         document.getElementById("dias").innerHTML = "0";
+
         document.getElementById("horas").innerHTML = "0";
+
         document.getElementById("minutos").innerHTML = "0";
+
         document.getElementById("segundos").innerHTML = "0";
 
         return;
     }
 
+
     const dias =
-        Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        Math.floor(
+            diferencia /
+            (1000 * 60 * 60 * 24)
+        );
+
 
     const horas =
         Math.floor(
-            (diferencia % (1000 * 60 * 60 * 24))
-            / (1000 * 60 * 60)
+            (diferencia %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
         );
+
 
     const minutos =
         Math.floor(
-            (diferencia % (1000 * 60 * 60))
-            / (1000 * 60)
+            (diferencia %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
         );
+
 
     const segundos =
         Math.floor(
-            (diferencia % (1000 * 60))
-            / 1000
+            (diferencia %
+            (1000 * 60)) /
+            1000
         );
 
-    document.getElementById("dias").innerHTML = dias;
-    document.getElementById("horas").innerHTML = horas;
-    document.getElementById("minutos").innerHTML = minutos;
-    document.getElementById("segundos").innerHTML = segundos;
+
+    document.getElementById("dias").innerHTML =
+        dias;
+
+    document.getElementById("horas").innerHTML =
+        horas;
+
+    document.getElementById("minutos").innerHTML =
+        minutos;
+
+    document.getElementById("segundos").innerHTML =
+        segundos;
 
 }
 
+
 actualizarCuenta();
 
-setInterval(actualizarCuenta, 1000);
+setInterval(
+    actualizarCuenta,
+    1000
+);
 
 
-/* =========================
-   EFECTO AL APARECER
-========================= */
+/* =====================================================
+   EFECTO DE ENTRADA
+===================================================== */
 
 const elementos =
-document.querySelectorAll(".revelar");
+    document.querySelectorAll(".revelar");
+
 
 const observer =
-new IntersectionObserver(
-    (entradas) => {
+    new IntersectionObserver(
 
-        entradas.forEach((entrada) => {
+        function(entradas) {
 
-            if (entrada.isIntersecting) {
+            entradas.forEach(
+                function(entrada) {
 
-                entrada.target
-                    .classList
-                    .add("visible");
+                    if (
+                        entrada.isIntersecting
+                    ) {
 
-            }
+                        entrada.target.classList.add(
+                            "visible"
+                        );
 
-        });
+                    }
 
-    },
-    {
-        threshold: .25
+                }
+            );
+
+        },
+
+        {
+            threshold: .20
+        }
+
+    );
+
+
+elementos.forEach(
+    function(elemento) {
+
+        observer.observe(elemento);
+
     }
 );
 
-elementos.forEach((elemento) => {
-    observer.observe(elemento);
-});
 
-
-/* =========================
-   ENVIAR CANCIÓN
-========================= */
+/* =====================================================
+   ENVIAR CANCIÓN POR WHATSAPP
+===================================================== */
 
 function enviarCancion() {
 
     const cancion =
-        document.getElementById("cancionInput").value;
+        document.getElementById(
+            "cancionInput"
+        ).value;
+
 
     if (!cancion.trim()) {
 
-        alert("Escribí primero el nombre de la canción.");
+        alert(
+            "Escribí primero el nombre de la canción."
+        );
 
         return;
     }
 
+
     const mensaje =
-        "Hola Uriel y Marianella 💍✨ Me gustaría que bailen esta canción en su casamiento: "
-        + cancion;
+        "Hola Uriel y Marianella 💍✨ " +
+        "Me gustaría que bailen esta canción " +
+        "en su casamiento: " +
+        cancion;
+
 
     const url =
-        "https://wa.me/541136088939?text="
-        + encodeURIComponent(mensaje);
+        "https://wa.me/541136088939?text=" +
+        encodeURIComponent(mensaje);
 
-    window.open(url, "_blank");
+
+    window.open(
+        url,
+        "_blank"
+    );
 
 }
 
