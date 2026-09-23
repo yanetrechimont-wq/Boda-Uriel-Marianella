@@ -35,11 +35,12 @@ body {
 }
 
 :root {
-    --blanco: #ffffff;
-    --negro: #000000;
     --dorado: #ad8740;
     --dorado-claro: #d2ae68;
+    --blanco: #fff;
+    --negro: #000;
 }
+
 
 /* =====================================================
    BRILLOS
@@ -66,6 +67,7 @@ body {
         0 0 25px var(--dorado-claro);
 
     opacity: 0;
+
     animation: brillo 5s infinite ease-in-out;
 }
 
@@ -129,6 +131,7 @@ body {
     }
 }
 
+
 /* =====================================================
    ESCENAS
 ===================================================== */
@@ -137,26 +140,30 @@ body {
     width: 100%;
     min-height: 100vh;
 
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    position: relative;
-    overflow: hidden;
-
     text-align: center;
+
+    overflow: hidden;
 
     padding: 70px 25px;
 }
 
-/* Espacio negro real entre escenas */
+
+/* =====================================================
+   ESPACIO NEGRO
+===================================================== */
 
 .espacio {
-    width: 100%;
-    height: 13vh;
-    min-height: 90px;
+    height: 10vh;
+    min-height: 70px;
     background: #000;
 }
+
 
 /* =====================================================
    PORTADA
@@ -168,8 +175,8 @@ body {
 
     background:
         linear-gradient(
-            rgba(0,0,0,.28),
-            rgba(0,0,0,.70)
+            rgba(0,0,0,.25),
+            rgba(0,0,0,.72)
         ),
         url("./0993add98076d101899f792ec6d2d550.jpg")
         center center / cover no-repeat;
@@ -187,8 +194,8 @@ body {
     background:
         radial-gradient(
             circle at center,
-            transparent 15%,
-            rgba(0,0,0,.45) 100%
+            transparent 10%,
+            rgba(0,0,0,.48) 100%
         );
 }
 
@@ -198,10 +205,10 @@ body {
     z-index: 2;
 
     animation:
-        aparecerPortada 2s ease forwards;
+        aparecer 2s ease forwards;
 }
 
-@keyframes aparecerPortada {
+@keyframes aparecer {
 
     from {
         opacity: 0;
@@ -218,7 +225,7 @@ body {
 
     font-family: "Montserrat", sans-serif;
 
-    font-size: 11px;
+    font-size: 10px;
 
     font-weight: 500;
 
@@ -226,7 +233,7 @@ body {
 
     text-transform: uppercase;
 
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 .titulo-portada {
@@ -242,27 +249,24 @@ body {
     color: white;
 
     text-shadow:
-        0 3px 15px rgba(0,0,0,.9),
-        0 0 15px rgba(255,255,255,.3),
-        0 0 35px rgba(210,174,104,.35);
+        0 3px 18px rgba(0,0,0,.9),
+        0 0 20px rgba(255,255,255,.2),
+        0 0 35px rgba(210,174,104,.3);
 }
 
 .fecha-portada {
 
-    margin-top: 35px;
+    margin-top: 32px;
 
     font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(22px, 5vw, 30px);
+    font-size: 25px;
 
     font-weight: 600;
 
-    letter-spacing: 10px;
+    letter-spacing: 9px;
 
     color: var(--dorado-claro);
-
-    text-shadow:
-        0 0 15px rgba(210,174,104,.5);
 }
 
 .boton-descubrir {
@@ -288,9 +292,6 @@ body {
     cursor: pointer;
 
     transition: .5s;
-
-    box-shadow:
-        0 0 0 rgba(210,174,104,0);
 }
 
 .boton-descubrir:hover {
@@ -303,78 +304,91 @@ body {
         0 0 30px rgba(210,174,104,.5);
 }
 
+
 /* =====================================================
-   TITULOS
+   FOTO + ¡NOS CASAMOS!
+   UNA SOLA PANTALLA
 ===================================================== */
 
-.titulo {
+.foto-nos-casamos {
 
-    font-family: "Cormorant Garamond", serif;
+    padding: 0;
 
-    font-size: clamp(60px, 14vw, 110px);
+    min-height: 100vh;
+}
 
-    font-weight: 600;
+.foto-nos-casamos img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.foto-nos-casamos::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.05) 20%,
+            rgba(0,0,0,.15) 45%,
+            rgba(0,0,0,.82) 100%
+        );
+}
+
+.nos-casamos {
+
+    position: absolute;
+
+    z-index: 3;
+
+    bottom: 11%;
+
+    width: 92%;
+
+    text-align: center;
+}
+
+.nos-casamos .pequeno {
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+.nos-casamos h2 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(70px, 17vw, 140px);
+
+    font-weight: 400;
 
     line-height: .9;
-
-    letter-spacing: 1px;
 
     color: white;
 
     text-shadow:
-        0 2px 18px rgba(0,0,0,.7),
-        0 0 20px rgba(255,255,255,.15);
-
-    margin-bottom: 35px;
+        0 4px 20px rgba(0,0,0,.9),
+        0 0 30px rgba(210,174,104,.3);
 }
 
-.subtitulo {
-
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: clamp(27px, 6vw, 40px);
-
-    font-weight: 600;
-
-    line-height: 1.3;
-
-    letter-spacing: 2px;
-}
-
-.texto {
-
-    max-width: 720px;
-
-    margin: auto;
-
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: clamp(21px, 4.8vw, 28px);
-
-    font-weight: 500;
-
-    line-height: 1.75;
-
-    color: #eeeeee;
-}
-
-/* =====================================================
-   DECORACIONES
-===================================================== */
-
-.decoracion {
-
-    color: var(--dorado-claro);
-
-    font-size: 23px;
-
-    letter-spacing: 8px;
-
-    margin-bottom: 30px;
-
-    text-shadow:
-        0 0 15px rgba(210,174,104,.7);
-}
 
 /* =====================================================
    PRESENTACIÓN
@@ -387,25 +401,46 @@ body {
     flex-direction: column;
 }
 
-.presentacion h2 {
+.decoracion {
+
+    color: var(--dorado-claro);
+
+    font-size: 22px;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 0 15px rgba(210,174,104,.7);
+}
+
+.titulo {
 
     font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(55px, 12vw, 90px);
+    font-size: clamp(58px, 13vw, 105px);
 
     font-weight: 600;
 
+    line-height: .92;
+
     letter-spacing: 1px;
+
+    color: white;
 
     margin-bottom: 35px;
 
     text-shadow:
-        0 0 25px rgba(255,255,255,.12);
+        0 2px 18px rgba(0,0,0,.7),
+        0 0 20px rgba(255,255,255,.12);
 }
 
 .presentacion p {
 
-    max-width: 700px;
+    max-width: 720px;
+
+    margin: auto;
 
     font-family: "Cormorant Garamond", serif;
 
@@ -418,8 +453,9 @@ body {
     color: #ededed;
 }
 
+
 /* =====================================================
-   FOTOS
+   FOTO 2
 ===================================================== */
 
 .foto-escena {
@@ -431,13 +467,14 @@ body {
 
 .foto-escena img {
 
-    width: 100%;
+    position: absolute;
 
-    height: 100vh;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
 
     object-fit: cover;
-
-    display: block;
 }
 
 .foto-escena::after {
@@ -453,7 +490,7 @@ body {
             to bottom,
             rgba(0,0,0,.05),
             rgba(0,0,0,.15),
-            rgba(0,0,0,.70)
+            rgba(0,0,0,.72)
         );
 }
 
@@ -465,11 +502,7 @@ body {
 
     bottom: 12%;
 
-    left: 50%;
-
     width: 90%;
-
-    transform: translateX(-50%);
 
     font-family: "Great Vibes", cursive;
 
@@ -486,6 +519,7 @@ body {
         0 0 25px rgba(210,174,104,.35);
 }
 
+
 /* =====================================================
    FECHA
 ===================================================== */
@@ -496,7 +530,7 @@ body {
         radial-gradient(
             circle at center,
             #171717 0%,
-            #000 65%
+            #000 68%
         );
 
     flex-direction: column;
@@ -511,8 +545,6 @@ body {
     font-weight: 500;
 
     line-height: .75;
-
-    letter-spacing: -5px;
 }
 
 .fecha-mes {
@@ -542,8 +574,9 @@ body {
     letter-spacing: 7px;
 }
 
+
 /* =====================================================
-   CUENTA REGRESIVA
+   CUENTA
 ===================================================== */
 
 .countdown {
@@ -572,7 +605,6 @@ body {
 }
 
 .unidad {
-
     width: 100px;
 }
 
@@ -587,8 +619,6 @@ body {
 
 .etiqueta {
 
-    font-family: "Montserrat", sans-serif;
-
     font-size: 9px;
 
     font-weight: 600;
@@ -599,6 +629,7 @@ body {
 
     text-transform: uppercase;
 }
+
 
 /* =====================================================
    CALENDARIO
@@ -678,6 +709,7 @@ body {
     font-weight: 700;
 }
 
+
 /* =====================================================
    UBICACIÓN
 ===================================================== */
@@ -698,15 +730,32 @@ body {
     margin-bottom: 30px;
 }
 
-.direccion {
+.subtitulo {
 
     font-family: "Cormorant Garamond", serif;
 
-    font-size: clamp(35px, 8vw, 55px);
+    font-size: clamp(30px, 7vw, 45px);
 
     font-weight: 600;
 
-    margin: 25px 0;
+    letter-spacing: 2px;
+}
+
+.texto {
+
+    max-width: 700px;
+
+    margin: auto;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(21px, 4.8vw, 28px);
+
+    font-weight: 500;
+
+    line-height: 1.75;
+
+    color: #ededed;
 }
 
 .boton {
@@ -722,8 +771,6 @@ body {
     padding: 16px 30px;
 
     margin-top: 25px;
-
-    font-family: "Montserrat", sans-serif;
 
     font-size: 10px;
 
@@ -748,6 +795,7 @@ body {
         0 0 25px rgba(210,174,104,.4);
 }
 
+
 /* =====================================================
    DRESS CODE
 ===================================================== */
@@ -770,8 +818,6 @@ body {
 
     font-size: clamp(65px, 15vw, 115px);
 
-    font-weight: 400;
-
     color: var(--dorado-claro);
 
     margin: 30px 0;
@@ -779,6 +825,7 @@ body {
     text-shadow:
         0 0 30px rgba(210,174,104,.4);
 }
+
 
 /* =====================================================
    MENSAJE
@@ -811,6 +858,7 @@ body {
     font-weight: 600;
 }
 
+
 /* =====================================================
    REGALO
 ===================================================== */
@@ -835,10 +883,8 @@ body {
     color: var(--dorado-claro);
 
     margin: 30px 0 15px;
-
-    text-shadow:
-        0 0 20px rgba(210,174,104,.3);
 }
+
 
 /* =====================================================
    CANCIÓN
@@ -877,9 +923,9 @@ body {
 }
 
 .cancion input::placeholder {
-
     color: #777;
 }
+
 
 /* =====================================================
    CONFIRMACIÓN
@@ -912,53 +958,9 @@ body {
     color: #ddd;
 }
 
-/* =====================================================
-   VERSÍCULO
-===================================================== */
-
-.versiculo {
-
-    background: #000;
-
-    flex-direction: column;
-}
-
-.versiculo blockquote {
-
-    max-width: 800px;
-
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: clamp(32px, 7vw, 49px);
-
-    font-weight: 500;
-
-    font-style: italic;
-
-    line-height: 1.5;
-}
-
-.versiculo cite {
-
-    display: block;
-
-    margin-top: 35px;
-
-    color: var(--dorado-claro);
-
-    font-family: "Montserrat", sans-serif;
-
-    font-size: 11px;
-
-    font-weight: 600;
-
-    letter-spacing: 4px;
-
-    font-style: normal;
-}
 
 /* =====================================================
-   FINAL
+   FOTO FINAL
 ===================================================== */
 
 .final {
@@ -967,7 +969,7 @@ body {
 
     background:
         linear-gradient(
-            rgba(0,0,0,.35),
+            rgba(0,0,0,.28),
             rgba(0,0,0,.78)
         ),
         url("./IMG-20260921-WA0222.jpg")
@@ -1026,15 +1028,16 @@ body {
     margin-top: 20px;
 }
 
+
 /* =====================================================
-   ANIMACIONES AL ENTRAR
+   ANIMACIONES
 ===================================================== */
 
 .revelar {
 
     opacity: 0;
 
-    transform: translateY(45px);
+    transform: translateY(40px);
 
     transition:
         opacity 1.5s ease,
@@ -1047,6 +1050,7 @@ body {
 
     transform: translateY(0);
 }
+
 
 /* =====================================================
    MÚSICA
@@ -1094,10 +1098,8 @@ body {
     font-size: 18px;
 
     cursor: pointer;
-
-    box-shadow:
-        0 0 18px rgba(210,174,104,.2);
 }
+
 
 /* =====================================================
    CELULAR
@@ -1105,17 +1107,13 @@ body {
 
 @media (max-width: 600px) {
 
-    .escena {
-        padding: 55px 20px;
-    }
-
     .espacio {
-        height: 12vh;
-        min-height: 75px;
+        height: 8vh;
+        min-height: 60px;
     }
 
     .titulo-portada {
-        font-size: 75px;
+        font-size: 76px;
     }
 
     .fecha-portada {
@@ -1138,20 +1136,17 @@ body {
         bottom: 10%;
     }
 
-}
+    .nos-casamos {
+        bottom: 10%;
+    }
 
-/* =====================================================
-   VIDEO OCULTO
-===================================================== */
-
-iframe {
-    border: none;
 }
 
 </style>
 </head>
 
 <body>
+
 
 <!-- =====================================================
      BRILLOS
@@ -1207,27 +1202,25 @@ iframe {
 
 
 <!-- =====================================================
-     ¡NOS CASAMOS!
+     FOTO + ¡NOS CASAMOS!
+     TODO JUNTO EN UNA PANTALLA
 ===================================================== -->
 
-<section class="escena presentacion">
+<section class="escena foto-nos-casamos">
 
-    <div class="revelar">
+    <img
+        src="./IMG-20260921-WA0220.jpg"
+        alt="Uriel y Marianella">
 
-        <div class="decoracion">
-            ✦　♡　✦
+    <div class="nos-casamos">
+
+        <div class="pequeno">
+            Una nueva historia comienza
         </div>
 
         <h2>
             ¡Nos casamos!
         </h2>
-
-        <p>
-            Después de compartir tantos momentos,
-            sueños y proyectos, decidimos dar un
-            nuevo paso juntos y comenzar una nueva
-            etapa de nuestra historia.
-        </p>
 
     </div>
 
@@ -1245,43 +1238,28 @@ iframe {
 
     <div class="revelar">
 
+        <div class="decoracion">
+            ✦　♡　✦
+        </div>
+
         <div class="titulo">
             Queremos invitarte
         </div>
 
         <p>
-            A celebrar con nosotros uno de los días
-            más importantes de nuestras vidas.
+            Después de compartir tantos momentos,
+            sueños y proyectos, decidimos dar un
+            nuevo paso juntos.
         </p>
 
         <br>
 
         <p>
-            Nos haría muy felices compartir nuestro
-            casamiento con las personas que queremos
-            y que seas parte de este momento tan especial.
+            Queremos invitarte a nuestro casamiento
+            y nos haría muy felices que seas parte
+            de este día tan especial.
         </p>
 
-    </div>
-
-</section>
-
-
-<div class="espacio"></div>
-
-
-<!-- =====================================================
-     FOTO 1
-===================================================== -->
-
-<section class="escena foto-escena">
-
-    <img
-        src="./IMG-20260921-WA0220.jpg"
-        alt="Uriel y Marianella">
-
-    <div class="frase-foto">
-        Un amor para toda la vida
     </div>
 
 </section>
@@ -1337,62 +1315,23 @@ iframe {
         <div class="reloj">
 
             <div class="unidad">
-
-                <div
-                    class="numero"
-                    id="dias">
-                    0
-                </div>
-
-                <div class="etiqueta">
-                    Días
-                </div>
-
+                <div class="numero" id="dias">0</div>
+                <div class="etiqueta">Días</div>
             </div>
 
-
             <div class="unidad">
-
-                <div
-                    class="numero"
-                    id="horas">
-                    0
-                </div>
-
-                <div class="etiqueta">
-                    Horas
-                </div>
-
+                <div class="numero" id="horas">0</div>
+                <div class="etiqueta">Horas</div>
             </div>
 
-
             <div class="unidad">
-
-                <div
-                    class="numero"
-                    id="minutos">
-                    0
-                </div>
-
-                <div class="etiqueta">
-                    Minutos
-                </div>
-
+                <div class="numero" id="minutos">0</div>
+                <div class="etiqueta">Minutos</div>
             </div>
 
-
             <div class="unidad">
-
-                <div
-                    class="numero"
-                    id="segundos">
-                    0
-                </div>
-
-                <div class="etiqueta">
-                    Segundos
-                </div>
-
+                <div class="numero" id="segundos">0</div>
+                <div class="etiqueta">Segundos</div>
             </div>
 
         </div>
@@ -1436,7 +1375,6 @@ iframe {
                 <span></span>
                 <span></span>
                 <span></span>
-
                 <span>1</span>
                 <span>2</span>
                 <span>3</span>
@@ -1746,7 +1684,7 @@ iframe {
 
 <section class="escena final">
 
-    <div class="final-contenido revelar">
+    <div class="final-contenido">
 
         <div class="decoracion">
             ✦　♡　✦
@@ -1779,13 +1717,10 @@ iframe {
     allow="autoplay">
 </iframe>
 
-
 <button
     class="musica"
     onclick="activarMusica()">
-
     ♪
-
 </button>
 
 
@@ -1803,12 +1738,11 @@ function descubrir() {
     setTimeout(function() {
 
         window.scrollTo({
-            top: window.innerHeight,
+            top: window.innerHeight + 70,
             behavior: "smooth"
         });
 
     }, 300);
-
 }
 
 
@@ -1844,11 +1778,8 @@ function actualizarCuenta() {
     if (diferencia <= 0) {
 
         document.getElementById("dias").innerHTML = "0";
-
         document.getElementById("horas").innerHTML = "0";
-
         document.getElementById("minutos").innerHTML = "0";
-
         document.getElementById("segundos").innerHTML = "0";
 
         return;
@@ -1861,7 +1792,6 @@ function actualizarCuenta() {
             (1000 * 60 * 60 * 24)
         );
 
-
     const horas =
         Math.floor(
             (diferencia %
@@ -1869,14 +1799,12 @@ function actualizarCuenta() {
             (1000 * 60 * 60)
         );
 
-
     const minutos =
         Math.floor(
             (diferencia %
             (1000 * 60 * 60)) /
             (1000 * 60)
         );
-
 
     const segundos =
         Math.floor(
@@ -1886,18 +1814,10 @@ function actualizarCuenta() {
         );
 
 
-    document.getElementById("dias").innerHTML =
-        dias;
-
-    document.getElementById("horas").innerHTML =
-        horas;
-
-    document.getElementById("minutos").innerHTML =
-        minutos;
-
-    document.getElementById("segundos").innerHTML =
-        segundos;
-
+    document.getElementById("dias").innerHTML = dias;
+    document.getElementById("horas").innerHTML = horas;
+    document.getElementById("minutos").innerHTML = minutos;
+    document.getElementById("segundos").innerHTML = segundos;
 }
 
 
@@ -1910,7 +1830,7 @@ setInterval(
 
 
 /* =====================================================
-   EFECTO DE ENTRADA
+   ANIMACIÓN DE SECCIONES
 ===================================================== */
 
 const elementos =
@@ -1957,7 +1877,7 @@ elementos.forEach(
 
 
 /* =====================================================
-   ENVIAR CANCIÓN POR WHATSAPP
+   ENVIAR CANCIÓN
 ===================================================== */
 
 function enviarCancion() {
@@ -1994,7 +1914,6 @@ function enviarCancion() {
         url,
         "_blank"
     );
-
 }
 
 </script>
