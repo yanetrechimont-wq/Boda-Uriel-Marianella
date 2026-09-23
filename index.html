@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Uriel & Marianella | Nuestra boda</title>
+<title>Uriel & Marianella</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -20,7 +21,7 @@ html{
 body{
     background:#080808;
     color:#fff;
-    font-family:Georgia, "Times New Roman", serif;
+    font-family:Georgia,"Times New Roman",serif;
     overflow-x:hidden;
 }
 
@@ -36,10 +37,19 @@ body{
     align-items:center;
     justify-content:center;
     text-align:center;
-    background:
-        radial-gradient(circle at center, #292929 0%, #101010 42%, #030303 100%);
-    transition:opacity 1.5s ease, visibility 1.5s ease;
     overflow:hidden;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.38),
+            rgba(0,0,0,.78)
+        ),
+        url("./0993add98076d101899f792ec6d2d550.jpg")
+        center center / cover no-repeat;
+
+    transition:
+        opacity 1.3s ease,
+        visibility 1.3s ease;
 }
 
 .cover.hide{
@@ -48,131 +58,107 @@ body{
     pointer-events:none;
 }
 
-.cover::before,
+.cover::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid rgba(218,194,133,.65);
+    pointer-events:none;
+}
+
 .cover::after{
     content:"";
     position:absolute;
-    border:1px solid rgba(255,255,255,.22);
-    border-radius:50%;
-    animation:expand 7s infinite;
-}
-
-.cover::before{
-    width:420px;
-    height:420px;
-}
-
-.cover::after{
-    width:650px;
-    height:650px;
-    animation-delay:2s;
-}
-
-@keyframes expand{
-    0%{
-        transform:scale(.7);
-        opacity:0;
-    }
-    35%{
-        opacity:.5;
-    }
-    100%{
-        transform:scale(1.2);
-        opacity:0;
-    }
+    inset:30px;
+    border:1px solid rgba(255,255,255,.18);
+    pointer-events:none;
 }
 
 .cover-content{
     position:relative;
-    z-index:5;
-    padding:30px;
-    animation:appear 2s ease;
+    z-index:3;
+    width:90%;
+    max-width:700px;
+    padding:30px 20px;
+
+    animation:portadaEntrada 1.8s ease forwards;
 }
 
-@keyframes appear{
+@keyframes portadaEntrada{
     from{
         opacity:0;
-        transform:translateY(30px);
+        transform:translateY(25px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
-/* pareja */
+.gold-line{
+    width:90px;
+    height:1px;
+    margin:0 auto 20px;
 
-.couple{
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    gap:14px;
-    margin-bottom:22px;
-    font-size:72px;
-    filter:grayscale(1);
-    animation:floatCouple 4s ease-in-out infinite;
-}
-
-@keyframes floatCouple{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-8px);
-    }
-}
-
-.ornament{
-    font-size:15px;
-    letter-spacing:7px;
-    color:#d8c9a0;
-    margin-bottom:20px;
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #d8bd7a,
+            transparent
+        );
 }
 
 .small-title{
-    font-size:12px;
+    font-size:10px;
     letter-spacing:5px;
-    color:#ddd;
-    margin-bottom:20px;
+    color:#e1d4b5;
+    margin-bottom:18px;
 }
 
 .cover h1{
-    font-size:clamp(42px,12vw,85px);
+    font-size:clamp(42px,11vw,78px);
     font-weight:normal;
-    letter-spacing:3px;
-    line-height:1;
+    letter-spacing:2px;
+    line-height:1.05;
+    text-shadow:0 5px 30px rgba(0,0,0,.8);
 }
 
 .cover .amp{
-    font-size:.55em;
+    color:#d8bd7a;
     font-style:italic;
-    color:#d8c9a0;
 }
 
 .cover-date{
     margin-top:22px;
-    font-size:17px;
-    letter-spacing:7px;
-    color:#ddd;
+    font-size:14px;
+    letter-spacing:6px;
+    color:#eee;
 }
 
 .discover{
-    margin-top:35px;
-    padding:15px 34px;
-    border:1px solid rgba(255,255,255,.65);
-    background:transparent;
+    margin-top:30px;
+    padding:13px 32px;
+
+    background:rgba(0,0,0,.35);
     color:#fff;
+
+    border:1px solid #d8bd7a;
+
+    font-family:inherit;
+    font-size:10px;
     letter-spacing:4px;
-    font-size:11px;
+
     cursor:pointer;
     transition:.4s;
 }
 
 .discover:hover{
-    background:#fff;
+    background:#d8bd7a;
     color:#000;
-    box-shadow:0 0 30px rgba(255,255,255,.3);
 }
+
 
 /* =========================
    CONTENIDO
@@ -183,94 +169,125 @@ main{
 }
 
 .section{
-    min-height:100vh;
-    padding:90px 22px;
+    position:relative;
+
+    min-height:auto;
+
+    padding:65px 20px;
+
     display:flex;
     flex-direction:column;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
+
     text-align:center;
-    position:relative;
 }
 
 .section::after{
     content:"";
+
     position:absolute;
-    bottom:20px;
-    width:70px;
+    bottom:0;
+
+    width:80px;
     height:1px;
-    background:linear-gradient(to right,transparent,#d8c9a0,transparent);
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #d8bd7a,
+            transparent
+        );
 }
 
 .kicker{
-    font-size:11px;
-    letter-spacing:5px;
-    color:#cdbf9a;
-    margin-bottom:18px;
+    font-size:9px;
+    letter-spacing:4px;
+    color:#d8bd7a;
+    margin-bottom:15px;
 }
 
 .main-names{
-    font-size:clamp(35px,9vw,70px);
+    font-size:clamp(32px,8vw,60px);
     font-weight:normal;
     line-height:1.1;
 }
 
 .and{
-    color:#d8c9a0;
+    color:#d8bd7a;
     font-style:italic;
     font-size:.6em;
-    margin:10px 0;
+    margin:5px 0;
 }
 
 .text{
-    max-width:600px;
-    margin-top:25px;
-    color:#d2d2d2;
-    font-size:17px;
-    line-height:1.8;
+    max-width:570px;
+
+    margin-top:18px;
+
+    color:#cfcfcf;
+
+    font-size:15px;
+    line-height:1.7;
 }
+
 
 /* =========================
    FOTOS
 ========================= */
 
 .photo{
-    width:min(90%,600px);
-    margin:0 auto 45px;
-    overflow:hidden;
-    border:1px solid rgba(216,201,160,.55);
-    padding:8px;
-    background:#111;
+    width:min(92%,580px);
+
+    margin-bottom:30px;
+
+    padding:6px;
+
+    background:#0d0d0d;
+
+    border:1px solid rgba(216,189,122,.55);
+
     box-shadow:
-        0 20px 60px rgba(0,0,0,.7),
-        0 0 35px rgba(216,201,160,.08);
+        0 15px 45px rgba(0,0,0,.55);
 }
 
 .photo img{
     display:block;
+
     width:100%;
     height:auto;
+
     object-fit:cover;
 }
+
 
 /* =========================
    MENSAJE
 ========================= */
 
 .message{
-    max-width:650px;
-    font-size:25px;
-    line-height:1.7;
+    max-width:580px;
+
+    font-size:21px;
+
+    line-height:1.6;
+
     font-style:italic;
-    color:#f0f0f0;
+
+    color:#eeeeee;
 }
 
 .quote{
-    margin-top:25px;
-    color:#bdbdbd;
-    font-size:14px;
+    margin-top:16px;
+
+    font-size:11px;
+
     letter-spacing:2px;
+
+    color:#aaa;
 }
+
 
 /* =========================
    CUENTA REGRESIVA
@@ -278,126 +295,334 @@ main{
 
 .countdown{
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
-    gap:10px;
-    width:min(95%,650px);
-    margin-top:40px;
+
+    gap:7px;
+
+    width:min(95%,600px);
+
+    margin-top:28px;
 }
 
 .time-box{
-    border:1px solid rgba(216,201,160,.4);
-    padding:20px 5px;
-    background:rgba(255,255,255,.025);
+    padding:15px 4px;
+
+    border-top:1px solid rgba(216,189,122,.5);
+    border-bottom:1px solid rgba(216,189,122,.2);
+
+    background:#101010;
 }
 
 .time-box span{
     display:block;
-    font-size:clamp(27px,7vw,45px);
-    color:#fff;
+
+    font-size:clamp(24px,6vw,40px);
 }
 
 .time-box small{
-    font-size:9px;
+    font-size:8px;
+
     letter-spacing:2px;
-    color:#cdbf9a;
+
+    color:#d8bd7a;
 }
+
 
 /* =========================
    FECHA
 ========================= */
 
 .date-big{
-    font-size:clamp(55px,14vw,100px);
-    color:#d8c9a0;
+    font-size:clamp(60px,15vw,100px);
+
+    line-height:.9;
+
+    color:#d8bd7a;
+
     font-weight:normal;
 }
 
 .date-line{
-    font-size:15px;
+    margin-top:10px;
+
+    font-size:13px;
+
     letter-spacing:4px;
-    margin-top:5px;
 }
+
 
 /* =========================
    CALENDARIO
 ========================= */
 
 .calendar{
-    width:min(95%,400px);
-    margin-top:35px;
-    border:1px solid rgba(255,255,255,.2);
-    padding:20px;
+    width:min(95%,380px);
+
+    margin-top:28px;
+
+    padding:18px;
+
+    border:1px solid rgba(216,189,122,.35);
 }
 
 .calendar h3{
     font-weight:normal;
-    letter-spacing:4px;
-    margin-bottom:18px;
-    color:#d8c9a0;
+
+    letter-spacing:3px;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+
+    color:#d8bd7a;
 }
 
 .days{
     display:grid;
+
     grid-template-columns:repeat(7,1fr);
-    gap:5px;
-    font-size:12px;
+
+    gap:3px;
+
+    font-size:11px;
 }
 
 .days div{
-    padding:8px 0;
+    padding:7px 0;
 }
 
 .week{
-    color:#aaa;
+    color:#999;
 }
 
 .selected{
-    background:#fff;
+    background:#d8bd7a;
+
     color:#000;
+
     border-radius:50%;
 }
+
 
 /* =========================
    UBICACIÓN
 ========================= */
 
 .location{
-    width:min(95%,650px);
-}
-
-.address{
-    font-size:24px;
-    margin:15px 0 25px;
+    width:min(95%,620px);
 }
 
 .map{
     width:100%;
-    height:320px;
-    border:0;
+
+    height:270px;
+
+    border:1px solid rgba(216,189,122,.45);
+
     filter:grayscale(1);
 }
 
+.maps-button{
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:12px 24px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border:1px solid #d8bd7a;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+}
+
+
 /* =========================
-   DATOS
+   INFORMACIÓN
 ========================= */
 
 .info-box{
-    width:min(95%,600px);
-    padding:35px 20px;
-    border-top:1px solid rgba(216,201,160,.35);
-    border-bottom:1px solid rgba(216,201,160,.35);
+    width:min(95%,560px);
+
+    padding:28px 20px;
+
+    border-top:1px solid rgba(216,189,122,.4);
+    border-bottom:1px solid rgba(216,189,122,.4);
 }
 
 .info-title{
-    color:#d8c9a0;
+    color:#d8bd7a;
+
     letter-spacing:4px;
-    font-size:12px;
-    margin-bottom:15px;
+
+    font-size:10px;
+
+    margin-bottom:12px;
 }
 
 .info-main{
-    font-size:27px;
+    font-size:25px;
 }
+
+
+/* =========================
+   REGALO
+========================= */
+
+.gift-box{
+    width:min(95%,560px);
+
+    padding:32px 22px;
+
+    border:1px solid rgba(216,189,122,.45);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(216,189,122,.07),
+            rgba(255,255,255,.02)
+        );
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.35);
+}
+
+.gift-icon{
+    font-size:28px;
+
+    color:#d8bd7a;
+
+    margin-bottom:15px;
+}
+
+.alias{
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:14px 25px;
+
+    border:1px solid #d8bd7a;
+
+    color:#fff;
+
+    font-size:20px;
+
+    letter-spacing:2px;
+
+    background:#0d0d0d;
+}
+
+.alias-label{
+    margin-top:10px;
+
+    color:#aaa;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================
+   CANCIÓN
+========================= */
+
+.song-box{
+    width:min(95%,560px);
+
+    padding:30px 20px;
+
+    border-top:1px solid rgba(216,189,122,.4);
+    border-bottom:1px solid rgba(216,189,122,.4);
+}
+
+.song-icon{
+    font-size:30px;
+
+    color:#d8bd7a;
+
+    margin-bottom:12px;
+}
+
+.song-title{
+    font-size:25px;
+
+    margin-bottom:10px;
+}
+
+.song-input{
+    width:100%;
+
+    margin-top:20px;
+
+    padding:13px 15px;
+
+    background:#111;
+
+    color:#fff;
+
+    border:1px solid rgba(216,189,122,.45);
+
+    outline:none;
+
+    font-family:inherit;
+
+    text-align:center;
+}
+
+.song-input::placeholder{
+    color:#888;
+}
+
+.song-buttons{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-top:15px;
+}
+
+.spotify-button,
+.song-send{
+    display:inline-block;
+
+    padding:12px 18px;
+
+    text-decoration:none;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    font-family:inherit;
+}
+
+.spotify-button{
+    border:1px solid #d8bd7a;
+
+    color:#fff;
+}
+
+.song-send{
+    background:#d8bd7a;
+
+    color:#000;
+
+    border:1px solid #d8bd7a;
+}
+
 
 /* =========================
    WHATSAPP
@@ -405,20 +630,115 @@ main{
 
 .whatsapp{
     display:inline-block;
-    margin-top:30px;
-    padding:16px 28px;
-    border:1px solid #fff;
+
+    margin-top:22px;
+
+    padding:13px 25px;
+
+    border:1px solid #d8bd7a;
+
     color:#fff;
+
     text-decoration:none;
+
     letter-spacing:2px;
-    font-size:12px;
+
+    font-size:10px;
+
     transition:.4s;
 }
 
 .whatsapp:hover{
-    background:#fff;
+    background:#d8bd7a;
+
     color:#000;
 }
+
+
+/* =========================
+   CIERRE
+========================= */
+
+.final{
+    position:relative;
+
+    min-height:70vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    overflow:hidden;
+}
+
+.final::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.48),
+            rgba(0,0,0,.82)
+        ),
+        url("./IMG-20260921-WA0222.jpg")
+        center / cover no-repeat;
+
+    filter:grayscale(.75);
+
+    transform:scale(1.03);
+}
+
+.final::after{
+    content:"";
+
+    position:absolute;
+
+    inset:18px;
+
+    border:1px solid rgba(216,189,122,.55);
+}
+
+.final-content{
+    position:relative;
+
+    z-index:2;
+
+    max-width:600px;
+}
+
+.final h2{
+    font-size:clamp(38px,9vw,70px);
+
+    font-weight:normal;
+}
+
+.final p{
+    margin-top:18px;
+
+    color:#ddd;
+
+    font-size:15px;
+
+    line-height:1.7;
+}
+
+.heart{
+    margin-top:22px;
+
+    color:#d8bd7a;
+
+    font-size:30px;
+}
+
 
 /* =========================
    MÚSICA
@@ -426,114 +746,57 @@ main{
 
 .music-player{
     position:fixed;
+
     width:1px;
     height:1px;
+
     opacity:0;
+
     pointer-events:none;
 }
 
-/* =========================
-   CIERRE
-========================= */
-
-.final{
-    min-height:100vh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:40px 20px;
-    overflow:hidden;
-}
-
-.final::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.85)),
-        url("./IMG-20260921-WA0222.jpg") center/cover no-repeat;
-    filter:grayscale(1);
-    transform:scale(1.05);
-}
-
-.final-content{
-    position:relative;
-    z-index:2;
-}
-
-.final h2{
-    font-size:clamp(40px,10vw,75px);
-    font-weight:normal;
-}
-
-.final p{
-    margin-top:20px;
-    color:#ddd;
-    font-size:17px;
-    line-height:1.7;
-}
-
-.final .heart{
-    margin-top:30px;
-    font-size:28px;
-    color:#d8c9a0;
-}
 
 /* =========================
-   ANIMACIONES
-========================= */
-
-.reveal{
-    animation:reveal 1.4s ease both;
-}
-
-@keyframes reveal{
-    from{
-        opacity:0;
-        transform:translateY(35px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-/* =========================
-   RESPONSIVE
+   MÓVIL
 ========================= */
 
 @media(max-width:600px){
 
-    .couple{
-        font-size:58px;
+    .cover::before{
+        inset:12px;
+    }
+
+    .cover::after{
+        inset:21px;
     }
 
     .section{
-        padding:75px 18px;
+        padding:50px 18px;
+    }
+
+    .photo{
+        margin-bottom:24px;
     }
 
     .message{
-        font-size:21px;
+        font-size:19px;
     }
 
     .map{
-        height:280px;
+        height:250px;
     }
 
-    .countdown{
-        gap:6px;
-    }
-
-    .time-box{
-        padding:16px 3px;
+    .final{
+        min-height:65vh;
     }
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      PORTADA
@@ -543,35 +806,41 @@ main{
 
     <div class="cover-content">
 
-        <div class="couple">
-            👰🏻‍♀️ 🤵🏻‍♂️
-        </div>
-
-        <div class="ornament">
-            ✦ ───────── ✦
-        </div>
+        <div class="gold-line"></div>
 
         <div class="small-title">
             UNA HISTORIA DE AMOR
         </div>
 
         <h1>
-            Uriel <span class="amp">&</span> Marianella
+            Uriel
+            <span class="amp">&</span>
+            Marianella
         </h1>
 
         <div class="cover-date">
             20 · 10 · 2026
         </div>
 
-        <button class="discover" onclick="abrirInvitacion()">
+        <button
+            class="discover"
+            onclick="abrirInvitacion()">
+
             DESCUBRIR
+
         </button>
 
     </div>
+
 </div>
 
-<!-- Música -->
+
+<!-- =========================
+     MÚSICA
+========================= -->
+
 <div class="music-player">
+
     <iframe
         id="music"
         width="1"
@@ -579,20 +848,25 @@ main{
         src=""
         allow="autoplay; encrypted-media">
     </iframe>
+
 </div>
 
+
 <main>
+
 
 <!-- =========================
      FOTO 1
 ========================= -->
 
-<section class="section reveal">
+<section class="section">
 
     <div class="photo">
+
         <img
             src="./IMG-20260921-WA0220.jpg"
             alt="Uriel y Marianella">
+
     </div>
 
     <div class="kicker">
@@ -600,15 +874,23 @@ main{
     </div>
 
     <div class="main-names">
+
         Uriel
-        <div class="and">&</div>
+
+        <div class="and">
+            &
+        </div>
+
         Marianella
+
     </div>
 
     <p class="text">
+
         Hay historias que simplemente suceden...
         y hay historias que Dios escribe con amor.
         Esta es la nuestra.
+
     </p>
 
 </section>
@@ -625,8 +907,10 @@ main{
     </div>
 
     <div class="message">
+
         “El amor no consiste en mirarse el uno al otro,
         sino en mirar juntos en la misma dirección.”
+
     </div>
 
     <div class="quote">
@@ -701,7 +985,9 @@ main{
 
     <div class="calendar">
 
-        <h3>OCTUBRE 2026</h3>
+        <h3>
+            OCTUBRE 2026
+        </h3>
 
         <div class="days">
 
@@ -753,6 +1039,7 @@ main{
             <div>31</div>
 
         </div>
+
     </div>
 
 </section>
@@ -775,8 +1062,8 @@ main{
         </div>
 
         <p class="text">
-            Te compartimos la ubicación para que puedas
-            llegar fácilmente.
+            Te compartimos la ubicación
+            para que puedas llegar fácilmente.
         </p>
 
         <iframe
@@ -786,10 +1073,12 @@ main{
         </iframe>
 
         <a
-            class="whatsapp"
+            class="maps-button"
             href="https://www.google.com/maps/search/?api=1&query=Carabelas+4170,+Buenos+Aires,+Argentina"
             target="_blank">
+
             ABRIR EN GOOGLE MAPS
+
         </a>
 
     </div>
@@ -804,9 +1093,11 @@ main{
 <section class="section">
 
     <div class="photo">
+
         <img
             src="./IMG-20260921-WA0221.jpg"
             alt="Uriel y Marianella">
+
     </div>
 
     <div class="kicker">
@@ -821,7 +1112,7 @@ main{
 
 
 <!-- =========================
-     VESTIMENTA
+     DRESS CODE
 ========================= -->
 
 <section class="section">
@@ -847,6 +1138,102 @@ main{
 
 
 <!-- =========================
+     REGALO
+========================= -->
+
+<section class="section">
+
+    <div class="gift-box">
+
+        <div class="gift-icon">
+            ♡
+        </div>
+
+        <div class="kicker">
+            REGALO PARA LOS NOVIOS
+        </div>
+
+        <div class="main-names">
+            Si deseás hacernos un regalo
+        </div>
+
+        <p class="text">
+            Podés hacerlo a través de nuestro alias.
+            Para nosotros, lo más importante es compartir
+            este día con vos.
+        </p>
+
+        <div class="alias">
+            León.44
+        </div>
+
+        <div class="alias-label">
+            ALIAS
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CANCIÓN
+========================= -->
+
+<section class="section">
+
+    <div class="song-box">
+
+        <div class="song-icon">
+            ♪
+        </div>
+
+        <div class="kicker">
+            ELEGÍ NUESTRA CANCIÓN
+        </div>
+
+        <div class="song-title">
+            ¿Qué canción bailamos?
+        </div>
+
+        <p class="text">
+            Elegí una canción en Spotify que te gustaría
+            que bailemos esa noche y mandanos tu propuesta.
+        </p>
+
+        <a
+            class="spotify-button"
+            href="https://open.spotify.com/"
+            target="_blank">
+
+            ABRIR SPOTIFY
+
+        </a>
+
+        <input
+            class="song-input"
+            id="songInput"
+            type="text"
+            placeholder="Nombre de la canción y artista">
+
+        <div class="song-buttons">
+
+            <button
+                class="song-send"
+                onclick="enviarCancion()">
+
+                ENVIAR CANCIÓN
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
      CONFIRMACIÓN
 ========================= -->
 
@@ -861,22 +1248,24 @@ main{
     </div>
 
     <p class="text">
-        Tu presencia hará que este día sea todavía
-        más especial para nosotros.
+        Tu presencia hará que este día
+        sea todavía más especial para nosotros.
     </p>
 
     <a
         class="whatsapp"
         href="https://wa.me/541136088939?text=Hola%20Uriel%20y%20Marianella%2C%20quiero%20confirmar%20mi%20asistencia%20a%20su%20boda."
         target="_blank">
+
         CONFIRMAR POR WHATSAPP
+
     </a>
 
 </section>
 
 
 <!-- =========================
-     FOTO 3 + CIERRE
+     FOTO 3 / CIERRE
 ========================= -->
 
 <section class="final">
@@ -900,13 +1289,12 @@ main{
             ♡
         </div>
 
-        <div class="ornament">
-            ✦ ─────── ✦
-        </div>
+        <div class="gold-line"></div>
 
     </div>
 
 </section>
+
 
 </main>
 
@@ -919,21 +1307,16 @@ main{
 
 function abrirInvitacion(){
 
-    const cover = document.getElementById("cover");
+    const cover =
+        document.getElementById("cover");
 
-    const music = document.getElementById("music");
+    const music =
+        document.getElementById("music");
 
     music.src =
         "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
 
     cover.classList.add("hide");
-
-    setTimeout(function(){
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-    },300);
 }
 
 
@@ -942,13 +1325,19 @@ function abrirInvitacion(){
 ========================= */
 
 const fechaBoda =
-    new Date("2026-10-20T13:00:00-03:00").getTime();
+    new Date(
+        "2026-10-20T13:00:00-03:00"
+    ).getTime();
+
 
 function actualizarCuenta(){
 
-    const ahora = new Date().getTime();
+    const ahora =
+        new Date().getTime();
 
-    const diferencia = fechaBoda - ahora;
+    const diferencia =
+        fechaBoda - ahora;
+
 
     if(diferencia <= 0){
 
@@ -960,36 +1349,89 @@ function actualizarCuenta(){
         return;
     }
 
+
     const dias =
-        Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        Math.floor(
+            diferencia /
+            (1000 * 60 * 60 * 24)
+        );
+
 
     const horas =
         Math.floor(
-            (diferencia % (1000 * 60 * 60 * 24))
-            / (1000 * 60 * 60)
+            (diferencia %
+            (1000 * 60 * 60 * 24))
+            /
+            (1000 * 60 * 60)
         );
+
 
     const minutos =
         Math.floor(
-            (diferencia % (1000 * 60 * 60))
-            / (1000 * 60)
+            (diferencia %
+            (1000 * 60 * 60))
+            /
+            (1000 * 60)
         );
+
 
     const segundos =
         Math.floor(
-            (diferencia % (1000 * 60))
-            / 1000
+            (diferencia %
+            (1000 * 60))
+            /
+            1000
         );
 
-    document.getElementById("days").innerText = dias;
-    document.getElementById("hours").innerText = horas;
-    document.getElementById("minutes").innerText = minutos;
-    document.getElementById("seconds").innerText = segundos;
+
+    document.getElementById("days")
+        .innerText = dias;
+
+    document.getElementById("hours")
+        .innerText = horas;
+
+    document.getElementById("minutes")
+        .innerText = minutos;
+
+    document.getElementById("seconds")
+        .innerText = segundos;
 }
+
 
 actualizarCuenta();
 
-setInterval(actualizarCuenta,1000);
+setInterval(
+    actualizarCuenta,
+    1000
+);
+
+
+/* =========================
+   ENVIAR CANCIÓN
+========================= */
+
+function enviarCancion(){
+
+    const cancion =
+        document.getElementById("songInput").value.trim();
+
+    if(!cancion){
+
+        alert("Escribí el nombre de la canción primero ❤️");
+
+        return;
+    }
+
+    const mensaje =
+        "Hola Uriel y Marianella ❤️ Quiero proponerles esta canción para bailar esa noche: " +
+        cancion;
+
+    const url =
+        "https://wa.me/541136088939?text=" +
+        encodeURIComponent(mensaje);
+
+    window.open(url,"_blank");
+}
 
 </script>
 
