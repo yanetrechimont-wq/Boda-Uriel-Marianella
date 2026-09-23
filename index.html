@@ -4,670 +4,750 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Uriel & Marianella | 20.10.2026</title>
+<title>Uriel & Marianella | 20 · 10 · 2026</title>
+
+<!-- Tipografías elegantes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-  scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-  background:#000;
-  color:#fff;
-  font-family:Georgia,"Times New Roman",serif;
-  overflow-x:hidden;
+body {
+    background: #000;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
 }
 
 /* =========================
    COLORES
 ========================= */
 
-:root{
-  --dorado:#c8b27a;
-  --dorado-claro:#e2d2a4;
-  --dorado-oscuro:#8f7b4e;
-  --negro:#000;
-  --blanco:#fff;
-  --gris:#d7d7d7;
+:root {
+    --blanco: #ffffff;
+    --negro: #000000;
+    --dorado: #b08d45;
+    --dorado-claro: #d4af6a;
+    --gris: #cfcfcf;
 }
 
 /* =========================
-   PORTADA
+   EFECTO DE BRILLO
 ========================= */
 
-#portada{
-  position:fixed;
-  inset:0;
-  width:100%;
-  height:100vh;
-  z-index:9999;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-
-  background:
-    linear-gradient(
-      rgba(0,0,0,.35),
-      rgba(0,0,0,.70)
-    ),
-    url("./0993add98076d101899f792ec6d2d550.jpg")
-    center/cover no-repeat;
-
-  transition:
-    opacity 1.2s ease,
-    visibility 1.2s ease;
+.brillos {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    overflow: hidden;
 }
 
-#portada.oculta{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
+.brillo {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow:
+        0 0 5px #fff,
+        0 0 12px var(--dorado-claro),
+        0 0 22px var(--dorado);
+    opacity: 0;
+    animation: aparecer 5s infinite ease-in-out;
 }
 
-.portada-contenido{
-  width:90%;
-  max-width:650px;
-  animation:entrada 2s ease;
+.brillo:nth-child(1) {
+    left: 10%;
+    top: 20%;
+    animation-delay: 1s;
 }
 
-.portada-pequeno{
-  font-size:14px;
-  letter-spacing:6px;
-  text-transform:uppercase;
-  color:var(--dorado-claro);
-  margin-bottom:20px;
+.brillo:nth-child(2) {
+    left: 25%;
+    top: 70%;
+    animation-delay: 3s;
 }
 
-.linea{
-  width:90px;
-  height:1px;
-  margin:18px auto;
-  background:var(--dorado);
+.brillo:nth-child(3) {
+    left: 45%;
+    top: 35%;
+    animation-delay: 2s;
 }
 
-.portada-contenido h1{
-  font-size:clamp(43px,11vw,76px);
-  font-weight:normal;
-  letter-spacing:4px;
-  color:#fff;
+.brillo:nth-child(4) {
+    left: 70%;
+    top: 18%;
+    animation-delay: 4s;
 }
 
-.portada-fecha{
-  color:var(--dorado-claro);
-  font-size:17px;
-  letter-spacing:6px;
-  margin-top:18px;
+.brillo:nth-child(5) {
+    left: 85%;
+    top: 65%;
+    animation-delay: 1.5s;
 }
 
-.boton{
-  margin-top:35px;
-  padding:14px 34px;
-  border:1px solid var(--dorado);
-  background:rgba(0,0,0,.45);
-  color:var(--dorado-claro);
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:12px;
-  letter-spacing:4px;
-  cursor:pointer;
-  transition:.4s;
+.brillo:nth-child(6) {
+    left: 55%;
+    top: 85%;
+    animation-delay: 3.5s;
 }
 
-.boton:hover{
-  background:var(--dorado);
-  color:#000;
-}
+@keyframes aparecer {
+    0%,100% {
+        opacity: 0;
+        transform: scale(.3) translateY(20px);
+    }
 
-/* =========================
-   ESPACIO NEGRO
-========================= */
+    40% {
+        opacity: 1;
+        transform: scale(1.5) translateY(0);
+    }
 
-.separador{
-  height:110px;
-  background:#000;
+    70% {
+        opacity: .3;
+        transform: scale(.7) translateY(-20px);
+    }
 }
 
 /* =========================
    SECCIONES
 ========================= */
 
-.seccion{
-  position:relative;
-  padding:65px 20px;
-  text-align:center;
-  background:#050505;
-
-  border-top:1px solid rgba(200,178,122,.25);
-  border-bottom:1px solid rgba(200,178,122,.12);
+.escena {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 25px;
+    overflow: hidden;
 }
 
-.seccion h2{
-  color:var(--dorado-claro);
-  font-size:28px;
-  font-weight:normal;
-  letter-spacing:2px;
-  margin-bottom:22px;
-}
-
-.seccion p{
-  color:var(--gris);
-  font-size:16px;
-  line-height:1.8;
+/* Mucho espacio negro entre escenas */
+.espacio {
+    height: 14vh;
+    min-height: 80px;
+    background: #000;
 }
 
 /* =========================
-   NOS CASAMOS
+   PORTADA
 ========================= */
 
-.nos-casamos{
-  background:#000;
-  padding:95px 20px 90px;
+.portada {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(0,0,0,.40),
+            rgba(0,0,0,.70)
+        ),
+        url("./0993add98076d101899f792ec6d2d550.jpg") center center / cover no-repeat;
+
+    flex-direction: column;
 }
 
-.nos-casamos .pequeno{
-  color:var(--dorado);
-  font-size:13px;
-  letter-spacing:5px;
-  text-transform:uppercase;
-  margin-bottom:20px;
+.portada::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 25%,
+            rgba(0,0,0,.45) 100%
+        );
 }
 
-.nos-casamos h2{
-  color:#fff;
-  font-size:clamp(38px,10vw,62px);
-  letter-spacing:4px;
-  margin-bottom:20px;
+.contenido-portada {
+    position: relative;
+    z-index: 2;
+    animation: entrada 2.2s ease forwards;
 }
 
-.nos-casamos .frase{
-  max-width:500px;
-  margin:auto;
-  color:#d7d7d7;
-  font-style:italic;
-  font-size:17px;
+@keyframes entrada {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eyebrow {
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.titulo-portada {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(65px, 15vw, 125px);
+    font-weight: 400;
+    line-height: .9;
+    color: white;
+    text-shadow:
+        0 0 15px rgba(255,255,255,.25),
+        0 0 30px rgba(212,175,106,.2);
+}
+
+.nombres {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(30px, 7vw, 55px);
+    letter-spacing: 5px;
+    margin-top: 28px;
+}
+
+.fecha-portada {
+    margin-top: 18px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    letter-spacing: 8px;
+    color: var(--dorado-claro);
+}
+
+.boton-descubrir {
+    margin-top: 50px;
+    background: transparent;
+    color: white;
+    border: 1px solid var(--dorado-claro);
+    padding: 15px 35px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.boton-descubrir:hover {
+    background: var(--dorado-claro);
+    color: #000;
+    box-shadow: 0 0 30px rgba(212,175,106,.5);
+}
+
+/* =========================
+   TITULOS
+========================= */
+
+.titulo {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(55px, 12vw, 100px);
+    font-weight: 400;
+    color: white;
+    line-height: 1;
+    margin-bottom: 30px;
+}
+
+.subtitulo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(22px, 5vw, 32px);
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.texto {
+    max-width: 700px;
+    font-size: 15px;
+    line-height: 2;
+    color: #ddd;
+    font-weight: 300;
+}
+
+/* =========================
+   PRESENTACIÓN
+========================= */
+
+.presentacion {
+    background: #000;
+    flex-direction: column;
+}
+
+.presentacion .decoracion {
+    margin-bottom: 35px;
+}
+
+.decoracion {
+    color: var(--dorado-claro);
+    font-size: 22px;
+    letter-spacing: 8px;
+}
+
+.presentacion h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(35px, 8vw, 65px);
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.presentacion p {
+    max-width: 650px;
+    line-height: 2;
+    font-size: 16px;
+    color: #d8d8d8;
 }
 
 /* =========================
    FOTOS
 ========================= */
 
-.foto{
-  width:100%;
-  max-width:720px;
-  margin:auto;
-  border:1px solid var(--dorado);
-  padding:5px;
-  background:#000;
-  box-shadow:
-    0 0 25px rgba(200,178,122,.10);
+.foto-escena {
+    padding: 0;
+    min-height: 100vh;
 }
 
-.foto img{
-  display:block;
-  width:100%;
-  height:auto;
+.foto-escena img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
 }
 
-/* =========================
-   NOMBRES
-========================= */
-
-.nombres{
-  background:#000;
-  padding:95px 20px;
+.foto-escena::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.1),
+        rgba(0,0,0,.25),
+        rgba(0,0,0,.65)
+    );
+    pointer-events: none;
 }
 
-.nombres h2{
-  color:#fff;
-  font-size:clamp(40px,11vw,68px);
-  font-weight:normal;
-  letter-spacing:3px;
-  line-height:1.15;
-}
-
-.ampersand{
-  color:var(--dorado);
-  font-size:38px;
-  margin:10px 0;
-}
-
-.nombres p{
-  max-width:520px;
-  margin:auto;
+.frase-foto {
+    position: absolute;
+    z-index: 2;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(42px, 10vw, 80px);
+    text-shadow: 0 0 20px rgba(0,0,0,.8);
 }
 
 /* =========================
    FECHA
 ========================= */
 
-.datos{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:18px;
-  margin-top:30px;
+.fecha {
+    background: #000;
+    flex-direction: column;
 }
 
-.dato{
-  width:135px;
-  padding:22px 12px;
-  border:1px solid var(--dorado-oscuro);
-  background:#000;
+.fecha-numero {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(90px, 25vw, 190px);
+    line-height: .8;
+    font-weight: 300;
+    color: white;
 }
 
-.dato strong{
-  display:block;
-  color:var(--dorado-claro);
-  font-size:25px;
-  font-weight:normal;
-  margin-bottom:7px;
+.fecha-mes {
+    font-family: "Great Vibes", cursive;
+    color: var(--dorado-claro);
+    font-size: clamp(55px, 12vw, 90px);
+    margin-top: 25px;
 }
 
-.dato span{
-  color:#aaa;
-  font-size:11px;
-  letter-spacing:2px;
+.hora {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    letter-spacing: 5px;
+    margin-top: 25px;
 }
 
 /* =========================
-   CONTADOR
+   CUENTA REGRESIVA
 ========================= */
 
-#contador{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
-  max-width:520px;
-  margin:30px auto 0;
+.countdown {
+    background:
+        radial-gradient(circle at center, #151515 0%, #000 65%);
+    flex-direction: column;
 }
 
-.contador-item{
-  padding:18px 5px;
-  border:1px solid rgba(200,178,122,.55);
-  background:#000;
+.reloj {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 45px;
 }
 
-.contador-item span{
-  display:block;
-  color:var(--dorado-claro);
-  font-size:26px;
+.unidad {
+    width: 105px;
 }
 
-.contador-item small{
-  color:#999;
-  font-size:9px;
-  letter-spacing:1px;
+.numero {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 55px;
+    font-weight: 300;
+}
+
+.etiqueta {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--dorado-claro);
+    text-transform: uppercase;
 }
 
 /* =========================
    CALENDARIO
 ========================= */
 
-.calendario{
-  max-width:370px;
-  margin:30px auto 0;
-  padding:22px;
-  border:1px solid var(--dorado-oscuro);
-  background:#000;
+.calendario {
+    background: #000;
+    flex-direction: column;
 }
 
-.calendario h3{
-  color:var(--dorado-claro);
-  font-weight:normal;
-  letter-spacing:4px;
-  margin-bottom:20px;
+.calendario-box {
+    width: min(380px, 90vw);
+    margin-top: 30px;
+    border-top: 1px solid var(--dorado);
+    border-bottom: 1px solid var(--dorado);
+    padding: 25px 10px;
 }
 
-.dias{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  gap:5px;
+.mes {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
 }
 
-.dia{
-  padding:9px 2px;
-  color:#ccc;
-  font-size:13px;
+.dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 9px;
+    font-size: 13px;
 }
 
-.dia.encabezado{
-  color:var(--dorado);
+.dias span {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.dia.especial{
-  width:31px;
-  height:31px;
-  padding-top:8px;
-  margin:auto;
-  border:1px solid var(--dorado);
-  border-radius:50%;
-  color:var(--dorado-claro);
+.dias .marcado {
+    border: 1px solid var(--dorado-claro);
+    color: #000;
+    background: var(--dorado-claro);
+    border-radius: 50%;
 }
 
 /* =========================
    UBICACIÓN
 ========================= */
 
-.mapa{
-  max-width:700px;
-  margin:30px auto 0;
-  border:1px solid var(--dorado-oscuro);
-  padding:4px;
-  background:#000;
+.ubicacion {
+    background: #050505;
+    flex-direction: column;
 }
 
-.mapa iframe{
-  width:100%;
-  height:300px;
-  border:0;
-  display:block;
+.icono {
+    font-size: 35px;
+    margin-bottom: 25px;
+    color: var(--dorado-claro);
 }
 
-.boton-dorado{
-  display:inline-block;
-  margin-top:22px;
-  padding:13px 25px;
-  border:1px solid var(--dorado);
-  color:var(--dorado-claro);
-  text-decoration:none;
-  font-size:12px;
-  letter-spacing:2px;
-  transition:.3s;
+.direccion {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 35px;
+    margin: 25px 0;
 }
 
-.boton-dorado:hover{
-  background:var(--dorado);
-  color:#000;
+.boton {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: 1px solid var(--dorado);
+    padding: 15px 30px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 20px;
+    transition: .4s;
+}
+
+.boton:hover {
+    background: var(--dorado);
+    color: #000;
 }
 
 /* =========================
    DRESS CODE
 ========================= */
 
-.vestimenta{
-  display:inline-block;
-  margin-top:12px;
-  padding:16px 28px;
-  border:1px solid var(--dorado);
-  color:var(--dorado-claro);
-  font-size:18px;
-  letter-spacing:1px;
+.dress {
+    background:
+        radial-gradient(circle, #141414 0%, #000 65%);
+    flex-direction: column;
+}
+
+.dress-code {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(55px, 13vw, 100px);
+    color: var(--dorado-claro);
+    margin: 25px 0;
 }
 
 /* =========================
    MENSAJE
 ========================= */
 
-.mensaje{
-  max-width:650px;
-  margin:auto;
-  font-size:18px;
-  line-height:2;
-  font-style:italic;
-  color:#e0e0e0;
+.mensaje {
+    background: #000;
+    flex-direction: column;
 }
 
-.detalle{
-  color:var(--dorado);
-  font-size:28px;
-  margin-top:22px;
+.mensaje-texto {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(28px, 6vw, 42px);
+    line-height: 1.5;
+    max-width: 800px;
+    font-weight: 300;
+}
+
+.mensaje-texto span {
+    color: var(--dorado-claro);
 }
 
 /* =========================
    REGALO
 ========================= */
 
-.alias{
-  display:inline-block;
-  margin-top:22px;
-  padding:17px 30px;
-  border:1px solid var(--dorado);
-  color:var(--dorado-claro);
-  font-size:21px;
-  letter-spacing:1px;
-  background:#000;
+.regalo {
+    background: #050505;
+    flex-direction: column;
+}
+
+.alias {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(38px, 8vw, 60px);
+    color: var(--dorado-claro);
+    margin: 30px 0 10px;
+    letter-spacing: 3px;
 }
 
 /* =========================
    CANCIÓN
 ========================= */
 
-.spotify{
-  display:inline-block;
-  margin-top:20px;
-  padding:13px 24px;
-  border:1px solid var(--dorado);
-  color:var(--dorado-claro);
-  text-decoration:none;
-  font-size:12px;
-  letter-spacing:2px;
+.cancion {
+    background: #000;
+    flex-direction: column;
 }
 
-.cancion-box{
-  max-width:500px;
-  margin:25px auto 0;
+.cancion input {
+    width: min(400px, 85vw);
+    margin-top: 30px;
+    padding: 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--dorado);
+    color: white;
+    text-align: center;
+    outline: none;
+    font-family: "Montserrat", sans-serif;
 }
 
-.cancion-box input{
-  width:100%;
-  padding:14px;
-  background:#000;
-  border:1px solid var(--dorado-oscuro);
-  color:#fff;
-  text-align:center;
-  font-family:Georgia,"Times New Roman",serif;
-  outline:none;
+.cancion input::placeholder {
+    color: #888;
 }
 
-.cancion-box button{
-  margin-top:10px;
-  padding:13px 22px;
-  background:transparent;
-  border:1px solid var(--dorado);
-  color:var(--dorado-claro);
-  font-family:Georgia,"Times New Roman",serif;
-  letter-spacing:1px;
-  cursor:pointer;
+.spotify {
+    margin-top: 30px;
 }
 
 /* =========================
    CONFIRMACIÓN
 ========================= */
 
-.confirmacion{
-  background:#000;
-  padding-top:90px;
-  padding-bottom:90px;
+.confirmacion {
+    background:
+        radial-gradient(circle at center, #171717, #000 70%);
+    flex-direction: column;
+}
+
+.confirmacion p {
+    max-width: 600px;
+    line-height: 1.9;
+    color: #ccc;
 }
 
 /* =========================
    VERSÍCULO
 ========================= */
 
-.versiculo{
-  background:#050505;
-  padding:90px 25px;
+.versiculo {
+    background: #000;
+    flex-direction: column;
 }
 
-.versiculo-texto{
-  max-width:700px;
-  margin:auto;
-  color:#e5e5e5;
-  font-size:18px;
-  line-height:2;
-  font-style:italic;
+.versiculo blockquote {
+    max-width: 750px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(28px, 6vw, 43px);
+    line-height: 1.5;
+    font-weight: 300;
 }
 
-.versiculo-cita{
-  margin-top:25px;
-  color:var(--dorado);
-  font-size:14px;
-  letter-spacing:2px;
-}
-
-/* =========================
-   FOTO FINAL
-========================= */
-
-.foto-final{
-  min-height:70vh;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  padding:60px 20px;
-
-  background:
-    linear-gradient(
-      rgba(0,0,0,.30),
-      rgba(0,0,0,.72)
-    ),
-    url("./IMG-20260921-WA0222.jpg")
-    center/cover no-repeat;
-
-  border-top:1px solid var(--dorado);
-}
-
-.foto-final-contenido{
-  text-align:center;
-  padding:35px 25px;
-  background:rgba(0,0,0,.52);
-  border:1px solid var(--dorado);
-  max-width:550px;
-}
-
-.foto-final-contenido h2{
-  color:var(--dorado-claro);
-  font-size:38px;
-  font-weight:normal;
-  letter-spacing:3px;
-  margin-bottom:18px;
-}
-
-.foto-final-contenido p{
-  color:#fff;
-  font-size:17px;
-  line-height:1.8;
+.versiculo cite {
+    display: block;
+    margin-top: 30px;
+    color: var(--dorado-claro);
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-style: normal;
 }
 
 /* =========================
-   TE ESPERAMOS
+   FINAL
 ========================= */
 
-.te-esperamos{
-  background:#000;
-  padding:105px 20px 120px;
-  text-align:center;
+.final {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.75)
+        ),
+        url("./IMG-20260921-WA0222.jpg") center / cover no-repeat;
+    flex-direction: column;
 }
 
-.te-esperamos .linea-final{
-  width:70px;
-  height:1px;
-  background:var(--dorado);
-  margin:0 auto 30px;
+.final-contenido {
+    position: relative;
+    z-index: 2;
 }
 
-.te-esperamos h2{
-  color:#fff;
-  font-size:clamp(38px,10vw,60px);
-  font-weight:normal;
-  letter-spacing:4px;
+.final h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(75px, 17vw, 130px);
+    font-weight: 400;
 }
 
-.te-esperamos .nombres-final{
-  color:var(--dorado-claro);
-  font-size:20px;
-  letter-spacing:3px;
-  margin-top:25px;
+.final .nombres-final {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    letter-spacing: 5px;
+    margin-top: 20px;
 }
 
-.te-esperamos .fecha-final{
-  color:#999;
-  margin-top:15px;
-  letter-spacing:4px;
+.final .fecha-final {
+    margin-top: 20px;
+    color: var(--dorado-claro);
+    letter-spacing: 5px;
 }
 
 /* =========================
-   YOUTUBE
+   BOTÓN MÚSICA
 ========================= */
 
-#musica{
-  position:fixed;
-  width:1px;
-  height:1px;
-  opacity:0;
-  pointer-events:none;
+.musica {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 100;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid var(--dorado-claro);
+    background: rgba(0,0,0,.7);
+    color: white;
+    cursor: pointer;
 }
 
 /* =========================
-   ANIMACIÓN
+   ANIMACIONES
 ========================= */
 
-@keyframes entrada{
-  from{
-    opacity:0;
-    transform:translateY(25px);
-  }
+.revelar {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 1.4s ease, transform 1.4s ease;
+}
 
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+.revelar.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* =========================
-   MÓVIL
+   VIDEO OCULTO
 ========================= */
 
-@media(max-width:600px){
+#musicaVideo {
+    position: fixed;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    bottom: -10px;
+    left: -10px;
+}
 
-  .separador{
-    height:95px;
-  }
+/* =========================
+   CELULAR
+========================= */
 
-  .seccion{
-    padding:65px 18px;
-  }
+@media (max-width: 600px) {
 
-  .nombres,
-  .nos-casamos{
-    padding-top:85px;
-    padding-bottom:85px;
-  }
+    .escena {
+        padding: 55px 20px;
+    }
 
-  #contador{
-    gap:5px;
-  }
+    .titulo-portada {
+        font-size: 70px;
+    }
 
-  .contador-item span{
-    font-size:21px;
-  }
+    .nombres {
+        font-size: 30px;
+        letter-spacing: 3px;
+    }
 
-  .contador-item small{
-    font-size:8px;
-  }
+    .fecha-portada {
+        font-size: 20px;
+        letter-spacing: 5px;
+    }
 
-  .mapa iframe{
-    height:270px;
-  }
+    .reloj {
+        gap: 12px;
+    }
 
-  .foto-final{
-    min-height:65vh;
-  }
+    .unidad {
+        width: 75px;
+    }
 
-  .te-esperamos{
-    padding-top:90px;
-    padding-bottom:105px;
-  }
+    .numero {
+        font-size: 45px;
+    }
+
+    .frase-foto {
+        bottom: 10%;
+    }
 
 }
 
@@ -676,616 +756,685 @@ body{
 
 <body>
 
+<!-- BRILLOS -->
+<div class="brillos">
+    <span class="brillo"></span>
+    <span class="brillo"></span>
+    <span class="brillo"></span>
+    <span class="brillo"></span>
+    <span class="brillo"></span>
+    <span class="brillo"></span>
+</div>
+
 <!-- =========================
      PORTADA
 ========================= -->
 
-<section id="portada">
+<section class="escena portada" id="portada">
 
-  <div class="portada-contenido">
+    <div class="contenido-portada">
 
-    <div class="portada-pequeno">
-      Una historia de amor
+        <div class="eyebrow">
+            Una historia de amor
+        </div>
+
+        <h1 class="titulo-portada">
+            Uriel & Marianella
+        </h1>
+
+        <div class="fecha-portada">
+            20 · 10 · 2026
+        </div>
+
+        <button class="boton-descubrir" onclick="descubrir()">
+            DESCUBRIR
+        </button>
+
     </div>
-
-    <div class="linea"></div>
-
-    <h1>Uriel & Marianella</h1>
-
-    <div class="linea"></div>
-
-    <div class="portada-fecha">
-      20 · 10 · 2026
-    </div>
-
-    <button class="boton" onclick="abrirInvitacion()">
-      DESCUBRIR
-    </button>
-
-  </div>
 
 </section>
 
-
-<main id="contenido">
+<div class="espacio"></div>
 
 <!-- =========================
      NOS CASAMOS
 ========================= -->
 
-<section class="nos-casamos">
+<section class="escena presentacion">
 
-  <div class="pequeno">
-    Una nueva historia comienza
-  </div>
+    <div class="revelar">
 
-  <h2>Nos casamos</h2>
+        <div class="decoracion">
+            ✦　♡　✦
+        </div>
 
-  <p class="frase">
-    Y queremos compartir con vos
-    este momento tan especial de nuestras vidas.
-  </p>
+        <h2>
+            ¡Nos casamos!
+        </h2>
+
+        <p>
+            Después de compartir tantos momentos, sueños y proyectos,
+            decidimos dar un nuevo paso juntos y comenzar una nueva etapa
+            de nuestra historia.
+        </p>
+
+    </div>
 
 </section>
 
+<div class="espacio"></div>
 
-<div class="separador"></div>
+<!-- =========================
+     INVITACIÓN
+========================= -->
 
+<section class="escena presentacion">
+
+    <div class="revelar">
+
+        <div class="titulo">
+            Queremos invitarte
+        </div>
+
+        <p>
+            A celebrar con nosotros uno de los días más importantes de
+            nuestras vidas.
+        </p>
+
+        <br>
+
+        <p>
+            Nos haría muy felices compartir nuestro casamiento con las
+            personas que queremos y que seas parte de este momento tan
+            especial.
+        </p>
+
+    </div>
+
+</section>
+
+<div class="espacio"></div>
 
 <!-- =========================
      FOTO 1
 ========================= -->
 
-<section class="seccion">
+<section class="escena foto-escena">
 
-  <div class="foto">
-    <img
-      src="./IMG-20260921-WA0220.jpg"
-      alt="Uriel y Marianella">
-  </div>
+    <img src="./IMG-20260921-WA0220.jpg" alt="Uriel y Marianella">
+
+    <div class="frase-foto">
+        Un amor para toda la vida
+    </div>
 
 </section>
 
-
-<div class="separador"></div>
-
+<div class="espacio"></div>
 
 <!-- =========================
-     NOMBRES
+     FECHA
 ========================= -->
 
-<section class="nombres">
+<section class="escena fecha">
 
-  <p>
-    Después de tantos momentos compartidos...
-  </p>
+    <div class="revelar">
 
-  <h2>
-    Uriel
-    <div class="ampersand">&</div>
-    Marianella
-  </h2>
+        <div class="decoracion">✦</div>
 
-  <p>
-    decidimos comenzar juntos una nueva etapa.
-  </p>
+        <div class="fecha-numero">
+            20
+        </div>
+
+        <div class="fecha-mes">
+            Octubre
+        </div>
+
+        <div class="hora">
+            13:00 hs
+        </div>
+
+    </div>
 
 </section>
 
-
-<div class="separador"></div>
-
-
-<!-- =========================
-     FECHA Y HORA
-========================= -->
-
-<section class="seccion">
-
-  <h2>La fecha</h2>
-
-  <div class="datos">
-
-    <div class="dato">
-      <strong>20</strong>
-      <span>OCTUBRE</span>
-    </div>
-
-    <div class="dato">
-      <strong>13:00</strong>
-      <span>HORAS</span>
-    </div>
-
-    <div class="dato">
-      <strong>2026</strong>
-      <span>AÑO</span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<div class="separador"></div>
-
+<div class="espacio"></div>
 
 <!-- =========================
      CUENTA REGRESIVA
 ========================= -->
 
-<section class="seccion">
+<section class="escena countdown">
 
-  <h2>Falta muy poquito</h2>
+    <div class="revelar">
 
-  <div id="contador">
+        <div class="titulo">
+            Falta cada vez menos
+        </div>
 
-    <div class="contador-item">
-      <span id="dias">0</span>
-      <small>DÍAS</small>
+        <div class="reloj">
+
+            <div class="unidad">
+                <div class="numero" id="dias">0</div>
+                <div class="etiqueta">Días</div>
+            </div>
+
+            <div class="unidad">
+                <div class="numero" id="horas">0</div>
+                <div class="etiqueta">Horas</div>
+            </div>
+
+            <div class="unidad">
+                <div class="numero" id="minutos">0</div>
+                <div class="etiqueta">Minutos</div>
+            </div>
+
+            <div class="unidad">
+                <div class="numero" id="segundos">0</div>
+                <div class="etiqueta">Segundos</div>
+            </div>
+
+        </div>
+
     </div>
-
-    <div class="contador-item">
-      <span id="horas">0</span>
-      <small>HORAS</small>
-    </div>
-
-    <div class="contador-item">
-      <span id="minutos">0</span>
-      <small>MINUTOS</small>
-    </div>
-
-    <div class="contador-item">
-      <span id="segundos">0</span>
-      <small>SEGUNDOS</small>
-    </div>
-
-  </div>
 
 </section>
 
-
-<div class="separador"></div>
-
+<div class="espacio"></div>
 
 <!-- =========================
      CALENDARIO
 ========================= -->
 
-<section class="seccion">
+<section class="escena calendario">
 
-  <h2>Guardá la fecha</h2>
+    <div class="revelar">
 
-  <div class="calendario">
+        <div class="titulo">
+            Guardá la fecha
+        </div>
 
-    <h3>OCTUBRE 2026</h3>
+        <div class="calendario-box">
 
-    <div class="dias">
+            <div class="mes">
+                OCTUBRE 2026
+            </div>
 
-      <div class="dia encabezado">L</div>
-      <div class="dia encabezado">M</div>
-      <div class="dia encabezado">M</div>
-      <div class="dia encabezado">J</div>
-      <div class="dia encabezado">V</div>
-      <div class="dia encabezado">S</div>
-      <div class="dia encabezado">D</div>
+            <div class="dias">
 
-      <div class="dia"></div>
-      <div class="dia"></div>
-      <div class="dia"></div>
+                <span>L</span>
+                <span>M</span>
+                <span>M</span>
+                <span>J</span>
+                <span>V</span>
+                <span>S</span>
+                <span>D</span>
 
-      <div class="dia">1</div>
-      <div class="dia">2</div>
-      <div class="dia">3</div>
-      <div class="dia">4</div>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
 
-      <div class="dia">5</div>
-      <div class="dia">6</div>
-      <div class="dia">7</div>
-      <div class="dia">8</div>
-      <div class="dia">9</div>
-      <div class="dia">10</div>
-      <div class="dia">11</div>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+                <span>11</span>
 
-      <div class="dia">12</div>
-      <div class="dia">13</div>
-      <div class="dia">14</div>
-      <div class="dia">15</div>
-      <div class="dia">16</div>
-      <div class="dia">17</div>
-      <div class="dia">18</div>
+                <span>12</span>
+                <span>13</span>
+                <span>14</span>
+                <span>15</span>
+                <span>16</span>
+                <span>17</span>
+                <span>18</span>
 
-      <div class="dia">19</div>
-      <div class="dia especial">20</div>
-      <div class="dia">21</div>
-      <div class="dia">22</div>
-      <div class="dia">23</div>
-      <div class="dia">24</div>
-      <div class="dia">25</div>
+                <span>19</span>
+                <span class="marcado">20</span>
+                <span>21</span>
+                <span>22</span>
+                <span>23</span>
+                <span>24</span>
+                <span>25</span>
 
-      <div class="dia">26</div>
-      <div class="dia">27</div>
-      <div class="dia">28</div>
-      <div class="dia">29</div>
-      <div class="dia">30</div>
-      <div class="dia">31</div>
+                <span>26</span>
+                <span>27</span>
+                <span>28</span>
+                <span>29</span>
+                <span>30</span>
+                <span>31</span>
+                <span></span>
+
+            </div>
+
+        </div>
 
     </div>
 
-  </div>
-
 </section>
 
-
-<div class="separador"></div>
-
-
-<!-- =========================
-     FOTO 2
-========================= -->
-
-<section class="seccion">
-
-  <div class="foto">
-    <img
-      src="./IMG-20260921-WA0221.jpg"
-      alt="Uriel y Marianella">
-  </div>
-
-</section>
-
-
-<div class="separador"></div>
-
+<div class="espacio"></div>
 
 <!-- =========================
      UBICACIÓN
 ========================= -->
 
-<section class="seccion">
+<section class="escena ubicacion">
 
-  <h2>¿Dónde?</h2>
+    <div class="revelar">
 
-  <p>
-    Carabelas 4170
-  </p>
+        <div class="icono">✦</div>
 
-  <div class="mapa">
+        <div class="titulo">
+            ¿Dónde?
+        </div>
 
-    <iframe
-      src="https://www.google.com/maps?q=Carabelas+4170&output=embed"
-      loading="lazy">
-    </iframe>
+        <p class="subtitulo">
+            Carabelas 4170
+        </p>
 
-  </div>
+        <p class="texto">
+            Te compartimos la ubicación para que puedas llegar
+            fácilmente y acompañarnos en este día tan especial.
+        </p>
 
-  <a
-    class="boton-dorado"
-    href="https://www.google.com/maps/search/?api=1&query=Carabelas+4170"
-    target="_blank">
-    VER UBICACIÓN
-  </a>
+        <a
+            class="boton"
+            href="https://www.google.com/maps/search/?api=1&query=Carabelas+4170"
+            target="_blank">
+            VER EN GOOGLE MAPS
+        </a>
+
+    </div>
 
 </section>
 
-
-<div class="separador"></div>
-
+<div class="espacio"></div>
 
 <!-- =========================
      DRESS CODE
 ========================= -->
 
-<section class="seccion">
+<section class="escena dress">
 
-  <h2>Dress Code</h2>
+    <div class="revelar">
 
-  <div class="vestimenta">
-    Elegante sport
-  </div>
+        <div class="titulo">
+            Dress Code
+        </div>
+
+        <div class="dress-code">
+            Elegante sport
+        </div>
+
+        <p class="texto">
+            Queremos compartir una celebración especial,
+            así que elegí el look con el que te sientas
+            cómodo y elegante para acompañarnos.
+        </p>
+
+    </div>
 
 </section>
 
+<div class="espacio"></div>
 
-<div class="separador"></div>
+<!-- =========================
+     FOTO 2
+========================= -->
 
+<section class="escena foto-escena">
+
+    <img src="./IMG-20260921-WA0221.jpg" alt="Uriel y Marianella">
+
+    <div class="frase-foto">
+        Y elegimos caminar juntos
+    </div>
+
+</section>
+
+<div class="espacio"></div>
 
 <!-- =========================
      MENSAJE
 ========================= -->
 
-<section class="seccion">
+<section class="escena mensaje">
 
-  <div class="mensaje">
+    <div class="revelar">
 
-    “Que el amor sea siempre
-    el lugar al que volvamos.”
+        <div class="decoracion">
+            ♡
+        </div>
 
-    <div class="detalle">♡</div>
+        <div class="mensaje-texto">
+            Hay momentos que se guardan para siempre
+            en el corazón.
 
-  </div>
+            <br><br>
+
+            Y este es uno de ellos.
+
+            <br><br>
+
+            <span>Queremos vivirlo con vos.</span>
+        </div>
+
+    </div>
 
 </section>
 
-
-<div class="separador"></div>
-
+<div class="espacio"></div>
 
 <!-- =========================
      REGALO
 ========================= -->
 
-<section class="seccion">
+<section class="escena regalo">
 
-  <h2>Un detalle de amor</h2>
+    <div class="revelar">
 
-  <p>
-    Si querés hacernos un regalo,
-    podés hacerlo a través de nuestro alias.
-  </p>
+        <div class="titulo">
+            Un detalle de amor
+        </div>
 
-  <div class="alias">
-    León.44
-  </div>
+        <p class="texto">
+            Si deseás hacernos un regalo, podés colaborar
+            a través de nuestro alias.
+        </p>
+
+        <div class="alias">
+            León.44
+        </div>
+
+        <p class="texto">
+            Gracias por acompañarnos también de esta manera.
+        </p>
+
+    </div>
 
 </section>
 
-
-<div class="separador"></div>
-
+<div class="espacio"></div>
 
 <!-- =========================
      CANCIÓN
 ========================= -->
 
-<section class="seccion">
+<section class="escena cancion">
 
-  <h2>Elegí una canción</h2>
+    <div class="revelar">
 
-  <p>
-    ¿Qué canción te gustaría bailar
-    con nosotros esa noche?
-  </p>
+        <div class="titulo">
+            Elegí una canción
+        </div>
 
-  <a
-    class="spotify"
-    href="https://open.spotify.com/"
-    target="_blank">
-    BUSCAR EN SPOTIFY
-  </a>
+        <p class="texto">
+            ¿Qué canción te gustaría bailar con nosotros
+            esa noche?
+        </p>
 
-  <div class="cancion-box">
+        <input
+            type="text"
+            id="cancionInput"
+            placeholder="Canción + artista">
 
-    <input
-      type="text"
-      id="cancion"
-      placeholder="Nombre de la canción y artista">
+        <br>
 
-    <button onclick="enviarCancion()">
-      ENVIAR CANCIÓN
-    </button>
+        <a
+            class="boton spotify"
+            href="https://open.spotify.com/"
+            target="_blank">
+            BUSCAR EN SPOTIFY
+        </a>
 
-  </div>
+        <br>
+
+        <button
+            class="boton"
+            onclick="enviarCancion()">
+            ENVIAR CANCIÓN
+        </button>
+
+    </div>
 
 </section>
 
-
-<div class="separador"></div>
-
+<div class="espacio"></div>
 
 <!-- =========================
      CONFIRMACIÓN
 ========================= -->
 
-<section class="seccion confirmacion">
+<section class="escena confirmacion">
 
-  <h2>¿Nos acompañás?</h2>
+    <div class="revelar">
 
-  <p>
-    Nos encantaría compartir este día
-    con vos.
-  </p>
+        <div class="titulo">
+            Te esperamos
+        </div>
 
-  <a
-    class="boton-dorado"
-    href="https://wa.me/541136088939?text=Hola%20Uriel%20y%20Marianella%2C%20quiero%20confirmar%20mi%20asistencia%20a%20su%20boda."
-    target="_blank">
-    CONFIRMAR POR WHATSAPP
-  </a>
+        <p>
+            Queremos saber si vas a acompañarnos
+            en este día tan especial.
+        </p>
 
-</section>
+        <a
+            class="boton"
+            href="https://wa.me/541136088939?text=Hola%20Uriel%20y%20Marianella%2C%20quiero%20confirmar%20mi%20asistencia%20a%20su%20casamiento."
+            target="_blank">
+            CONFIRMAR ASISTENCIA
+        </a>
 
-
-<div class="separador"></div>
-
-
-<!-- =========================
-     VERSÍCULO
-========================= -->
-
-<section class="versiculo">
-
-  <div class="versiculo-texto">
-
-    “El amor es paciente, es bondadoso.
-    El amor no es envidioso ni jactancioso,
-    no se envanece.
-    Todo lo disculpa, todo lo cree,
-    todo lo espera, todo lo soporta.
-    El amor nunca deja de ser.”
-
-  </div>
-
-  <div class="versiculo-cita">
-    1 Corintios 13:4-8
-  </div>
+    </div>
 
 </section>
 
-
-<div class="separador"></div>
-
+<div class="espacio"></div>
 
 <!-- =========================
-     FOTO FINAL
+     FOTO 3 / FINAL
 ========================= -->
 
-<section class="foto-final">
+<section class="escena final">
 
-  <div class="foto-final-contenido">
+    <div class="final-contenido revelar">
 
-    <h2>Gracias por ser parte</h2>
+        <div class="decoracion">
+            ✦　♡　✦
+        </div>
 
-    <p>
-      de este momento tan especial
-      de nuestras vidas.
-    </p>
+        <h2>
+            Te esperamos
+        </h2>
 
-  </div>
+        <div class="nombres-final">
+            Uriel & Marianella
+        </div>
+
+        <div class="fecha-final">
+            20 · 10 · 2026
+        </div>
+
+    </div>
 
 </section>
 
-
-<!-- =========================
-     TE ESPERAMOS
-========================= -->
-
-<section class="te-esperamos">
-
-  <div class="linea-final"></div>
-
-  <h2>Te esperamos</h2>
-
-  <div class="nombres-final">
-    Uriel & Marianella
-  </div>
-
-  <div class="fecha-final">
-    20 · 10 · 2026
-  </div>
-
-</section>
-
-</main>
-
-
-<!-- =========================
-     MÚSICA
-========================= -->
-
+<!-- VIDEO YOUTUBE -->
 <iframe
-  id="musica"
-  src=""
-  allow="autoplay">
+    id="musicaVideo"
+    src=""
+    allow="autoplay">
 </iframe>
 
+<!-- BOTÓN MÚSICA -->
+<button
+    class="musica"
+    onclick="activarMusica()">
+    ♪
+</button>
 
 <script>
 
 /* =========================
-   ABRIR INVITACIÓN
+   DESCUBRIR + MÚSICA
 ========================= */
 
-function abrirInvitacion(){
+function descubrir() {
 
-  const portada =
-    document.getElementById("portada");
+    document.getElementById("portada")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
 
-  portada.classList.add("oculta");
+    setTimeout(() => {
 
-  document.body.style.overflowY="auto";
+        document.getElementById("musicaVideo").src =
+        "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
 
-  document.getElementById("musica").src =
-    "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
+        document.getElementById("portada")
+            .classList.add("salida");
+
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: "smooth"
+        });
+
+    }, 500);
+
 }
 
+/* =========================
+   ACTIVAR MÚSICA
+========================= */
+
+function activarMusica() {
+
+    document.getElementById("musicaVideo").src =
+    "https://www.youtube.com/embed/UpHmMecK_QA?autoplay=1&playsinline=1&rel=0";
+
+}
 
 /* =========================
    CUENTA REGRESIVA
 ========================= */
 
 const fechaBoda =
-  new Date("2026-10-20T13:00:00-03:00").getTime();
+new Date("2026-10-20T13:00:00-03:00").getTime();
 
-function actualizarContador(){
+function actualizarCuenta() {
 
-  const ahora =
-    new Date().getTime();
+    const ahora = new Date().getTime();
 
-  const diferencia =
-    fechaBoda - ahora;
+    const diferencia = fechaBoda - ahora;
 
-  if(diferencia <= 0){
+    if (diferencia <= 0) {
 
-    document.getElementById("dias").textContent="0";
-    document.getElementById("horas").textContent="0";
-    document.getElementById("minutos").textContent="0";
-    document.getElementById("segundos").textContent="0";
+        document.getElementById("dias").innerHTML = "0";
+        document.getElementById("horas").innerHTML = "0";
+        document.getElementById("minutos").innerHTML = "0";
+        document.getElementById("segundos").innerHTML = "0";
 
-    return;
-  }
+        return;
+    }
 
-  const dias =
-    Math.floor(
-      diferencia/(1000*60*60*24)
-    );
+    const dias =
+        Math.floor(diferencia / (1000 * 60 * 60 * 24));
 
-  const horas =
-    Math.floor(
-      (diferencia/(1000*60*60))%24
-    );
+    const horas =
+        Math.floor(
+            (diferencia % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
+        );
 
-  const minutos =
-    Math.floor(
-      (diferencia/(1000*60))%60
-    );
+    const minutos =
+        Math.floor(
+            (diferencia % (1000 * 60 * 60))
+            / (1000 * 60)
+        );
 
-  const segundos =
-    Math.floor(
-      (diferencia/1000)%60
-    );
+    const segundos =
+        Math.floor(
+            (diferencia % (1000 * 60))
+            / 1000
+        );
 
-  document.getElementById("dias").textContent=dias;
-  document.getElementById("horas").textContent=horas;
-  document.getElementById("minutos").textContent=minutos;
-  document.getElementById("segundos").textContent=segundos;
+    document.getElementById("dias").innerHTML = dias;
+    document.getElementById("horas").innerHTML = horas;
+    document.getElementById("minutos").innerHTML = minutos;
+    document.getElementById("segundos").innerHTML = segundos;
+
 }
 
-actualizarContador();
+actualizarCuenta();
 
-setInterval(actualizarContador,1000);
+setInterval(actualizarCuenta, 1000);
+
+
+/* =========================
+   EFECTO AL APARECER
+========================= */
+
+const elementos =
+document.querySelectorAll(".revelar");
+
+const observer =
+new IntersectionObserver(
+    (entradas) => {
+
+        entradas.forEach((entrada) => {
+
+            if (entrada.isIntersecting) {
+
+                entrada.target
+                    .classList
+                    .add("visible");
+
+            }
+
+        });
+
+    },
+    {
+        threshold: .25
+    }
+);
+
+elementos.forEach((elemento) => {
+    observer.observe(elemento);
+});
 
 
 /* =========================
    ENVIAR CANCIÓN
 ========================= */
 
-function enviarCancion(){
+function enviarCancion() {
 
-  const cancion =
-    document.getElementById("cancion")
-    .value
-    .trim();
+    const cancion =
+        document.getElementById("cancionInput").value;
 
-  if(!cancion){
+    if (!cancion.trim()) {
 
-    alert(
-      "Escribí el nombre de la canción y el artista."
-    );
+        alert("Escribí primero el nombre de la canción.");
 
-    return;
-  }
+        return;
+    }
 
-  const mensaje =
-    "Hola Uriel y Marianella ❤️ " +
-    "Quiero sugerirles esta canción " +
-    "para bailar esa noche: " +
-    cancion;
+    const mensaje =
+        "Hola Uriel y Marianella 💍✨ Me gustaría que bailen esta canción en su casamiento: "
+        + cancion;
 
-  const url =
-    "https://wa.me/541136088939?text=" +
-    encodeURIComponent(mensaje);
+    const url =
+        "https://wa.me/541136088939?text="
+        + encodeURIComponent(mensaje);
 
-  window.open(url,"_blank");
+    window.open(url, "_blank");
+
 }
 
 </script>
